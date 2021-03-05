@@ -1,0 +1,196 @@
+<form class="input sauce-key-value">
+    <div class="padded-info">
+        <div class="help" data-for="intro">
+            <a class="sauce-dismiss">{-await fa('times-circle-duotone')-}</a>
+            {{{intro_help1}}}
+            <br/><br/>
+            {{{intro_help2}}}
+            <br/><br/>
+            {{{intro_help3}}}
+        </div>
+        <a class="help-info" data-help="intro" title="{{{/dialog_help_info_tooltip}}}">{- await fa('info-circle-duotone') -}</a>
+        {{{intro}}}
+        <br/><br/>
+        <i>{{{intro_note}}}</i>
+    </div>
+    <div class="entry">
+        <div class="help" data-for="crr">
+            <a class="sauce-dismiss">{-await fa('times-circle-duotone')-}</a>
+            {{{crr_help1}}}
+            <br/><br/>
+            {{{crr_help2}}}
+        </div>
+        <a class="help-info" data-help="crr" title="{{{/dialog_help_info_tooltip}}}">{- await fa('info-circle-duotone') -}</a>
+        <b>{{{crr_heading}}}:</b>
+        <div class="indent">
+            <div class="entry" title="{{{crr_bike_tooltip}}}">
+                <key>{{{crr_bike}}}:</key>
+                <label><input type="radio" name="bike" value="road"
+                              {{bike === "road" ? "checked" : ""}}/> {{{crr_bike_road}}}</label>
+                <label><input type="radio" name="bike" value="mtb"
+                              {{bike === "mtb" ? "checked" : ""}}/> {{{crr_bike_mtb}}}</label>
+            </div>
+            <div class="entry" title="{{{crr_terrain_tooltip}}}">
+                <key>{{{crr_terrain}}}:</key>
+                <select name="terrain">
+                    <option value="asphalt" {{terrain === "asphalt" ? "selected" : ""}}>{{{crr_terrain_asphalt}}}</option>
+                    <option value="gravel" {{terrain === "gravel" ? "selected" : ""}}>{{{crr_terrain_gravel}}}</option>
+                    <option value="grass" {{terrain === "grass" ? "selected" : ""}}>{{{crr_terrain_grass}}}</option>
+                    <option value="offroad" {{terrain === "offroad" ? "selected" : ""}}>{{{crr_terrain_offroad}}}</option>
+                    <option value="sand" {{terrain === "sand" ? "selected" : ""}}>{{{crr_terrain_sand}}}</option>
+                    <option style="display: none" value="custom" {{terrain === "custom" ? "selected" : ""}}>{{{crr_terrain_custom}}}</option>
+                </select>
+            </div>
+            <div class="entry" title="{{{crr_tooltip}}}">
+                <key>Crr:</key>
+                <input name="crr" type="number" value="{{crr}}" min="0" step="0.0005"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="entry">
+        <div class="help" data-for="cda">
+            <a class="sauce-dismiss">{-await fa('times-circle-duotone')-}</a>
+            {{{cda_help1}}}
+            <br/><br/>
+            {{{cda_help_table_heading}}}:
+            <table class="unstyled">
+                <tr><td>0.17 to 0.23:</td><td>{{{cda_help_table_elite_tt}}}</td>
+                <tr><td>0.23 to 0.30:</td><td>{{{cda_help_table_good_tt}}}</td>
+                <tr><td>0.30 to 0.35:</td><td>{{{cda_help_table_road}}}</td>
+                <tr><td>0.35 to 0.50:</td><td>{{{cda_help_table_climbing}}}</td>
+                <tr><td>0.50+:</td><td>{{{cda_help_table_upright}}}</td>
+            </table>
+        </div>
+        <a class="help-info" data-help="cda" title="{{{/dialog_help_info_tooltip}}}">{- await fa('info-circle-duotone') -}</a>
+        <b>{{{cda_heading}}}:</b>
+        <div class="indent">
+            <div class="entry" title="{{{cda_position_tooltip}}}">
+                <key>{{{cda_position}}}:</key>
+                <input name="aero" type="range" min="0.15" max="0.7" step="0.01" value="{{cda}}"/>
+            </div>
+
+            <div class="entry" title="{{{cda_tooltip}}}">
+                <key>CdA:</key>
+                <input name="cda" type="number" min="0.15" max="0.7" step="0.01" value="{{cda}}"/>
+                <abbr class="unit">m²</abbr>
+            </div>
+        </div>
+    </div>
+
+    <div class="entry" title="{{{power_tooltip}}}">
+        <key>{{{power}}}:</key>
+        <input name="power" type="number" placeholder="{{power}}" value="{{power}}"/>
+        <abbr class="unit">w</abbr>
+    </div>
+
+    <div class="entry" title="{{{body_weight_tooltip}}}">
+        <key>{{{body_weight}}}:</key>
+        <input name="body-weight" type="number" placeholder="{{bodyWeight}}" value="{{bodyWeight}}" min="0" step="any"/>
+        <abbr class="unit">{{weightUnit}}</abbr>
+    </div>
+
+    <div class="entry" title="{{{gear_weight_tooltip}}}">
+        <key>{{{gear_weight}}}:</key>
+        <input name="gear-weight" type="number" placeholder="{{gearWeight}}" value="{{gearWeight}}" min="0" step="any"/>
+        <abbr class="unit">{{weightUnit}}</abbr>
+    </div>
+
+    <div class="entry" title="{{{slope_tooltip}}}">
+        <key>{{{slope}}}:</key>
+        <input name="slope" type="number" placeholder="{{slope}}" value="{{slope}}" step="0.1"/>
+        <abbr class="unit">%</abbr>
+    </div>
+
+    <div class="entry" title="{{{distance_tooltip}}}">
+        <key>{{{distance}}}:</key>
+        <input name="distance" type="number" placeholder="{{distance}}" value="{{distance}}" step="0.001" min="0"/>
+        <abbr class="unit">{{distanceUnit}}</abbr>
+    </div>
+
+
+    <div class="entry" title="{{{elevation_tooltip}}}">
+        <key>{{{elevation}}}:</key>
+        <input name="elevation" type="number" placeholder="{{elevation}}" value="{{elevation}}"/>
+        <abbr class="unit">{{elevationUnit}}</abbr>
+    </div>
+
+    <div class="entry" title="{{{wind_tooltip}}}">
+        <key>{{{wind}}}:</key>
+        <input name="wind" type="number" value="{{wind}}" step="any"/>
+        <abbr class="unit">{{speedUnit}}</abbr>
+    </div>
+</form>
+
+<div class="output sauce-key-value">
+    <section class="original">
+        <div class="heading">{{{original_performance}}}:</div>
+
+        <div class="entry">
+            <key>{{{time}}}:</key> {{time}}
+        </div>
+
+        <div class="entry">
+            <key>{{{speed}}}:</key> {{speed}}<abbr class="unit">{{speedUnit}}</abbr>
+        </div>
+
+        <% if (wkg) { %>
+            <div class="entry">
+                <key>Watts/kg:</key> {{wkg}}<abbr class="unit">w/kg</abbr>
+            </div>
+        <% } %>
+    </section>
+
+    <section class="predicted">
+        <div class="heading">{{{predicted_performance}}}:</div>
+
+        <div class="entry">
+            <key>{{{time}}}:</key>
+            <span class="time"></span>
+            <small class="ahead-behind"></small>
+        </div>
+
+        <div class="entry">
+            <key>{{{speed}}}:</key>
+            <span class="speed"></span><abbr class="unit">{{speedUnit}}</abbr>
+        </div>
+
+        <% if (hasWeight) { %>
+            <div class="entry">
+                <key>Watts/kg:</key>
+                <span class="wkg"></span><abbr class="unit">w/kg</abbr>
+            </div>
+        <% } %>
+
+        <div class="entry power-details">
+            <b>{{{power_details_heading}}}:</b>
+            <div class="indent columns">
+                <div class="left-col">
+                    <div class="entry gravity" title="{{{power_details_gravity_tooltip}}}">
+                        <dot style="background-color: {{powerColors.gravity}}"/>
+                        <key>{{{power_details_gravity}}}:</key>
+                        <span class="power"></span><abbr class="unit">w</abbr>
+                        <small><span class="pct"></span><abbr class="unit">%</abbr></small>
+                    </div>
+                    <div class="entry aero" title="{{{power_details_aero_tooltip}}}">
+                        <dot style="background-color: {{powerColors.aero}}"/>
+                        <key>{{{power_details_aero}}}:</key>
+                        <span class="power"></span><abbr class="unit">w</abbr>
+                        <small><span class="pct"></span><abbr class="unit">%</abbr></small>
+                    </div>
+                    <div class="entry rr" title="{{{power_details_rr_tooltip}}}">
+                        <dot style="background-color: {{powerColors.rr}}"/>
+                        <key>{{{power_details_rr}}}:</key>
+                        <span class="power"></span><abbr class="unit">w</abbr>
+                        <small><span class="pct"></span><abbr class="unit">%</abbr></small>
+                    </div>
+                </div>
+                <div class="right-col sparkline"></div>
+            </div>
+        </div>
+    </section>
+    <section class="invalid">
+        <div class="heading">{{{predicted_performance}}}:</div>
+        <b>No velocity predicted for these parameters</b>
+    </section>
+</div>

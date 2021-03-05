@@ -1,0 +1,1430 @@
+@keyframes clickoutline {
+  0% {
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    box-shadow: 0 0 0 0.1em transparent;
+  }
+  20% {
+    top: calc(50% - 1.5em);
+    left: calc(50% - 1.5em);
+    width: 3em;
+    height: 3em;
+    box-shadow: 0 0 0 0.2em #666a;
+  }
+  100% {
+    top: calc(50% - 1.5em);
+    left: calc(50% - 1.5em);
+    width: 3em;
+    height: 3em;
+    box-shadow: 0 0 3em 0.2em #fff0;
+  }
+}
+html.sauce-responsive,
+.sauce-responsive body {
+  font-size: 14px;
+}
+@media only screen and (min-width: 515px) and (max-width: 768px) {
+  html.sauce-responsive,
+.sauce-responsive body {
+    font-size: 18px;
+  }
+}
+@media only screen and (min-width: 488px) and (max-width: 515px) {
+  html.sauce-responsive,
+.sauce-responsive body {
+    font-size: 17px;
+  }
+}
+@media only screen and (min-width: 458px) and (max-width: 488px) {
+  html.sauce-responsive,
+.sauce-responsive body {
+    font-size: 16px;
+  }
+}
+@media only screen and (min-width: 430px) and (max-width: 458px) {
+  html.sauce-responsive,
+.sauce-responsive body {
+    font-size: 15px;
+  }
+}
+@media only screen and (min-width: 395px) and (max-width: 430px) {
+  html.sauce-responsive,
+.sauce-responsive body {
+    font-size: 14px;
+  }
+}
+@media only screen and (min-width: 372px) and (max-width: 395px) {
+  html.sauce-responsive,
+.sauce-responsive body {
+    font-size: 13px;
+  }
+}
+@media only screen and (min-width: 350px) and (max-width: 372px) {
+  html.sauce-responsive,
+.sauce-responsive body {
+    font-size: 12px;
+  }
+}
+@media only screen and (max-width: 350px) {
+  html.sauce-responsive,
+.sauce-responsive body {
+    font-size: 11px;
+  }
+}
+
+.sauce-responsive header#global-header nav.nav-bar {
+  min-width: initial;
+  width: auto;
+  display: flex;
+  align-items: center;
+  margin: 0 2.5vw;
+  padding: 0;
+  font-size: 14px;
+}
+.sauce-responsive header#global-header nav.nav-bar .branding {
+  margin: 0 0 0 1em;
+  flex: 0 0 auto;
+}
+.sauce-responsive header#global-header nav.nav-bar #global-search-filter {
+  display: none;
+}
+.sauce-responsive header#global-header nav.nav-bar #global-search-bar {
+  position: static;
+  float: initial;
+  width: initial;
+  padding: 0 0.5em;
+}
+.sauce-responsive header#global-header nav.nav-bar #global-search-bar .icon-search {
+  margin-top: 0.3em;
+}
+.sauce-responsive header#global-header nav.nav-bar #global-search-cancel {
+  position: static;
+  transform: initial;
+  flex: 0 0 auto;
+  padding: 0.5em 1.5em;
+}
+.sauce-responsive header#global-header nav.nav-bar #container-nav {
+  display: flex;
+  flex: 1 1 100%;
+}
+.sauce-responsive header#global-header nav.nav-bar #container-nav:hover {
+  cursor: initial;
+  background-color: initial;
+}
+.sauce-responsive header#global-header nav.nav-bar #container-nav .global-nav {
+  margin: 0;
+}
+.sauce-responsive header#global-header nav.nav-bar.search-mode #global-search-filter {
+  display: initial;
+}
+.sauce-responsive header#global-header nav.nav-bar.search-mode #global-search-field {
+  width: 100%;
+}
+.sauce-responsive header#global-header nav.nav-bar.search-mode #global-search-button {
+  right: 3.5em;
+  position: absolute;
+}
+.sauce-responsive header#global-header nav.nav-bar.search-mode #global-search-bar .input-group {
+  overflow: hidden;
+  max-width: 30em;
+}
+.sauce-responsive header#global-header .user-nav {
+  float: initial;
+  flex: 1 0 auto;
+  justify-content: flex-end;
+}
+.sauce-responsive:not(.responsive) header#global-header nav.nav-bar:not(.search-mode) #global-search-field {
+  width: 0;
+  min-width: 0;
+  padding: 0;
+}
+.sauce-responsive:not(.responsive) header#global-header nav.nav-bar:not(.search-mode) #global-search-button {
+  position: initial;
+}
+.sauce-responsive:not(.responsive) header#global-header nav.nav-bar.search-mode #global-search-bar {
+  flex: 1 1 100%;
+}
+.sauce-responsive:not(.responsive) header#global-header nav.nav-bar .btn-mobile-menu {
+  display: none !important;
+}
+@media only screen and (max-width: 991px) {
+  .sauce-responsive.responsive:not(.mobile-menu-open) #container-nav {
+    display: none !important;
+  }
+  .sauce-responsive.responsive.mobile-menu-open #container-nav {
+    flex-direction: column;
+  }
+  .sauce-responsive.responsive.mobile-menu-open .user-nav,
+.sauce-responsive.responsive.mobile-menu-open .global-nav {
+    display: initial !important;
+  }
+  .sauce-responsive.responsive #global-search-button {
+    transform: initial;
+    display: none;
+  }
+}
+@media only screen and (min-width: 991px) {
+  .sauce-responsive.responsive header#global-header nav.nav-bar:not(.search-mode) #global-search-field {
+    width: 0;
+    min-width: 0;
+    padding: 0;
+  }
+  .sauce-responsive.responsive header#global-header nav.nav-bar:not(.search-mode) #global-search-button {
+    position: initial;
+  }
+  .sauce-responsive.responsive header#global-header nav.nav-bar.search-mode #global-search-bar {
+    flex: 1 1 100%;
+  }
+}
+.sauce-responsive .view .footer-promos .container,
+.sauce-responsive .view .footer-global.container {
+  min-width: initial;
+  width: initial;
+}
+@media only screen and (max-width: 768px) {
+  .sauce-responsive #global-header .menu-expander {
+    display: flex !important;
+    flex: 0 0 auto;
+    flex-direction: column;
+    justify-content: center;
+    width: 3.75em;
+    opacity: 0.8;
+    cursor: pointer;
+    padding: 0 1em;
+    transition: opacity 100ms;
+    max-height: 70%;
+  }
+  .sauce-responsive #global-header .menu-expander:hover {
+    opacity: 1;
+  }
+  .sauce-responsive #global-header nav.nav-bar {
+    margin: 0 !important;
+  }
+  .sauce-responsive #global-header nav.nav-bar .global-nav.nav-group {
+    display: none;
+  }
+  .sauce-responsive #global-header nav.nav-bar.search-mode .branding {
+    display: none;
+  }
+  .sauce-responsive #global-header nav.nav-bar.search-mode .user-nav {
+    display: none;
+  }
+  .sauce-responsive #global-header nav.nav-bar.search-mode #global-search-bar .dropdown button {
+    font-size: 1em;
+    padding: 0 1em;
+    min-width: initial;
+  }
+  .sauce-responsive #global-header .user-nav .upload-menu,
+.sauce-responsive #global-header .user-nav .upgrade {
+    display: none;
+  }
+  .sauce-responsive #global-header .user-nav a.nav-link.selection {
+    pointer-events: none;
+  }
+  .sauce-responsive .map-container.map-large {
+    max-height: 25vh;
+  }
+}
+.sauce-responsive .ui-dialog .ui-dialog-titlebar button.ui-dialog-titlebar-close.ui-button {
+  min-height: 0;
+  background-color: initial;
+  border: none;
+}
+.sauce-responsive [class*=training--top-container--] [class*=Controls--controls-container--] {
+  flex-wrap: wrap;
+}
+.sauce-responsive [class*=training--top-container--] [class*=Controls--controls-selectors--] {
+  flex-wrap: wrap;
+}
+@media only screen and (max-width: 768px) {
+  .sauce-responsive [class*=training--top-container--] [class*=training--calendar-header--] {
+    float: initial;
+    width: 100%;
+  }
+  .sauce-responsive [class*=training--top-container--] [class*=training--timeline-container--] {
+    float: initial;
+    width: 100%;
+  }
+  .sauce-responsive [class*=training--top-container--] [class*=training--timeline-container--] ol[class*=Timeline--years--] {
+    padding: 0.4em 0;
+    display: flex;
+    overflow-x: auto;
+    max-width: 100%;
+  }
+  .sauce-responsive [class*=training--top-container--] [class*=training--timeline-container--] ol[class*=Timeline--years--] li[class*=Timeline--year--] {
+    display: inline-block;
+  }
+  .sauce-responsive [class*=training--top-container--] [class*=training--timeline-container--] ol[class*=Timeline--years--] li[class*=Timeline--year--] a.text-footnote {
+    padding: 0.6em 1.2em;
+  }
+  .sauce-responsive [class*=training--top-container--] [class*=training--timeline-container--] ol[class*=Timeline--years--] li[class*=Timeline--year--] a.text-footnote:first-child {
+    padding-left: 0;
+  }
+  .sauce-responsive [class*=training--top-container--] [class*=training--timeline-container--] ol[class*=Timeline--years--] li[class*=Timeline--year--][class*=Timeline--selected--] ol[class*=Timeline--months--] {
+    display: none !important;
+  }
+}
+
+.sauce-responsive.sauce-analysis h2 {
+  line-height: initial;
+}
+.sauce-responsive.sauce-analysis .inset {
+  padding: 1.5rem !important;
+}
+.sauce-responsive.sauce-analysis :not(.toggle-button) > .btn,
+.sauce-responsive.sauce-analysis :not(.toggle-button) > .button,
+.sauce-responsive.sauce-analysis :not(.toggle-button) > button,
+.sauce-responsive.sauce-analysis :not(.toggle-button) > input[type=submit],
+.sauce-responsive.sauce-analysis :not(.toggle-button) > input[type=button] {
+  font-size: 0.9em;
+  min-height: 2em;
+}
+.sauce-responsive.sauce-analysis .pagenav > li > a,
+.sauce-responsive.sauce-analysis .pagenav > li > .title {
+  font-size: 1.1em;
+}
+.sauce-responsive.sauce-analysis .pagenav > li > a.small,
+.sauce-responsive.sauce-analysis .pagenav > li > .title.small {
+  font-size: 0.68em;
+}
+.sauce-responsive.sauce-analysis .pagenav > li.group ul li a {
+  font-size: 0.86em;
+}
+.sauce-responsive.sauce-analysis #basic-analysis #elevation-chart {
+  height: initial;
+}
+.sauce-responsive.sauce-analysis #basic-analysis #laps-chart,
+.sauce-responsive.sauce-analysis #basic-analysis #segments-chart {
+  margin-right: 3.10559%;
+}
+.sauce-responsive.sauce-analysis .segments-list .segment-effort-detail-view .row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+}
+.sauce-responsive.sauce-analysis .segments-list .segment-effort-detail-view .row > * {
+  flex: 1 1 0;
+}
+.sauce-responsive.sauce-analysis .segments-list .segment-effort-detail-view .row > [class*=spans] {
+  float: initial;
+  width: initial;
+  margin-bottom: 0.5em;
+}
+.sauce-responsive.sauce-analysis .segments-list .segment-effort-detail-view .row > .spans7, .sauce-responsive.sauce-analysis .segments-list .segment-effort-detail-view .row > .spans8, .sauce-responsive.sauce-analysis .segments-list .segment-effort-detail-view .row > .spans9 {
+  min-width: 290px;
+}
+.sauce-responsive.sauce-analysis .segments-list .segment-effort-detail-view .row > .spans7 {
+  flex-shrink: 1.2;
+}
+.sauce-responsive.sauce-analysis .segments-list .segment-effort-detail-view .row > .spans9 {
+  flex-grow: 1.2;
+}
+.sauce-responsive.sauce-analysis .segments-list .segment-effort-detail-view .row.charts {
+  flex-wrap: nowrap;
+  flex-direction: column;
+}
+.sauce-responsive.sauce-analysis .segments-list .segment-effort-detail-view .row.charts > * {
+  flex: initial;
+}
+.sauce-responsive.sauce-analysis .segments-list .segment-effort-detail-view .row .this-effort .button {
+  padding-top: 0.4em;
+  padding-bottom: 0.4em;
+}
+.sauce-responsive.sauce-analysis .segments-list .segment-effort-detail-view .local-legend-container {
+  min-width: initial;
+}
+.sauce-responsive.sauce-analysis .segments-list .segment-effort-detail-view .local-legend-container .local-legend-button-row a.button {
+  min-width: calc(100% - 2em);
+}
+.sauce-responsive.sauce-analysis .segments-list .leader-board-container {
+  padding-top: 1.5em;
+}
+.sauce-responsive.sauce-analysis .segments-list .leader-board-container .leaderboard-filter {
+  top: 0.5em;
+}
+.sauce-responsive.sauce-analysis .segments-list.run .segment-effort-detail-view a.dismiss + .inset h2 {
+  margin-right: 2rem;
+}
+.sauce-responsive.sauce-analysis .segments-list.run .segment-effort-detail-view .row.pr-comparison {
+  margin-top: 1em;
+}
+.sauce-responsive.sauce-analysis .segments-list.run .segment-effort-detail-view .row.effort-details > *,
+.sauce-responsive.sauce-analysis .segments-list.run .segment-effort-detail-view .row.compare-records > *,
+.sauce-responsive.sauce-analysis .segments-list.run .segment-effort-detail-view .row.link-menu > * {
+  min-width: 50%;
+  margin-bottom: 0;
+}
+.sauce-responsive.sauce-analysis .segments-list.run .segment-effort-detail-view .row.effort-details {
+  padding: 0;
+  align-items: center;
+}
+.sauce-responsive.sauce-analysis .segments-list.run .segment-effort-detail-view .row.compare-records {
+  margin-top: 1em;
+}
+.sauce-responsive.sauce-analysis .segments-list .segment-effort-detail-view .effort-actions {
+  min-width: 200px !important;
+}
+.sauce-responsive.sauce-analysis .sauce-analysis-stats {
+  width: 100%;
+}
+.sauce-responsive.sauce-analysis ul.inline-stats {
+  float: initial;
+  display: flex;
+  width: initial;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0.8em 1em 0;
+  font-size: 0.9em;
+}
+.sauce-responsive.sauce-analysis ul.inline-stats.secondary-stats {
+  font-size: 0.75em;
+}
+.sauce-responsive.sauce-analysis ul.inline-stats li {
+  margin-right: 1.5em;
+  margin-bottom: 0.8em;
+}
+.sauce-responsive.sauce-analysis ul.inline-stats li > strong {
+  font-size: 2.1em !important;
+}
+.sauce-responsive.sauce-analysis ul.inline-stats li > .label {
+  font-size: 1em !important;
+}
+.sauce-responsive.sauce-analysis ul.inline-stats li:last-child {
+  margin-right: 0;
+}
+.sauce-responsive.sauce-analysis .view .page.container {
+  min-width: initial;
+  width: initial;
+}
+.sauce-responsive.sauce-analysis .view .page.container #view > section header {
+  display: flex !important;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0.5em;
+}
+.sauce-responsive.sauce-analysis .view .page.container #view > section header > .row {
+  margin: 0;
+  max-width: 100%;
+  overflow: hidden;
+}
+.sauce-responsive.sauce-analysis .view .page.container #view > section header::after {
+  content: none;
+}
+.sauce-responsive.sauce-analysis .view .page.container #view > section:not([id]) > .row.no-margins:first-child {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+}
+.sauce-responsive.sauce-analysis .view .page.container #view #splits-container > header h3 {
+  margin-bottom: 0;
+}
+.sauce-responsive.sauce-analysis .view .page.container #view #splits-container .mile-splits table tbody {
+  height: initial !important;
+}
+.sauce-responsive.sauce-analysis .view .page.container #view #splits-container,
+.sauce-responsive.sauce-analysis .view .page.container #view #splits-container + .map {
+  float: initial;
+  width: initial;
+  flex: 1 0 auto;
+  padding: 0;
+  min-width: 300px;
+}
+.sauce-responsive.sauce-analysis .view .page.container #view #chart-controls {
+  margin: 0 auto;
+  max-width: 700px;
+}
+.sauce-responsive.sauce-analysis .view .page.container #view table.distribution-chart tbody td {
+  padding: 1em 0.5em;
+  height: initial;
+  width: initial;
+  text-align: center;
+  white-space: nowrap;
+}
+.sauce-responsive.sauce-analysis .view .page.container #view table.distribution-chart tbody td:last-child {
+  min-width: 30vw;
+  max-width: 60vw;
+  height: 3.4em;
+  padding: 0;
+}
+.sauce-responsive.sauce-analysis footer .footer-global.container {
+  overflow: hidden;
+}
+.sauce-responsive.sauce-analysis #heading header {
+  padding: 0;
+  height: initial;
+}
+.sauce-responsive.sauce-analysis #heading header > h2 {
+  margin-left: 0.5em;
+  font-size: 1.4em;
+}
+.sauce-responsive.sauce-analysis #heading .social {
+  height: initial;
+  margin-right: 0;
+}
+.sauce-responsive.sauce-analysis #heading > .container-fluid {
+  margin: 0;
+  padding: 0;
+}
+.sauce-responsive.sauce-analysis #heading > .container-fluid .row {
+  margin: 0;
+}
+.sauce-responsive.sauce-analysis #heading .activity-summary-container {
+  flex-wrap: wrap;
+}
+.sauce-responsive.sauce-analysis #heading .activity-summary-container::before {
+  content: none;
+  display: none;
+}
+.sauce-responsive.sauce-analysis #heading .activity-summary-container > *:first-child {
+  border-right: 1px solid hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-responsive.sauce-analysis #heading .activity-summary-container .activity-summary,
+.sauce-responsive.sauce-analysis #heading .activity-summary-container .activity-stats {
+  flex: 1 1 50%;
+  max-width: 100%;
+  width: initial;
+  float: initial;
+  margin: 0;
+  padding-top: 1.4em;
+  padding-bottom: 1.4em;
+}
+.sauce-responsive.sauce-analysis #heading .activity-summary-container .others-section-v2 {
+  padding: 0;
+}
+.sauce-responsive.sauce-analysis #heading .activity-summary-container .others-section-v2 .other-athletes {
+  flex-wrap: wrap;
+}
+.sauce-responsive.sauce-analysis #heading .activity-summary-container .activity-stats {
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0.5em;
+}
+.sauce-responsive.sauce-analysis #heading .activity-summary-container .activity-stats .section:not(.inline-stats) {
+  font-size: inherit;
+}
+.sauce-responsive.sauce-analysis #heading .activity-summary-container .activity-stats > * {
+  padding-left: 1rem;
+  padding-right: 0.8rem;
+  margin: 0;
+}
+.sauce-responsive.sauce-analysis #heading .activity-summary-container .activity-stats .sauce-stats {
+  flex-wrap: wrap;
+}
+.sauce-responsive.sauce-analysis #heading .activity-summary-container .activity-stats .show-more-js button {
+  margin-right: 1em;
+}
+.sauce-responsive.sauce-analysis #heading .activity-summary-container .activity-stats .device-section > .row > *,
+.sauce-responsive.sauce-analysis #heading .activity-summary-container .activity-stats .more-stats > .row > * {
+  padding-left: 0;
+}
+.sauce-responsive.sauce-analysis #heading footer.achievements.row {
+  display: flex;
+  align-items: center;
+}
+.sauce-responsive.sauce-analysis #heading footer.achievements.row::before {
+  content: initial;
+  display: none;
+}
+.sauce-responsive.sauce-analysis #heading footer.achievements.row > * {
+  float: none;
+}
+.sauce-responsive.sauce-analysis #heading footer.achievements.row .footer-achievements-title {
+  background-origin: content-box;
+  padding: 0.6em;
+}
+.sauce-responsive.sauce-analysis #heading footer.achievements.row .footer-achievements-title h2, .sauce-responsive.sauce-analysis #heading footer.achievements.row .footer-achievements-title h3, .sauce-responsive.sauce-analysis #heading footer.achievements.row .footer-achievements-title h4 {
+  font-size: 1.1em;
+}
+.sauce-responsive.sauce-analysis #heading footer.achievements.row .footer-achievements-list {
+  margin-bottom: 0;
+}
+@media only screen and (max-width: 768px) {
+  .sauce-responsive.sauce-analysis .inset {
+    padding: 0.8rem !important;
+  }
+  .sauce-responsive.sauce-analysis #global-header nav.nav-bar .branding {
+    margin-left: 0 !important;
+  }
+  .sauce-responsive.sauce-analysis body > .view {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    flex: 1 1 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    min-height: initial !important;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container #sauce-infopanel {
+    margin: 0;
+    font-size: 1.12em;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container #sauce-infopanel table {
+    font-size: 1em;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container #sauce-infopanel table td {
+    padding: 0.72em 0.3em;
+    width: 50%;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container #sauce-infopanel .sauce-title-menu .selection {
+    background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (4% * var(--sauce-bg-shade-dir))), 100%);
+    border-bottom: 1px solid hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (15% * var(--sauce-bg-shade-dir))), 100%);
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container #sauce-infopanel .sauce-title-menu .selection,
+.sauce-responsive.sauce-analysis body > .view > .page.container #sauce-infopanel .sauce-title-menu ul li a {
+    font-size: 1.12em;
+    padding-top: 0.7em;
+    padding-bottom: 0.7em;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container #sauce-infopanel .sauce-title-menu .selection.watt-estimate,
+.sauce-responsive.sauce-analysis body > .view > .page.container #sauce-infopanel .sauce-title-menu ul li a.watt-estimate {
+    padding-bottom: 0.82em;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container #heading .menu-expander {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    width: 1.6em;
+    opacity: 0.75;
+    cursor: pointer;
+    padding: 0 1em;
+    transition: opacity 100ms;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container #heading .menu-expander:hover {
+    opacity: 1;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container #heading > header {
+    padding: 0.33em 0;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container #heading > header .social {
+    flex: 1 0 auto;
+    margin-right: 0;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container #heading > header .social .sharing,
+.sauce-responsive.sauce-analysis body > .view > .page.container #heading > header .social .view-comments.button,
+.sauce-responsive.sauce-analysis body > .view > .page.container #heading > header .social .collapse.button {
+    display: none;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container #heading > header .give-kudos span.kudo.title {
+    display: none;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container #heading .activity-summary-container .activity-stats {
+    font-size: 0.9em;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container #heading .activity-summary-container .details-container .avatar {
+    width: 6rem;
+    height: 6rem;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container #heading .activity-summary-container .details-container .details {
+    padding-left: 7rem;
+    padding-bottom: 1rem;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container #heading .activity-summary-container .details-container .details .activity-name {
+    font-size: 1.3em;
+    line-height: 1.2em;
+    margin-top: 0.6em;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container #heading .activity-summary-container .details-container .details .activity-description {
+    font-size: 0.9em;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container #heading .activity-summary-container .others-section-v2 {
+    border: none;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container #heading .activity-summary-container .others-section-v2 .other-athletes div[data-react-class=ActivityTagging],
+.sauce-responsive.sauce-analysis body > .view > .page.container #heading .activity-summary-container .others-section-v2 .flybys {
+    display: none;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container #heading footer .footer-achievements-title {
+    display: none;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container #heading footer .footer-achievements-list {
+    width: 100%;
+    padding: 0.5em 1em 0.25em;
+    margin: 0;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container #view {
+    margin: 0;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container #view .sauce-analysis-stats {
+    display: grid;
+    grid-template-columns: 50% 50%;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container #view .sauce-analysis-stats .sauce-brand-sidebar {
+    grid-row: 1;
+    grid-column: 1/3;
+    padding: 0.3em 0 0 0.3em;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container #view .sauce-analysis-stats .sauce-brand-sidebar .sauce-label {
+    line-height: 1;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container #view .sauce-analysis-stats .sauce-brand-sidebar .sauce-logo {
+    display: none;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container #view .sauce-analysis-stats .sauce-data-divider {
+    display: none;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container #view .sauce-analysis-stats .expander {
+    display: none;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container #view .sauce-analysis-stats .sauce-data-tuple {
+    font-size: 1.2em;
+    padding: 0.2em 1em;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container #view .sauce-analysis-stats .sauce-data-tuple:nth-child(odd) {
+    border: none;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container #view .sauce-analysis-stats .sauce-data-tuple line:nth-child(1n+4) {
+    display: flex;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container #view #chart-controls {
+    font-size: 0.82em;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container #view #map-canvas {
+    min-height: initial;
+    max-height: 30vh;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container #view #run-efforts-table .laps {
+    min-height: initial;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container #view #run-efforts-table .laps table.laps th, .sauce-responsive.sauce-analysis body > .view > .page.container #view #run-efforts-table .laps table.laps td {
+    width: initial;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container #view table.distribution-chart {
+    font-size: 0.8em;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container #view table.distribution-chart tbody td {
+    padding: 0.8em 0.2em;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container #view table.distribution-chart tbody td:first-child {
+    padding-left: 0.86em;
+    padding-right: 0.86em;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container #view table.distribution-chart tbody td.name {
+    display: none;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container nav.sidenav {
+    box-sizing: border-box;
+    transition: left 200ms, visibility 200ms;
+    position: fixed;
+    margin: 0;
+    top: 55px;
+    left: -100vw;
+    max-width: 90vw;
+    visibility: hidden;
+    width: initial;
+    overflow: hidden auto;
+    max-height: calc(100vh - 55px);
+    background: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), var(--sauce-bg-light), 100%);
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container nav.sidenav ul#pagenav > li > a,
+.sauce-responsive.sauce-analysis body > .view > .page.container nav.sidenav ul#pagenav > li.group > .title,
+.sauce-responsive.sauce-analysis body > .view > .page.container nav.sidenav ul#pagenav > li.sauce-group > .sauce-header,
+.sauce-responsive.sauce-analysis body > .view > .page.container nav.sidenav ul#pagenav > li.sauce-group > ul > li > a,
+.sauce-responsive.sauce-analysis body > .view > .page.container nav.sidenav .actions-menu .drop-down-menu > ul.options > li > a,
+.sauce-responsive.sauce-analysis body > .view > .page.container nav.sidenav .actions-menu .drop-down-menu > ul.options > li.group > .title,
+.sauce-responsive.sauce-analysis body > .view > .page.container nav.sidenav .actions-menu .drop-down-menu > ul.options > li.sauce-group > .sauce-header,
+.sauce-responsive.sauce-analysis body > .view > .page.container nav.sidenav .actions-menu .drop-down-menu > ul.options > li.sauce-group > ul > li > a {
+    padding: 1rem 2.5rem;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container nav.sidenav ul#pagenav li.group > ul li a,
+.sauce-responsive.sauce-analysis body > .view > .page.container nav.sidenav .actions-menu .drop-down-menu > ul.options li.group > ul li a {
+    padding: 0.65rem 3rem 0.65rem 3.5rem;
+    font-size: 1em;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container nav.sidenav ul#pagenav li > a,
+.sauce-responsive.sauce-analysis body > .view > .page.container nav.sidenav .actions-menu .drop-down-menu > ul.options li > a {
+    position: relative;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container nav.sidenav ul#pagenav li > a:active::after,
+.sauce-responsive.sauce-analysis body > .view > .page.container nav.sidenav .actions-menu .drop-down-menu > ul.options li > a:active::after {
+    animation: clickoutline 2s;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container nav.sidenav ul#pagenav li > a::after,
+.sauce-responsive.sauce-analysis body > .view > .page.container nav.sidenav .actions-menu .drop-down-menu > ul.options li > a::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    width: 0;
+    height: 0;
+    display: block;
+    border-radius: 100%;
+    top: 50%;
+    left: 50%;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container nav.sidenav #pagenav {
+    margin: 0;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container nav.sidenav .actions-menu {
+    border: none;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container nav.sidenav .actions-menu > a.button,
+.sauce-responsive.sauce-analysis body > .view > .page.container nav.sidenav .actions-menu > .slide-menu .selection {
+    height: initial;
+    padding: 0.85rem 0;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container nav.sidenav .actions-menu > a.button {
+    position: absolute;
+    z-index: 2;
+    width: 50%;
+    background: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), var(--sauce-bg-light), 100%);
+    border-radius: 0;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container nav.sidenav .actions-menu .drop-down-menu {
+    min-width: 100%;
+    max-width: 16rem;
+    float: initial;
+    display: block;
+    transition: background 200ms;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container nav.sidenav .actions-menu .drop-down-menu.active {
+    background: #333;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container nav.sidenav .actions-menu .drop-down-menu.active .selection .app-icon {
+    filter: invert(1);
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container nav.sidenav .actions-menu .drop-down-menu:not(:first-child) .app-icon-wrapper {
+    margin-left: 50%;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container nav.sidenav .actions-menu .drop-down-menu .selection,
+.sauce-responsive.sauce-analysis body > .view > .page.container nav.sidenav .actions-menu .drop-down-menu ul.options {
+    background: transparent;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container nav.sidenav .actions-menu .drop-down-menu > ul.options {
+    position: static;
+    min-width: initial;
+    border: none;
+    margin: 0;
+    display: block;
+    overflow: hidden;
+    transition: max-height, visibility, color;
+    transition-duration: 200ms;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container nav.sidenav .actions-menu .drop-down-menu > ul.options:not(.open-menu) {
+    max-height: 0;
+    visibility: hidden;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container nav.sidenav .actions-menu .drop-down-menu > ul.options.open-menu {
+    color: #eee;
+    transition-duration: 400ms;
+    max-height: 200vh;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container nav.sidenav .actions-menu .drop-down-menu > ul.options li > a {
+    font-size: 1em;
+    color: #eee;
+    transition: initial;
+  }
+  .sauce-responsive.sauce-analysis body > .view > .page.container nav.sidenav .actions-menu .drop-down-menu > ul.options li > a:hover {
+    background: #111;
+  }
+  .sauce-responsive.sauce-analysis body > .view > footer {
+    display: none;
+  }
+  .sauce-responsive.sauce-analysis body:not([data-route|=analysis]) #sauce-infopanel {
+    display: none;
+  }
+  .sauce-responsive.sauce-analysis body[data-route]:not([data-route=overview]) #heading .collapsable.container-fluid {
+    display: none !important;
+  }
+  .sauce-responsive.sauce-analysis .ui-dialog.sauce-dialog.sauce-info-dialog {
+    width: 100vw !important;
+    height: 100vh !important;
+    top: 0 !important;
+    left: 0 !important;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 0;
+  }
+  .sauce-responsive.sauce-analysis .ui-dialog.sauce-dialog.sauce-info-dialog table td {
+    padding-top: 0.85em;
+    padding-bottom: 0.85em;
+  }
+  .sauce-responsive.sauce-analysis .ui-dialog.sauce-dialog.sauce-info-dialog .ui-dialog-buttonpane {
+    font-size: 1.1em;
+  }
+  .sauce-responsive.sauce-analysis .sauce-nav-expanded .view > .page.container nav.sidenav {
+    box-shadow: 8px 8px 10px #0002;
+    left: 0;
+    visibility: visible;
+  }
+  .sauce-responsive.sauce-analysis section#segments section.map-chart-container .spans8 {
+    float: initial;
+    width: 100%;
+  }
+  .sauce-responsive.sauce-analysis #pace-analysis-section header .inline-stats,
+.sauce-responsive.sauce-analysis body[data-route=pace-zones] #view > section header .inline-stats,
+.sauce-responsive.sauce-analysis body[data-route=heartrate-zones] #view > section header .inline-stats {
+    font-size: 0.8em;
+    width: initial;
+  }
+  .sauce-responsive.sauce-analysis #pace-analysis-section header .inline-stats li.suffer-score,
+.sauce-responsive.sauce-analysis body[data-route=pace-zones] #view > section header .inline-stats li.suffer-score,
+.sauce-responsive.sauce-analysis body[data-route=heartrate-zones] #view > section header .inline-stats li.suffer-score {
+    margin-left: inherit;
+  }
+  .sauce-responsive.sauce-analysis #pace-analysis-section .main {
+    min-height: initial;
+  }
+  .sauce-responsive.sauce-analysis #segments table.segments > thead,
+.sauce-responsive.sauce-analysis #segments table.hidden-segments > thead {
+    display: none;
+  }
+  .sauce-responsive.sauce-analysis #segments table.segments > tbody > tr:nth-child(odd),
+.sauce-responsive.sauce-analysis #segments table.hidden-segments > tbody > tr:nth-child(odd) {
+    background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (5% * var(--sauce-bg-shade-dir))), 100%);
+  }
+  .sauce-responsive.sauce-analysis #segments table.segments > tbody > tr > td,
+.sauce-responsive.sauce-analysis #segments table.hidden-segments > tbody > tr > td {
+    width: initial;
+    padding: 3.5rem 0.5rem 0.4rem 0;
+  }
+  .sauce-responsive.sauce-analysis #segments table.segments > tbody > tr > td.starred-col,
+.sauce-responsive.sauce-analysis #segments table.hidden-segments > tbody > tr > td.starred-col {
+    padding-top: 0 !important;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    width: 3rem;
+  }
+  .sauce-responsive.sauce-analysis #segments table.segments > tbody > tr > td.achievement-col,
+.sauce-responsive.sauce-analysis #segments table.hidden-segments > tbody > tr > td.achievement-col {
+    position: absolute;
+    border: none;
+    right: 0;
+    padding: 0.4rem !important;
+  }
+  .sauce-responsive.sauce-analysis #segments table.segments > tbody > tr > td.name-col,
+.sauce-responsive.sauce-analysis #segments table.hidden-segments > tbody > tr > td.name-col {
+    box-sizing: border-box;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    padding: 0.4rem 0 0 3rem !important;
+    border: none;
+    pointer-events: none;
+  }
+  .sauce-responsive.sauce-analysis #segments table.segments > tbody > tr > td.name-col > .name,
+.sauce-responsive.sauce-analysis #segments table.hidden-segments > tbody > tr > td.name-col > .name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 3em;
+    white-space: nowrap;
+  }
+  .sauce-responsive.sauce-analysis #segments table.segments > tbody > tr > td.climb-cat-col,
+.sauce-responsive.sauce-analysis #segments table.hidden-segments > tbody > tr > td.climb-cat-col {
+    display: none;
+  }
+  .sauce-responsive.sauce-analysis #segments table.segments > tbody > tr > td button.toggle-effort-visibility,
+.sauce-responsive.sauce-analysis #segments table.hidden-segments > tbody > tr > td button.toggle-effort-visibility {
+    display: none;
+  }
+  .sauce-responsive.sauce-analysis #segments table.segments > tbody > tr > td .segment-effort-detail,
+.sauce-responsive.sauce-analysis #segments table.hidden-segments > tbody > tr > td .segment-effort-detail {
+    pointer-events: auto;
+    margin-top: 3rem;
+  }
+  .sauce-responsive.sauce-analysis #segments table.segments > tbody > tr > td .segment-effort-detail > .content,
+.sauce-responsive.sauce-analysis #segments table.hidden-segments > tbody > tr > td .segment-effort-detail > .content {
+    margin: 0;
+  }
+  .sauce-responsive.sauce-analysis #segments .ride.segments-list > .row .align-right {
+    display: none;
+  }
+  .sauce-responsive.sauce-analysis #segments .ride.segments-list table.segments td.time-col + td + td + td,
+.sauce-responsive.sauce-analysis #segments .ride.segments-list table.hidden-segments td.time-col + td + td + td {
+    display: none;
+  }
+  .sauce-responsive.sauce-analysis #segments .run.segments-list table.segments > tbody > tr > td,
+.sauce-responsive.sauce-analysis #segments .run.segments-list table.hidden-segments > tbody > tr > td {
+    padding-top: 2rem;
+  }
+  .sauce-responsive.sauce-analysis #segments .run.segments-list .segment-effort-detail {
+    width: 100%;
+  }
+  .sauce-responsive.sauce-analysis #segments .run.segments-list .segment-effort-detail .dismiss {
+    top: 1em;
+    right: 1em;
+    width: 2em;
+    height: 2em;
+    opacity: 1;
+  }
+  .sauce-responsive.sauce-analysis #segments > footer {
+    display: none;
+  }
+  .sauce-responsive.sauce-analysis .page-status-message {
+    min-width: initial;
+  }
+  .sauce-responsive.sauce-analysis .lightbox-window {
+    width: initial;
+  }
+  .sauce-responsive.sauce-analysis .lightbox-window .invite-lightbox .sidenav,
+.sauce-responsive.sauce-analysis .lightbox-window .invite-lightbox .invite-container {
+    float: initial;
+    width: initial;
+  }
+  .sauce-responsive.sauce-analysis .lightbox-window .invite-lightbox .invite-container .email > * {
+    float: initial;
+    width: initial;
+  }
+  .sauce-responsive.sauce-analysis .lightbox-window .invite-lightbox .invite-container #email-invite-load-contacts {
+    margin-top: 1em;
+  }
+  .sauce-responsive.sauce-analysis body > .container.mb-xl > .row {
+    flex-direction: column;
+  }
+  .sauce-responsive.sauce-analysis body > .container.mb-xl > .row form > .row {
+    flex-direction: column;
+  }
+  .sauce-responsive.sauce-analysis body > .container.mb-xl > .row .edit-activity-rpe-input input[name="activity[perceived_exertion]"] + div {
+    flex-direction: column;
+  }
+  .sauce-responsive.sauce-analysis footer > .footer-promos,
+.sauce-responsive.sauce-analysis footer > .footer-global {
+    display: none;
+  }
+  .sauce-responsive.sauce-analysis #basic-analysis #effort-detail {
+    margin-left: 0.5em;
+    font-size: 0.8em;
+  }
+  .sauce-responsive.sauce-analysis #basic-analysis #stacked-chart .labelGroup text.label {
+    font-size: 14px;
+    transform: translateY(-16px);
+  }
+  .sauce-responsive.sauce-analysis #basic-analysis #stacked-chart .labelGroup text.detail {
+    font-size: 14px;
+    transform: translateY(-23px);
+  }
+  .sauce-responsive.sauce-analysis #similar-activities-section #similar-activities-pinnable table.efforts-table {
+    display: none;
+  }
+  .sauce-responsive.sauce-analysis #similar-activities-section table.efforts-table thead.vh {
+    position: initial !important;
+    clip: initial;
+    width: initial !important;
+    height: initial !important;
+    padding: inherit !important;
+    margin: inherit !important;
+    overflow: inherit;
+    border: initial;
+  }
+  .sauce-responsive.sauce-analysis #similar-activities-section table.efforts-table th, .sauce-responsive.sauce-analysis #similar-activities-section table.efforts-table td {
+    padding-bottom: 1rem !important;
+    vertical-align: top;
+    width: initial;
+  }
+  .sauce-responsive.sauce-analysis #similar-activities-section table.efforts-table td {
+    padding-top: 2.8rem !important;
+  }
+  .sauce-responsive.sauce-analysis #similar-activities-section table.efforts-table th {
+    max-width: 0;
+  }
+  .sauce-responsive.sauce-analysis #similar-activities-section table.efforts-table .date-column {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .sauce-responsive.sauce-analysis #similar-activities-section table.efforts-table .name-column {
+    position: absolute;
+    box-sizing: border-box;
+    border: none;
+  }
+  .sauce-responsive.sauce-analysis #similar-activities-section table.efforts-table td.name-column {
+    padding: 1rem 3rem 0 0.5rem !important;
+    display: flex;
+    left: 0;
+    width: 100%;
+  }
+  .sauce-responsive.sauce-analysis #similar-activities-section table.efforts-table td.name-column > .name {
+    max-width: 100%;
+  }
+  .sauce-responsive.sauce-analysis #similar-activities-section table.efforts-table td.name-column > svg {
+    float: initial;
+    margin: 0 0.5em 0 0;
+  }
+  .sauce-responsive.sauce-analysis #similar-activities-section table.efforts-table th.name-column {
+    visibility: hidden;
+  }
+  .sauce-responsive.sauce-analysis #similar-activities-section table.efforts-table td:first-child, .sauce-responsive.sauce-analysis #similar-activities-section table.efforts-table th:first-child {
+    padding-left: 0.5rem !important;
+  }
+  .sauce-responsive.sauce-analysis #similar-activities-section table.efforts-table td.activity-column {
+    padding: 0 !important;
+    vertical-align: middle;
+  }
+  .sauce-responsive.sauce-analysis #similar-activities-section table.efforts-table td.activity-column a {
+    display: block;
+    font-size: 0;
+    opacity: 0.9;
+  }
+  .sauce-responsive.sauce-analysis #similar-activities-section table.efforts-table td.activity-column a::after {
+    content: ">";
+    font-size: 1.1rem;
+    font-weight: bold;
+    line-height: 1;
+    color: #3671ff;
+    width: initial;
+    height: initial;
+    background: none;
+    margin: 0.5em;
+  }
+  .sauce-responsive.sauce-analysis #similar-activities-section table.efforts-table td.activity-column a:active::after {
+    color: darkred;
+  }
+  .sauce-responsive.sauce-analysis #laps #efforts-table {
+    font-size: 0.85em;
+  }
+  .sauce-responsive.sauce-analysis #laps #efforts-table table.laps-list tr.selected {
+    background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%);
+  }
+  .sauce-responsive.sauce-analysis #laps #efforts-table table.laps-list td {
+    padding-top: 1em;
+    padding-bottom: 1em;
+  }
+  .sauce-responsive.sauce-analysis #cpcurve-chart .infobox {
+    display: inline-block !important;
+    position: static !important;
+  }
+}
+@media only screen and (min-width: 769px) {
+  .sauce-responsive.sauce-analysis .page.container {
+    display: grid;
+    grid-template-columns: minmax(calc(154px + (2 * 1rem)), 1fr) minmax(0, 10fr);
+    grid-template-rows: auto 1fr;
+    grid-auto-flow: row;
+    padding: 0 4vw;
+    margin: 1.8rem 0 1rem 0;
+  }
+  .sauce-responsive.sauce-analysis .page.container > nav.sidenav {
+    grid-row: 1/3;
+    grid-column: 1/2;
+    position: sticky;
+    top: 1em;
+    width: initial;
+    margin: 0 1rem;
+    align-self: start;
+  }
+  .sauce-responsive.sauce-analysis .page.container > #heading {
+    grid-row: 1;
+    grid-column: 2/3;
+    margin: 0 1rem 1.5rem;
+  }
+  .sauce-responsive.sauce-analysis .page.container > #view {
+    grid-row: 2;
+    grid-column: 2/3;
+    margin: 0 1rem;
+  }
+}
+.sauce-responsive.sauce-analysis #run-pace-chart {
+  margin: 0;
+}
+.sauce-responsive.sauce-analysis #run-pace-chart .base-chart {
+  padding-top: 2em;
+}
+.sauce-responsive.sauce-analysis #run-pace-chart .base-chart svg #g-bar-box {
+  display: none;
+}
+.sauce-responsive.sauce-analysis #run-pace-chart .base-chart .pace-info-box {
+  font-size: 0.8em;
+  top: -3em !important;
+  right: 0 !important;
+  left: initial !important;
+}
+.sauce-responsive.sauce-analysis #pace-analysis-section > header > .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+.sauce-responsive.sauce-analysis #pace-analysis-section + .row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.sauce-responsive.sauce-analysis #pace-analysis-section + .row > .spans8 {
+  width: initial;
+  float: initial;
+  flex: 1 0 auto;
+  min-width: 300px;
+}
+.sauce-responsive.sauce-analysis #relative-effort [class|=RelativeEffort--container] {
+  flex-wrap: wrap;
+}
+.sauce-responsive.sauce-analysis #relative-effort [class|=RelativeEffort--container] [class|=ActivitySummary--base] {
+  padding: 1em;
+  min-width: 300px;
+}
+.sauce-responsive.sauce-analysis #relative-effort [class|=RelativeEffort--container] [class|=WeeklySummary--base] {
+  max-width: 100%;
+  padding: 0;
+}
+.sauce-responsive.sauce-analysis #relative-effort [class|=RelativeEffort--container] [class|=WeeklySummary--base] table[class|=Activities--table] > tbody > tr > td {
+  padding: 1em 0.4em;
+  font-size: 0.85em;
+}
+.sauce-responsive.sauce-analysis #relative-effort [class|=RelativeEffort--container] [class|=WeeklySummary--base] table[class|=Activities--table] > tbody > tr > td:first-child {
+  padding-left: 1em;
+}
+.sauce-responsive.sauce-analysis #relative-effort [class|=RelativeEffort--container] [class|=WeeklySummary--base] table[class|=Activities--table] > tbody > tr > td:last-child {
+  padding-right: 1em;
+}
+.sauce-responsive.sauce-analysis #relative-effort [class|=RelativeEffort--container] [class|=WeeklySummary--week-details] {
+  padding: 0.5em;
+}
+.sauce-responsive.sauce-analysis #relative-effort [class|=RelativeEffort--container] [class|=WeeklySummary--week-details] > * {
+  flex: 1 1 auto;
+}
+.sauce-responsive.sauce-analysis #similar-activities-teaser > .row {
+  flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sauce-responsive.sauce-analysis #similar-activities-teaser > .row > * {
+  float: initial;
+  width: initial;
+  flex: 1 1 auto;
+  padding: 0.5em !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.sauce-responsive.sauce-analysis #similar-activities-teaser > .row > :nth-child(2) {
+  flex: 1 0 auto;
+}
+.sauce-responsive.sauce-analysis #similar-activities-teaser > .row .pace {
+  font-size: 1em;
+}
+.sauce-responsive.sauce-analysis #similar-activities-teaser > .row .js-similar-activities {
+  margin: 0;
+}
+.sauce-responsive.sauce-analysis #similar-activities-section > .main > .row {
+  margin: 0;
+}
+.sauce-responsive.sauce-analysis #similar-activities-section > .main > .row > * {
+  width: initial;
+  float: initial;
+}
+.sauce-responsive.sauce-analysis #similar-activities-section #similar-activities-chart-container,
+.sauce-responsive.sauce-analysis #similar-activities-section #similar-activities-chart {
+  height: initial !important;
+}
+.sauce-responsive.sauce-analysis #similar-activities-section #similar-activities-chart-container #similar-activities-chart {
+  max-height: 20vh;
+  display: flex;
+  flex-direction: column;
+}
+.sauce-responsive.sauce-analysis #similar-activities-section table.efforts-table th, .sauce-responsive.sauce-analysis #similar-activities-section table.efforts-table td {
+  padding: 1em 0.25em;
+  overflow: hidden;
+  word-break: break-word;
+}
+.sauce-responsive.sauce-analysis #similar-activities-section table.efforts-table th:first-child, .sauce-responsive.sauce-analysis #similar-activities-section table.efforts-table td:first-child {
+  padding-left: 1em;
+}
+.sauce-responsive.sauce-analysis #similar-activities-section table.efforts-table th:last-child, .sauce-responsive.sauce-analysis #similar-activities-section table.efforts-table td:last-child {
+  padding-right: 1em;
+}
+.sauce-responsive.sauce-analysis #laps > .row,
+.sauce-responsive.sauce-analysis #critical-power > .row {
+  flex-wrap: wrap;
+  display: flex;
+}
+.sauce-responsive.sauce-analysis #laps > .row > *,
+.sauce-responsive.sauce-analysis #critical-power > .row > * {
+  float: initial;
+  width: initial;
+  flex: 1 0 auto;
+  min-width: 300px;
+}
+.sauce-responsive.sauce-analysis #laps table td, .sauce-responsive.sauce-analysis #laps table th,
+.sauce-responsive.sauce-analysis #run-efforts-table table td,
+.sauce-responsive.sauce-analysis #run-efforts-table table th {
+  padding-left: 0.25em;
+  padding-right: 0.25em;
+}
+.sauce-responsive.sauce-analysis #others {
+  flex-wrap: wrap;
+}
+.sauce-responsive.sauce-analysis #others > li {
+  margin-bottom: 0.2em;
+}
+.sauce-responsive.sauce-analysis body.sauce-disabled-scroll-listener:not(.fullscreen) .pinnable-view {
+  position: relative;
+}
+.sauce-responsive.sauce-analysis body.sauce-disabled-scroll-listener:not(.fullscreen) .pinnable-view > .pinnable-anchor,
+.sauce-responsive.sauce-analysis body.sauce-disabled-scroll-listener:not(.fullscreen) .pinnable-view > .pinnable-anchor .pinnable {
+  position: sticky;
+  top: 0;
+  background: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), var(--sauce-bg-light), 100%);
+  z-index: 11;
+}
+
+.sauce-responsive.sauce-segment-compare .page.container {
+  width: 92vw;
+  min-width: initial;
+}
+.sauce-responsive.sauce-segment-compare .page.container .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+.sauce-responsive.sauce-segment-compare #segment > .row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.sauce-responsive.sauce-segment-compare #segment > .row > [class*=spans] {
+  width: initial;
+  float: initial;
+  flex: 1 1 auto;
+  min-width: 300px;
+}
+.sauce-responsive.sauce-segment-compare #analysis-chart {
+  height: initial;
+}
+.sauce-responsive.sauce-segment-compare #scrubber {
+  --input-hmargin: 15px;
+  --action-button-width: 40px;
+  display: flex;
+  align-items: center;
+  margin: 0 calc(8.1vw - var(--input-hmargin)) 10px calc(6.7vw - var(--input-hmargin) - var(--action-button-width));
+}
+.sauce-responsive.sauce-segment-compare #scrubber .scrubber-action {
+  flex: 0 0 auto;
+}
+.sauce-responsive.sauce-segment-compare #scrubber input[type=range] {
+  width: 100%;
+  margin: 0 15px;
+}
+.sauce-responsive.sauce-segment-compare #segment-map-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+.sauce-responsive.sauce-segment-compare #segment-map-wrapper > [class*=spans] {
+  width: initial;
+  float: initial;
+  flex: 1 1 auto;
+  min-width: 300px;
+}
+.sauce-responsive.sauce-segment-compare #segmant-map {
+  max-height: 20vh;
+}
+.sauce-responsive.sauce-segment-compare #education {
+  padding-bottom: 1em;
+  font-size: 0.8em;
+}
+.sauce-responsive.sauce-segment-compare #leaderboard-container ul.tabs {
+  flex-wrap: wrap;
+  overflow: initial;
+}
+.sauce-responsive.sauce-segment-compare #leaderboard-content > .row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.sauce-responsive.sauce-segment-compare #leaderboard-content > .row > [class*=spans] {
+  width: initial;
+  float: initial;
+  flex: 1 1 auto;
+  min-width: 300px;
+}
+.sauce-responsive.sauce-segment-compare #leaderboard-table td.effort-date {
+  white-space: normal;
+}
+.sauce-responsive.sauce-segment-compare #roster .avatar-column .action {
+  line-height: 36px;
+}
+@media only screen and (max-width: 768px) {
+  .sauce-responsive.sauce-segment-compare .page.container {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .sauce-responsive.sauce-segment-compare .breadcrumbs {
+    padding-left: 1em;
+  }
+  .sauce-responsive.sauce-segment-compare #roster .avatar-column .action {
+    opacity: 0.33;
+    color: #b00;
+  }
+  .sauce-responsive.sauce-segment-compare #leaderboard-table thead {
+    display: none;
+  }
+  .sauce-responsive.sauce-segment-compare #leaderboard-table td {
+    padding: 1.3em 0.2em 1.2em 0.4em;
+    font-size: 0.85em;
+  }
+  .sauce-responsive.sauce-segment-compare #leaderboard-table td:first-child {
+    padding-left: 1em;
+    padding-right: 0.33em;
+  }
+  .sauce-responsive.sauce-segment-compare #leaderboard-table td[class*=avatar-] {
+    white-space: nowrap;
+  }
+  .sauce-responsive.sauce-segment-compare #leaderboard-table td[class*=avatar-] > .minimal {
+    white-space: nowrap;
+  }
+  .sauce-responsive.sauce-segment-compare #leaderboard-table td.effort-date {
+    position: absolute;
+    right: 0em;
+    padding: 0.2em;
+    border: none;
+    opacity: 0.7;
+  }
+  .sauce-responsive.sauce-segment-compare #leaderboard-table .add-to-roster,
+.sauce-responsive.sauce-segment-compare #leaderboard-table .remove-from-roster {
+    width: 28px;
+    height: 28px;
+    line-height: 30px;
+  }
+  .sauce-responsive.sauce-segment-compare #leaderboard-table .add-to-roster {
+    background: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%);
+    color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (10% * var(--sauce-fg-shade-dir))), 100%);
+  }
+  .sauce-responsive.sauce-segment-compare #leaderboard-table .remove-from-roster {
+    background: #b00;
+    color: #eee;
+  }
+  .sauce-responsive.sauce-segment-compare #leaderboard-container ul.tabs {
+    border-bottom: none;
+  }
+  .sauce-responsive.sauce-segment-compare #leaderboard-container ul.tabs > li {
+    border: 1px solid #aaa;
+    border-radius: 0.28em;
+    margin: 0.2em 0.4em;
+  }
+  .sauce-responsive.sauce-segment-compare #leaderboard-container ul.tabs > li.selected {
+    background: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (15% * var(--sauce-bg-shade-dir))), 100%);
+  }
+  .sauce-responsive.sauce-segment-compare #leaderboard-container ul.tabs > li > .tab {
+    padding: 0.3em 0.8em;
+    border: none;
+    background: none;
+  }
+  .sauce-responsive.sauce-segment-compare #leaderboard-content .btn-group {
+    margin: 0.5em 0;
+  }
+  .sauce-responsive.sauce-segment-compare #leaderboard-content .btn-group button {
+    font-size: 0.85em;
+    padding: 0.4em 0.7em;
+  }
+  .sauce-responsive.sauce-segment-compare #roster table td, .sauce-responsive.sauce-segment-compare #roster table th {
+    padding-left: 0.5em;
+    padding-right: 0.3em;
+  }
+  .sauce-responsive.sauce-segment-compare #scrubber {
+    --action-button-width: 25px;
+  }
+  .sauce-responsive.sauce-segment-compare #scrubber .scrubber-action {
+    width: 15px;
+    height: 15px;
+    line-height: 15px;
+    font-size: 0.5em;
+  }
+  .sauce-responsive.sauce-segment-compare #segment-map {
+    max-height: 25vh;
+  }
+}

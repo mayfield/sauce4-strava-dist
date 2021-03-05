@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        <title>Sauce Advanced Options </title>
+        <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet"/>
+        <link rel="stylesheet" href="/css/ext/options.css"/>
+        <script defer src="/src/ext/webext.js"></script>
+        <script defer src="/src/common/base.js"></script>
+        <script defer src="/src/common/base_init.js"></script>
+        <script defer src="/src/common/ga.js"></script>
+        <script defer src="/src/common/storage.js"></script>
+        <script defer src="/src/ext/adv_options.js"></script>
+        <style>
+            textarea {
+                display: block;
+                background: #fff5;
+                padding: 0.8em;
+                margin: 0.8em 0;
+                font-size: 1em;
+                border-radius: 0.22em;
+            }
+
+            textarea#options {
+                margin: 1em;
+            }
+
+            input[type="text"] {
+                border-radius: 0.22em;
+                border: 1px solid #aaa;
+                padding: 0.18em 0.28em;
+                font-size: 1em;
+            }
+
+            #status {
+                padding-top: 1em;
+            }
+
+            #status:empty {
+                display: none;
+            }
+
+            .error {
+                color: darkred;
+            }
+
+            .athlete-box {
+                padding: 1em;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .athlete-box:not(:last-child) {
+                border-bottom: 1px solid #0001;
+            }
+
+            .athlete-box .label {
+                font-weight: bold;
+            }
+
+            .athlete-box .label button {
+                float: right;
+                font-size: 0.9em;
+                margin: 0;
+                padding: 0.1em 0.3em;
+            }
+
+            label {
+                margin: 0.4em 1em;
+                display: block;
+                min-width: 15ch;
+            }
+            label > span {
+                min-width: 11ch;
+                display: inline-block;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <img src="/images/logo_vert_120x320.png"/>
+            <h2 class="title">Sauce for Strava<sup>TM</sup></h2>
+            <h3 class="sub-title">Advanced Options</h3>
+            <a class="dismiss popup-only"></a>
+        </header>
+        <main>
+            <section>
+                <h3>Options</h3>
+                <textarea id="options"></textarea>
+            </section>
+
+            <section class="ranges">
+                <h3>Custom Peak Effort Ranges</h3>
+                <p class="desc">
+                    You can update the time periods and distances used for peak efforts functions.
+                    E.g. Peak Power, Peak Pace, etc.  Enter numeric values seperated by commas to
+                    override the default settings.
+                </p>
+                <label>
+                    <span>Periods:</span>
+                    <input type="text" data-key="periods"
+                           placeholder="e.g. 5,10,15,300,3600"/>
+                    <small>(seconds)</small>
+                </label>
+                <label>
+                    <span>Distances:</span>
+                    <input type="text" data-key="distances"
+                           placeholder="e.g. 100,400,1609.344,10000"/>
+                    <small>(meters)</small>
+                </label>
+            </section>
+
+            <section>
+                <h3>Athlete Info</h3>
+                <div id="athlete-list"></div>
+            </section>
+        </main>
+        <footer>
+            <div class="buttons">
+                <a class="popup-only" href="options.html?popup"><button>Back</button></a>
+                <a class="not-popup-only" href="options.html"><button>Back</button></a>
+                <button id="clear" class="red">Erase All Data</button>
+                <button id="save" class="green">Save</button>
+            </div>
+            <div id="status"></div>
+        </footer>
+    </body>
+</html>

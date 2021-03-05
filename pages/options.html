@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        <title>Sauce Options</title>
+        <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet"/>
+        <link rel="stylesheet" href="/css/ext/options.css"/>
+        <script defer src="/src/ext/webext.js"></script>
+        <script defer src="/src/common/base.js"></script>
+        <script defer src="/src/common/base_init.js"></script>
+        <script defer src="/src/common/ga.js"></script>
+        <script defer src="/src/common/storage.js"></script>
+        <script defer src="/src/ext/options.js"></script>
+        <style>
+            table#details {
+                font-size: 0.95em;
+                margin: 0 1em 1em;
+            }
+
+            #details .key {
+                padding-right: 1em;
+                color: black;
+            }
+
+            #details .value {
+                font-family: monospace;
+            }
+
+            #details .key::after {
+                content: ':';
+            }
+
+            footer .links {
+                margin-top: 1em;
+                display: flex;
+                justify-content: center;
+            }
+
+            footer .links > * {
+                padding: 0 0.5em;
+            }
+
+            html:not(.moz-extension) .moz-only,
+            html:not(.chrome-extension) .chrome-only,
+            html:not(.safari-web-extension) .safari-only,
+            html.edge .not-edge {
+                display: none;
+            }
+
+            .option {
+                padding-bottom: 0.2em;
+            }
+
+            .suboption {
+                display: block;
+                margin-top: 0.25em;
+                padding-left: 2em;
+                font-size: 0.8em;
+            }
+            .suboption.disabled {
+                opacity: 0.6;
+            }
+
+            .suboption:last-child {
+                margin-bottom: 1em;
+            }
+
+            .sauce-beta {
+                font-family: monospace;
+                background-color: #064bbb;
+                color: white;
+                padding: 0.2em;
+                border-radius: 0.22em;
+            }
+
+            button.patreon {
+                background: #f96854;
+                padding-top: 0;
+                padding-bottom: 0;
+                line-height: 0;
+            }
+
+            button.patreon img {
+                max-height: 2em;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <img src="/images/logo_vert_120x320.png"/>
+            <h2 class="title">Sauce for Strava<sup>TM</sup></h2>
+            <h3 class="sub-title">Options</h3>
+            <a class="dismiss popup-only"></a>
+        </header>
+        <main>
+            <p class="supporter">Sauce is made possible by folks like <a target="_BLANK" href="https://saucellc.io/supporters.html"></a>!</p>
+            <p class="whenEnabled"><i>Sauce is enabled.  May the sauce be with you.</i></p>
+            <p class="whenDisabled"><i>Sauce is disabled.</i></p>
+            <table id="details"><tbody></tbody></table>
+
+            <div class="actions">
+                <h4>General Options:</h4>
+
+                <div class="option">
+                    <label><input type="checkbox" style="visibility: hidden;"/>Theme:</label>
+                    <select name="theme">
+                        <option value="">Default Strava</option>
+                        <option value="system"
+                                title="Use the OS dark-mode setting">System preference</option>
+                        <option value="dark">Dark mode</option>
+                        <option value="windows31" disabled data-restriction="10"
+                                title="Available to Sauce patrons">Windows 3.1</option>
+                        <option value="royalpeach" disabled data-restriction="10"
+                                title="Available to Sauce patrons">Royal Peach</option>
+                        <option value="deepred" disabled data-restriction="10"
+                                title="Available to Sauce patrons">Deep Red</option>
+                    </select>
+                </div>
+
+                <div class="option" title="Make most pages work with any screen size.  Also adds BETA support for mobile Firefox!">
+                    <label><input type="checkbox" name="responsive"/>Responsive/Mobile Layout</label>
+                </div>
+
+                <div class="option" title="Hide all banners related to subscription upselling.">
+                    <label><input type="checkbox" name="hide-upsells"/>Hide subscription upsells</label>
+                </div>
+            </div>
+
+            <div class="actions">
+                <h4>Activity Feed Options:</h4>
+                <div class="option" title="Order activities by start time.">
+                    <label><input type="checkbox" name="activity-chronological"/>Chronological feed</label>
+                    <label class="suboption"><input type="radio" name="activity-chronological-mode" value="updated"/>Upload Time</label>
+                    <label class="suboption"><input type="radio" name="activity-chronological-mode" value="started"/>Start Time</label>
+                    </ul>
+                </div>
+
+                <div class="option" title="Remove other people's Zwift rides and runs from your activity feed.  Note, your virtual activities will still be shown.">
+                    <label><input type="checkbox" name="activity-hide-virtual"/>Hide virtual activities <small>(<i>e.g. Zwift</i>)</small></label>
+                </div>
+
+                <div class="option" title="Do not show challenge announcements.">
+                    <label><input type="checkbox" name="activity-hide-challenges"/>Hide challenges</label>
+                </div>
+
+                <div class="option" title="Do not show promotional content.">
+                    <label><input type="checkbox" name="activity-hide-promotions"/>Hide promotions</label>
+                </div>
+            </div>
+
+            <div class="actions">
+                <h4>Analysis Options:</h4>
+                <div class="option" title="Show estimated world ranking for individual segments.  This is the same ranking shown in the Peak Power chart.">
+                    <label><input type="checkbox" name="analysis-segment-badges"/>Show segment badges <small>(<i>e.g. Cat 2, Pro</i>)</small></label>
+                </div>
+
+                <div class="option" title="Show peak efforts chart in the left column of activities.">
+                    <label><input type="checkbox" name="analysis-cp-chart"/>Show peak efforts chart</label>
+                </div>
+
+                <div class="option" title="Use detailed segments view for runs">
+                    <label><input type="checkbox" name="analysis-detailed-run-segments">Use detailed run segments</label>
+                </div>
+
+                <div class="option" title="Enable history for menu navigation (e.g. support back button)">
+                    <label><input type="checkbox" name="analysis-menu-nav-history">Menu navigation history</label>
+                </div>
+
+                <div class="option" title="Trailforks is a 3rd party website that has trail info and reports for off-road activities.">
+                    <label><input type="checkbox" name="analysis-trailforks">Enable Trailforks integration</label>
+                </div>
+
+                <div class="option" title="Disable/hide xPower releated information.">
+                    <label><input type="checkbox" name="analysis-disable-xp">Disable xPower</label>
+                </div>
+
+                <div class="option" title="Disable/hide Normalized Power releated information.">
+                    <label><input type="checkbox" name="analysis-disable-np">Disable Normalized Power®</label>
+                </div>
+
+                <div class="option" title="Disable/hide Sea Power (sea level adjusted power) releated information.">
+                    <label><input type="checkbox" name="analysis-disable-sp">Disable Sea Power</label>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="buttons">
+                <a class="popup-only" href="adv_options.html?popup"><button>Advanced Options</button></a>
+                <a class="not-popup-only" href="adv_options.html"><button>Advanced Options</button></a>
+                <a target="_BLANK" href="https://www.patreon.com/bePatron?u=32064618"
+                   title="Your support lets me continue to work on and improve Sauce! Thank you!"><button class="patreon"><img src="/images/become_a_patron_button@2x.png"/></button></a>
+                <button class="enabler whenDisabled green">Enable Sauce</button>
+                <button class="enabler whenEnabled red">Disable Sauce</button>
+            </div>
+            <div class="links">
+                <a target="_BLANK" href="https://saucellc.io">Home Page</a>
+                |
+                <a target="_BLANK" class="chrome-only not-edge"
+                   href="https://chrome.google.com/webstore/detail/eigiefcapdcdmncdghkeahgfmnobigha">Chrome Web Store Page</a>
+                <a target="_BLANK" class="moz-only"
+                   href="https://addons.mozilla.org/addon/sauce4strava">Firefox Add-On Page</a>
+                |
+                <a class="moz-only" href="privacy.html">Privacy Policy</a><!--Gecko can't do BLANK for ext based pages-->
+                <a target="_BLANK" class="chrome-only" href="privacy.html">Privacy Policy</a>
+                <a target="_BLANK" class="safari-only" href="privacy.html">Privacy Policy</a>
+            </div>
+        </footer>
+    </body>
+</html>

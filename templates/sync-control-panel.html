@@ -1,0 +1,79 @@
+<form class="sync-mgmt input sauce-key-value">
+
+    <h3>Sync  Status</h3>
+
+    <div class="padded-info">
+        <div class="help" data-for="intro">
+            <a class="sauce-dismiss">{-await fa('times-circle-duotone')-}</a>
+            {{{intro_help}}}
+        </div>
+        <a class="help-info" data-help="intro" title="{{{/dialog_help_info_tooltip}}}">{- await fa('info-circle-duotone') -}</a>
+        {{{intro}}}
+    </div>
+
+    <div class="perf-promo">
+        <div class="slides">
+            <div class="nav-left hidden">{-await fa('angle-left-regular')-}</div>
+            <div class="nav-right">{-await fa('angle-right-regular')-}</div>
+
+            <img class="selected" src="https://saucellc.io/images/perf-promo/1.png" loading="lazy"/>
+            <img src="https://saucellc.io/images/perf-promo/2.png" loading="lazy"/>
+            <img src="https://saucellc.io/images/perf-promo/3.png" loading="lazy"/>
+            <img src="https://saucellc.io/images/perf-promo/4.png" loading="lazy"/>
+
+            <div class="nav-placement">
+                <div class="bubble selected"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+            </div>
+        </div>
+        <div class="btn btn-unstyled btn-icon-only zoom-out">{-await fa('times-circle-duotone')-}</div>
+        <div class="btn btn-block btn-primary enable">Enable Sync and Get Started!</div> <!--XXX localize-->
+    </div>
+
+    <div class="entry enable">
+        <key>{{{enabled}}}:</key>
+        <input name="enable" type="checkbox" {{enabled ? 'checked' : ''}}/>
+    </div>
+
+    <div class="entry status">
+        <key>{{{status}}}:</key>
+        <value></value>
+        <div class="btn btn-sm sync-stop"
+             title="{{{sync_stop_tooltip}}}">{-await fa('stop-circle-regular')-}</div>
+        <div class="btn btn-sm sync-start"
+             title="{{{sync_start_tooltip}}}">{-await fa('play-circle-regular')-}</div>
+        <div class="btn btn-sm sync-recompute"
+             title="{{{sync_recompute_tooltip}}}">{-await fa('redo-solid')-}</div>
+    </div>
+
+    <div class="entry synced">
+        <key>{{{synced}}}:</key>
+        <value>
+            <progress></progress>
+            <div class="text"></div>
+        </value>
+    </div>
+
+    <div class="entry last-sync">
+        <key>{{{last_sync}}}:</key>
+        <value></value>
+    </div>
+
+    <div class="entry next-sync">
+        <key>{{{next_sync}}}:</key>
+        <value></value>
+    </div>
+</form>
+
+<div class="athlete-mgmt sauce-key-value">
+
+    <h3>Athlete Settings</h3>
+
+    <div class="padded-info hr-zones"></div>
+
+    <div class="entry block history ftp"></div>
+
+    <div class="entry block history weight"></div>
+</div>

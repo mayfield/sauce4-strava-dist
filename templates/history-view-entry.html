@@ -1,0 +1,16 @@
+<div class="mutable-data-entry">
+    <key>
+        <input <% if (parent.valueMin != null) { %>min="{{parent.valueMin}}"<% } %>
+               <% if (parent.valueMax != null) { %>max="{{parent.valueMax}}"<% } %>
+               <% if (parent.valueStep != null) { %>step="{{parent.valueStep}}"<% } %>
+               type="number" required value="{{value}}"/>
+        <% if (parent.valueUnit) { %>
+            <abbr class="unit">{{parent.valueUnit}}</abbr>
+        <% } %>
+    </key>
+    <value>
+        <input type="date" min="1969-01-01" required value="{{ts}}"/>
+    </value>
+    <div class="btn btn-unstyled btn-icon-only mutable-data-entry-delete"
+         title="{{{delete_entry_tooltip}}}">{-await fa('times-circle-duotone')-}</div>
+</div>

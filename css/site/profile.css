@@ -1,0 +1,1349 @@
+.tf-icon {
+  vertical-align: text-top;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+.mutable-data-view .btn {
+  transition-property: filter, background-color, color, box-shadow, opacity, border-color;
+  transition-duration: 150ms;
+}
+.mutable-data-view .btn:hover {
+  filter: brightness(1.1);
+}
+.mutable-data-view .btn:focus {
+  outline: none;
+}
+.mutable-data-view .btn.btn-unstyled.btn-icon-only {
+  opacity: 0.75;
+  min-width: initial;
+  padding: 0.25em;
+}
+.mutable-data-view .btn.btn-unstyled.btn-icon-only:hover {
+  opacity: 1;
+  filter: drop-shadow(1px 1px 2px #0003);
+}
+.mutable-data-view .btn.btn-unstyled.btn-icon-only:active {
+  filter: brightness(0.9);
+}
+.mutable-data-view .btn:not(.btn-unstyled):not(.btn-primary):not(.btn-secondary) {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), var(--sauce-bg-light), 100%);
+  border: 1px solid hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (20% * var(--sauce-fg-shade-dir))), 0.2);
+}
+.mutable-data-view .btn:not(.btn-unstyled):not(.btn-primary):not(.btn-secondary):hover {
+  border-color: transparent;
+}
+.mutable-data-view .btn:not(.btn-unstyled).btn-block {
+  display: flex;
+}
+.mutable-data-view .btn:not(.btn-unstyled):hover {
+  box-shadow: 1px 1px 1px #0005;
+  border-color: transparent;
+}
+.mutable-data-view .btn:not(.btn-unstyled):active {
+  box-shadow: 0 0 4px 3px #0004 inset;
+  border-color: #0003 !important;
+}
+.mutable-data-view .btn > svg[data-icon] {
+  height: 1.4em;
+  margin: -0.2em 0.2em;
+}
+.mutable-data-view .btn.btn-icon-only > svg[data-icon] {
+  margin: -0.2em 0;
+}
+.mutable-data-view .btn.btn-icon-right > svg[data-icon] {
+  margin-right: -1em;
+  margin-left: 1em;
+}
+.mutable-data-view .btn.btn-icon-right.btn-sm > svg[data-icon] {
+  margin-right: 0;
+}
+.mutable-data-view .btn.sauce-loading svg[data-icon] {
+  display: none;
+}
+.mutable-data-view .btn.sauce-loading.btn-primary::before, .mutable-data-view .btn.sauce-loading.btn-primary::after, .mutable-data-view .btn.sauce-loading.btn-secondary::before, .mutable-data-view .btn.sauce-loading.btn-secondary::after {
+  filter: invert(1);
+}
+.mutable-data-view .btn.sauce-loading.btn-primary.btn-outline:not(:hover)::before, .mutable-data-view .btn.sauce-loading.btn-primary.btn-outline:not(:hover)::after, .mutable-data-view .btn.sauce-loading.btn-secondary.btn-outline:not(:hover)::before, .mutable-data-view .btn.sauce-loading.btn-secondary.btn-outline:not(:hover)::after {
+  filter: initial;
+}
+.mutable-data-view .btn.sauce-loading::before, .mutable-data-view .btn.sauce-loading::after {
+  width: 1.8em;
+  margin: -0.5em 0.5em -0.5em;
+  line-height: 0;
+  animation: rotation 3s infinite steps(90);
+}
+.mutable-data-view .btn.sauce-loading.btn-sm::before, .mutable-data-view .btn.sauce-loading.btn-sm::after, .mutable-data-view .btn.sauce-loading.btn-xs::before, .mutable-data-view .btn.sauce-loading.btn-xs::after {
+  width: 1.4em;
+}
+.mutable-data-view .btn.sauce-loading:not(.btn-icon-right)::before {
+  content: url(../../images/fa/spinner-third-duotone.svg);
+  margin-left: 0;
+}
+.mutable-data-view .btn.sauce-loading.btn-icon-right::after {
+  content: url(../../images/fa/spinner-third-duotone.svg);
+  margin-right: 0;
+}
+.mutable-data-view .sauce-swapped-background .btn:not(.btn-unstyled) {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%) !important;
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 0.5);
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (10% * var(--sauce-fg-shade-dir))), 100%) !important;
+}
+.mutable-data-view .sauce-swapped-background .btn:not(.btn-unstyled).btn-secondary {
+  background-color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (25% * var(--sauce-fg-shade-dir))), 100%) !important;
+  border-color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (20% * var(--sauce-fg-shade-dir))), 0.5);
+  color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%) !important;
+}
+.mutable-data-view .sauce-swapped-background .btn:not(.btn-unstyled).btn-secondary:hover, .mutable-data-view .sauce-swapped-background .btn:not(.btn-unstyled).btn-secondary:focus {
+  border-color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (20% * var(--sauce-fg-shade-dir))), 0.5);
+}
+.mutable-data-view .sauce-swapped-background .btn:not(.btn-unstyled):hover, .mutable-data-view .sauce-swapped-background .btn:not(.btn-unstyled):focus {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 0.5);
+}
+.mutable-data-view input {
+  background-color: transparent;
+  border: 1px solid hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (14% * var(--sauce-bg-shade-dir))), 100%);
+  padding: 0.28em 0.4em;
+  border-radius: 0.22em;
+  line-height: normal;
+  height: initial;
+}
+.mutable-data-view input:invalid {
+  border: 1px dashed red;
+}
+.mutable-data-view input[type=number] {
+  width: 7ch;
+  text-align: right;
+}
+.mutable-data-view .mutable-data-header {
+  padding: 0.6em 1em 0.2em 1em;
+}
+.mutable-data-view .mutable-data-footer {
+  padding: 0 1em;
+}
+.mutable-data-view .mutable-data-footer .btn {
+  display: flex;
+  margin: 0.6em 0;
+}
+.mutable-data-view .mutable-data-entries {
+  padding: 0.4em 0;
+  margin-bottom: 0.2em;
+  max-height: 10em;
+  overflow: auto;
+}
+.mutable-data-view .mutable-data-entries .mutable-data-entry {
+  padding: 0.1em 1.2em;
+  display: flex;
+  align-items: center;
+}
+.mutable-data-view .mutable-data-entries .mutable-data-entry:hover {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 0.4);
+  border-radius: 0.28em;
+}
+.mutable-data-view .mutable-data-entries .mutable-data-entry key {
+  flex: 1 0 auto;
+  max-width: 16ch;
+  display: inline-block;
+  white-space: nowrap;
+}
+.mutable-data-view .mutable-data-entries .mutable-data-entry key abbr {
+  margin-right: 0.5em;
+}
+.mutable-data-view .mutable-data-entries .mutable-data-entry value {
+  flex: 1 1 auto;
+  overflow: hidden;
+}
+.mutable-data-view .mutable-data-entries .mutable-data-entry value input[type=date] {
+  max-width: 100%;
+}
+.mutable-data-view:not(.dirty) .mutable-data-save.btn {
+  display: none !important;
+}
+.mutable-data-view.dirty.invalid .mutable-data-save.btn {
+  opacity: 0.5;
+  pointer-events: none;
+}
+.mutable-data-view .btn.mutable-data-entry-add svg .fa-secondary,
+.mutable-data-view .btn.mutable-data-entry-delete svg .fa-secondary {
+  color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (25% * var(--sauce-bg-shade-dir))), 100%);
+  opacity: 0.8;
+}
+.mutable-data-view .btn.mutable-data-entry-add {
+  color: green !important;
+}
+.mutable-data-view .btn.mutable-data-entry-delete {
+  color: red !important;
+  flex: 1 0;
+  display: flex;
+  justify-content: flex-end;
+  min-height: initial;
+}
+
+html .ui-dialog {
+  background: transparent;
+  border: none;
+  font-size: 1em;
+}
+html .ui-dialog .ui-widget-content,
+html .ui-dialog .ui-dialog-content {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (3% * var(--sauce-bg-shade-dir))), 100%);
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (12% * var(--sauce-bg-shade-dir))), 100%);
+}
+html .ui-dialog .ui-widget-content ul.tabs li.selected,
+html .ui-dialog .ui-dialog-content ul.tabs li.selected {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (3% * var(--sauce-bg-shade-dir))), 100%);
+}
+html .ui-dialog .ui-widget-content ul.tabs li.selected .tab,
+html .ui-dialog .ui-dialog-content ul.tabs li.selected .tab {
+  background-color: transparent;
+}
+html .ui-dialog .ui-widget-header {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+}
+html .ui-dialog form > button,
+html .ui-dialog form > input[type=submit],
+html .ui-dialog form form > input[type=button] {
+  margin-top: 10px;
+}
+
+.ui-dialog.sauce-dialog {
+  outline: none;
+  margin: 0;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.33);
+  border-radius: 0.22em;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  font-family: inherit;
+  /* use strava font, not jquery */
+  max-width: calc(100vw - (100vw - 100%));
+  max-height: calc(100vh - (100vh - 100%));
+  box-sizing: border-box;
+}
+.ui-dialog.sauce-dialog *,
+.ui-dialog.sauce-dialog *::before,
+.ui-dialog.sauce-dialog *::after {
+  box-sizing: inherit;
+}
+.ui-dialog.sauce-dialog .btn {
+  transition-property: filter, background-color, color, box-shadow, opacity, border-color;
+  transition-duration: 150ms;
+}
+.ui-dialog.sauce-dialog .btn:hover {
+  filter: brightness(1.1);
+}
+.ui-dialog.sauce-dialog .btn:focus {
+  outline: none;
+}
+.ui-dialog.sauce-dialog .btn.btn-unstyled.btn-icon-only {
+  opacity: 0.75;
+  min-width: initial;
+  padding: 0.25em;
+}
+.ui-dialog.sauce-dialog .btn.btn-unstyled.btn-icon-only:hover {
+  opacity: 1;
+  filter: drop-shadow(1px 1px 2px #0003);
+}
+.ui-dialog.sauce-dialog .btn.btn-unstyled.btn-icon-only:active {
+  filter: brightness(0.9);
+}
+.ui-dialog.sauce-dialog .btn:not(.btn-unstyled):not(.btn-primary):not(.btn-secondary) {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), var(--sauce-bg-light), 100%);
+  border: 1px solid hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (20% * var(--sauce-fg-shade-dir))), 0.2);
+}
+.ui-dialog.sauce-dialog .btn:not(.btn-unstyled):not(.btn-primary):not(.btn-secondary):hover {
+  border-color: transparent;
+}
+.ui-dialog.sauce-dialog .btn:not(.btn-unstyled).btn-block {
+  display: flex;
+}
+.ui-dialog.sauce-dialog .btn:not(.btn-unstyled):hover {
+  box-shadow: 1px 1px 1px #0005;
+  border-color: transparent;
+}
+.ui-dialog.sauce-dialog .btn:not(.btn-unstyled):active {
+  box-shadow: 0 0 4px 3px #0004 inset;
+  border-color: #0003 !important;
+}
+.ui-dialog.sauce-dialog .btn > svg[data-icon] {
+  height: 1.4em;
+  margin: -0.2em 0.2em;
+}
+.ui-dialog.sauce-dialog .btn.btn-icon-only > svg[data-icon] {
+  margin: -0.2em 0;
+}
+.ui-dialog.sauce-dialog .btn.btn-icon-right > svg[data-icon] {
+  margin-right: -1em;
+  margin-left: 1em;
+}
+.ui-dialog.sauce-dialog .btn.btn-icon-right.btn-sm > svg[data-icon] {
+  margin-right: 0;
+}
+.ui-dialog.sauce-dialog .btn.sauce-loading svg[data-icon] {
+  display: none;
+}
+.ui-dialog.sauce-dialog .btn.sauce-loading.btn-primary::before, .ui-dialog.sauce-dialog .btn.sauce-loading.btn-primary::after, .ui-dialog.sauce-dialog .btn.sauce-loading.btn-secondary::before, .ui-dialog.sauce-dialog .btn.sauce-loading.btn-secondary::after {
+  filter: invert(1);
+}
+.ui-dialog.sauce-dialog .btn.sauce-loading.btn-primary.btn-outline:not(:hover)::before, .ui-dialog.sauce-dialog .btn.sauce-loading.btn-primary.btn-outline:not(:hover)::after, .ui-dialog.sauce-dialog .btn.sauce-loading.btn-secondary.btn-outline:not(:hover)::before, .ui-dialog.sauce-dialog .btn.sauce-loading.btn-secondary.btn-outline:not(:hover)::after {
+  filter: initial;
+}
+.ui-dialog.sauce-dialog .btn.sauce-loading::before, .ui-dialog.sauce-dialog .btn.sauce-loading::after {
+  width: 1.8em;
+  margin: -0.5em 0.5em -0.5em;
+  line-height: 0;
+  animation: rotation 3s infinite steps(90);
+}
+.ui-dialog.sauce-dialog .btn.sauce-loading.btn-sm::before, .ui-dialog.sauce-dialog .btn.sauce-loading.btn-sm::after, .ui-dialog.sauce-dialog .btn.sauce-loading.btn-xs::before, .ui-dialog.sauce-dialog .btn.sauce-loading.btn-xs::after {
+  width: 1.4em;
+}
+.ui-dialog.sauce-dialog .btn.sauce-loading:not(.btn-icon-right)::before {
+  content: url(../../images/fa/spinner-third-duotone.svg);
+  margin-left: 0;
+}
+.ui-dialog.sauce-dialog .btn.sauce-loading.btn-icon-right::after {
+  content: url(../../images/fa/spinner-third-duotone.svg);
+  margin-right: 0;
+}
+.ui-dialog.sauce-dialog .sauce-swapped-background .btn:not(.btn-unstyled) {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%) !important;
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 0.5);
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (10% * var(--sauce-fg-shade-dir))), 100%) !important;
+}
+.ui-dialog.sauce-dialog .sauce-swapped-background .btn:not(.btn-unstyled).btn-secondary {
+  background-color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (25% * var(--sauce-fg-shade-dir))), 100%) !important;
+  border-color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (20% * var(--sauce-fg-shade-dir))), 0.5);
+  color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%) !important;
+}
+.ui-dialog.sauce-dialog .sauce-swapped-background .btn:not(.btn-unstyled).btn-secondary:hover, .ui-dialog.sauce-dialog .sauce-swapped-background .btn:not(.btn-unstyled).btn-secondary:focus {
+  border-color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (20% * var(--sauce-fg-shade-dir))), 0.5);
+}
+.ui-dialog.sauce-dialog .sauce-swapped-background .btn:not(.btn-unstyled):hover, .ui-dialog.sauce-dialog .sauce-swapped-background .btn:not(.btn-unstyled):focus {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 0.5);
+}
+.ui-dialog.sauce-dialog .ui-dialog-titlebar,
+.ui-dialog.sauce-dialog .ui-dialog-buttonpane {
+  flex: 0 0 auto;
+}
+.ui-dialog.sauce-dialog .ui-dialog-buttonpane .ui-dialog-buttonset button svg[data-icon],
+.ui-dialog.sauce-dialog .ui-dialog-buttonpane .ui-dialog-buttonset .btn svg[data-icon] {
+  width: 1em;
+  margin-left: 0.44em;
+}
+.ui-dialog.sauce-dialog .ui-dialog-content {
+  flex: 1 1 auto;
+  overflow: auto;
+  flex-direction: column;
+  width: auto !important;
+  /* override element styling during moves */
+}
+.ui-dialog.sauce-dialog .ui-dialog-content.flex {
+  display: flex !important;
+}
+.ui-dialog.sauce-dialog header {
+  margin: 0.5em 1em;
+  border-bottom: var(--sauce-thin-border);
+}
+.ui-dialog.sauce-dialog.sauce-big-data {
+  max-width: 90vw;
+  max-height: calc(100vh - 4em);
+}
+.ui-dialog.sauce-dialog.sauce-big-data .ui-dialog-content {
+  padding: 0;
+}
+.ui-dialog.sauce-dialog.sauce-big-data pre {
+  padding: 1em 2em;
+  white-space: pre;
+  letter-spacing: 0;
+}
+.ui-dialog.sauce-dialog.sauce-big-data label {
+  display: inline-block;
+  margin: 0 0.3em 0.5em;
+}
+.ui-dialog.sauce-dialog.sauce-big-data label input {
+  margin-right: 0.15em;
+  margin-top: 0.2em;
+}
+.ui-dialog.sauce-dialog.no-pad .ui-dialog-content {
+  padding: 0;
+}
+.ui-dialog.sauce-dialog .padded-info {
+  padding: 1.2em;
+  margin: 0;
+}
+.ui-dialog.sauce-dialog .overflow {
+  overflow: auto;
+}
+.ui-dialog.sauce-dialog a:focus {
+  outline: none;
+}
+.ui-dialog.sauce-dialog a.help-info {
+  float: right;
+  width: 1.1em;
+  height: 1.1em;
+  margin: 0.25em 0 0.35em 0.35em;
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), var(--sauce-fg-light), 100%);
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 200ms;
+}
+.ui-dialog.sauce-dialog a.help-info.hidden {
+  display: none;
+}
+.ui-dialog.sauce-dialog a.help-info:hover {
+  opacity: 1;
+}
+.ui-dialog.sauce-dialog .help {
+  background-image: linear-gradient(to bottom, hsla(var(--sauce-accent3-hue), var(--sauce-accent3-sat), calc(var(--sauce-accent3-light) + (10% * var(--sauce-accent3-shade-dir))), 100%), hsla(var(--sauce-accent3-hue), var(--sauce-accent3-sat), var(--sauce-accent3-light), 100%));
+  color: hsla(var(--sauce-accent3-hue), var(--sauce-accent3-sat), calc(var(--sauce-accent3-light) + (60% * var(--sauce-accent3-shade-dir))), 100%);
+  padding: 1.2em;
+  margin: 0.4em 0 1em;
+  border-radius: 0.5em;
+  position: relative;
+  font-size: 0.85em;
+}
+.ui-dialog.sauce-dialog .help:not(.visible) {
+  display: none;
+}
+.ui-dialog.sauce-dialog .help a {
+  color: hsla(var(--sauce-accent2-hue), var(--sauce-accent2-sat), var(--sauce-accent2-light), 100%);
+}
+.ui-dialog.sauce-dialog .help a.sauce-dismiss {
+  float: right;
+  margin-right: -0.75em;
+  margin-top: -0.75em;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 200ms;
+}
+.ui-dialog.sauce-dialog .help a.sauce-dismiss:hover {
+  opacity: 1;
+}
+.ui-dialog.sauce-dialog .help a.sauce-dismiss svg[data-icon] {
+  color: white;
+  width: 1em;
+}
+.ui-dialog.sauce-dialog .help::after {
+  content: "";
+  border-color: hsla(var(--sauce-accent3-hue), var(--sauce-accent3-sat), var(--sauce-accent3-light), 100%) transparent transparent transparent;
+  border-width: 0.5em 0.5em 0 0.5em;
+  border-style: solid;
+  position: absolute;
+  bottom: -0.48em;
+  left: 1em;
+}
+.ui-dialog.sauce-dialog .help table {
+  margin: 0 1em;
+}
+.ui-dialog.sauce-dialog .help table td:first-child {
+  white-space: nowrap;
+  font-weight: bold;
+  padding-right: 1em;
+}
+.ui-dialog.sauce-dialog form.sauce-key-value {
+  padding-bottom: 1.2em;
+}
+.ui-dialog.sauce-dialog form.sauce-key-value label {
+  display: inline-block;
+  padding: 0.5em 0.2em;
+  margin: 0;
+}
+.ui-dialog.sauce-dialog form.sauce-key-value .entry {
+  padding: 0.2em 1.2em;
+}
+.ui-dialog.sauce-dialog form.sauce-key-value > .entry:nth-of-type(odd) {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (5% * var(--sauce-bg-shade-dir))), 100%);
+}
+.ui-dialog.sauce-dialog form.sauce-key-value key {
+  width: 16ch;
+  display: inline-block;
+}
+.ui-dialog.sauce-dialog form.sauce-key-value input {
+  vertical-align: middle;
+}
+.ui-dialog.sauce-dialog form.sauce-key-value input[type=number],
+.ui-dialog.sauce-dialog form.sauce-key-value input[type=text],
+.ui-dialog.sauce-dialog form.sauce-key-value input[type=date] {
+  border-radius: 0.22em;
+  padding: 0.2em 0.5em;
+  height: auto;
+}
+.ui-dialog.sauce-dialog form.sauce-key-value input[type=number]:invalid,
+.ui-dialog.sauce-dialog form.sauce-key-value input[type=text]:invalid,
+.ui-dialog.sauce-dialog form.sauce-key-value input[type=date]:invalid {
+  border-color: red;
+}
+.ui-dialog.sauce-dialog form.sauce-key-value input[type=number]::placeholder,
+.ui-dialog.sauce-dialog form.sauce-key-value input[type=text]::placeholder,
+.ui-dialog.sauce-dialog form.sauce-key-value input[type=date]::placeholder {
+  opacity: 0.8;
+}
+.ui-dialog.sauce-dialog form.sauce-key-value select {
+  border-radius: 0.22em;
+  padding: 0.25em 0.5em;
+  margin: 0;
+  top: initial;
+  height: auto;
+}
+.ui-dialog.sauce-dialog input[type=number]::-webkit-outer-spin-button,
+.ui-dialog.sauce-dialog input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.ui-dialog.sauce-dialog input[type=number] {
+  -moz-appearance: textfield;
+}
+.ui-dialog.sauce-dialog.sauce-perf-predictor {
+  height: max-content !important;
+  position: fixed;
+  top: 1rem !important;
+  left: 1rem !important;
+  right: 1rem !important;
+  bottom: 1rem !important;
+  margin: auto;
+  max-width: calc(100vw - 2rem - (100vw - 100%));
+  max-height: calc(100vh - 2rem - (100vh - 100%));
+}
+.ui-dialog.sauce-dialog.sauce-perf-predictor .ui-dialog-content {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding: 0;
+}
+.ui-dialog.sauce-dialog.sauce-perf-predictor form.input {
+  flex: 1 1 60%;
+  max-width: 100%;
+}
+.ui-dialog.sauce-dialog.sauce-perf-predictor .indent {
+  display: flex;
+  flex-direction: column;
+}
+.ui-dialog.sauce-dialog.sauce-perf-predictor .columns {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.ui-dialog.sauce-dialog.sauce-perf-predictor .columns .left-col {
+  flex: 0 1 auto;
+}
+.ui-dialog.sauce-dialog.sauce-perf-predictor .columns .right-col {
+  flex: 0 0 auto;
+}
+.ui-dialog.sauce-dialog.sauce-perf-predictor .output {
+  flex: 1 1 40%;
+  min-width: 300px;
+  max-width: 100%;
+  max-height: 100%;
+  position: sticky;
+  top: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-image: linear-gradient(180deg, hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (18% * var(--sauce-fg-shade-dir))), 100%), hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (-18% * var(--sauce-fg-shade-dir))), 100%) 1.5em, hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (10% * var(--sauce-fg-shade-dir))), 100%));
+  color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%);
+}
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: inset 0 0 1px 2px transparent;
+  }
+  80% {
+    box-shadow: inset 0 0 1px 2px hsla(var(--sauce-accent3-hue), var(--sauce-accent3-sat), var(--sauce-accent3-light), 100%);
+  }
+}
+.ui-dialog.sauce-dialog.sauce-perf-predictor .output .entry {
+  padding: 0.2em 1.2em 0.4em;
+}
+.ui-dialog.sauce-dialog.sauce-perf-predictor .output .heading {
+  font-size: 1.4em;
+  font-weight: bold;
+  font-variant: petite-caps;
+  color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), var(--sauce-bg-light), 100%);
+}
+.ui-dialog.sauce-dialog.sauce-perf-predictor .output key {
+  width: 10ch;
+  color: inherit;
+}
+.ui-dialog.sauce-dialog.sauce-perf-predictor .output section {
+  padding: 1em;
+}
+.ui-dialog.sauce-dialog.sauce-perf-predictor .output section.predicted.pulse {
+  animation: pulse 600ms 1;
+}
+.ui-dialog.sauce-dialog.sauce-perf-predictor .output section.predicted:not(.valid) {
+  display: none;
+}
+.ui-dialog.sauce-dialog.sauce-perf-predictor .output section.predicted.valid + section.invalid {
+  display: none;
+}
+.ui-dialog.sauce-dialog.sauce-perf-predictor .output section.predicted .power-details dot {
+  display: inline-block;
+  width: 0.7em;
+  height: 0.7em;
+  border-radius: 100%;
+  margin-right: 0.2em;
+}
+.ui-dialog.sauce-dialog.sauce-perf-predictor .output section.predicted .power-details .pct:not(:empty)::before {
+  content: " | ";
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (8% * var(--sauce-fg-shade-dir))), 100%);
+}
+.ui-dialog.sauce-dialog.sauce-perf-predictor .output section.predicted .power-details .left-col {
+  font-size: 0.92em;
+}
+.ui-dialog.sauce-dialog.sauce-perf-predictor .output section .ahead-behind {
+  font-size: 0.85em;
+}
+.ui-dialog.sauce-dialog.sauce-perf-predictor .output section .ahead-behind:not(:empty)::before {
+  content: " | ";
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (12% * var(--sauce-fg-shade-dir))), 100%);
+}
+.ui-dialog.sauce-dialog.sauce-perf-predictor .output .sparkline {
+  align-self: center;
+  width: 4.25em;
+  height: 4.25em;
+}
+.ui-dialog.sauce-dialog.sauce-perf-predictor input[type=number] {
+  width: calc(7ch + 1em);
+  text-align: right;
+}
+@media only screen and (max-width: 768px) {
+  .ui-dialog.sauce-dialog.sauce-perf-predictor {
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    height: 100vh !important;
+    width: 100vw !important;
+    max-height: initial;
+    max-width: initial;
+    margin: 0;
+  }
+}
+.ui-dialog.sauce-dialog.sauce-live-segment input[type=number] {
+  width: calc(5ch + 1em);
+  text-align: right;
+}
+.ui-dialog.sauce-dialog.sauce-live-segment img.self {
+  width: 15em;
+  margin: 1em 1em 1em 2em;
+  float: right;
+  border-radius: 0.3em;
+}
+@media only screen and (max-width: 768px) {
+  .ui-dialog.sauce-dialog.sauce-live-segment {
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    height: 100vh !important;
+    width: 100vw !important;
+    max-height: initial;
+    max-width: initial;
+    margin: 0;
+  }
+}
+.ui-dialog.sauce-dialog.trailforks-overviews * {
+  box-sizing: border-box;
+}
+.ui-dialog.sauce-dialog.trailforks-overviews ul.tabs {
+  margin-bottom: 1em;
+}
+.ui-dialog.sauce-dialog.trailforks-overviews a.external svg[data-icon] {
+  width: 0.7em;
+}
+.ui-dialog.sauce-dialog.trailforks-overviews .tf-overview {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.ui-dialog.sauce-dialog.trailforks-overviews .tf-overview section {
+  min-width: 280px;
+  flex: 1 1;
+  padding: 1rem 0.5rem;
+  overflow: hidden;
+  margin-bottom: 1em;
+}
+.ui-dialog.sauce-dialog.trailforks-overviews .tf-overview section.sauce-info {
+  flex-basis: 33%;
+}
+.ui-dialog.sauce-dialog.trailforks-overviews .tf-overview section.sauce-info .panel > .item:nth-of-type(1),
+.ui-dialog.sauce-dialog.trailforks-overviews .tf-overview section.sauce-info .panel > .item:nth-of-type(2) {
+  margin-right: 5em;
+}
+.ui-dialog.sauce-dialog.trailforks-overviews .tf-overview section.geo {
+  flex-basis: 33%;
+}
+.ui-dialog.sauce-dialog.trailforks-overviews .tf-overview section.contribs {
+  flex-basis: 33%;
+}
+.ui-dialog.sauce-dialog.trailforks-overviews .tf-overview section:first-child {
+  padding-left: 1rem;
+}
+.ui-dialog.sauce-dialog.trailforks-overviews .tf-overview section:last-child {
+  padding-right: 1rem;
+}
+.ui-dialog.sauce-dialog.trailforks-overviews .tf-overview .map {
+  height: 25em;
+  border-radius: 0.28em;
+  margin-top: 0.5rem;
+}
+.ui-dialog.sauce-dialog.trailforks-overviews .tf-overview .sparkline.elevation {
+  padding-top: 1.15em;
+  position: relative;
+}
+.ui-dialog.sauce-dialog.trailforks-overviews .tf-overview .sparkline.elevation::before {
+  content: "Elevation";
+  font-variant: all-small-caps;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-weight: bold;
+}
+.ui-dialog.sauce-dialog.trailforks-overviews .tf-overview .activity-icon {
+  position: relative;
+  line-height: 0;
+  font-size: 1.4em;
+  margin-right: 0.44em;
+}
+.ui-dialog.sauce-dialog.trailforks-overviews .tf-overview .activity-icon svg[data-icon] {
+  height: 1em;
+}
+.ui-dialog.sauce-dialog.trailforks-overviews .tf-overview .activity-icon .sub-icon {
+  position: absolute;
+  top: -0.2em;
+  left: -0.2em;
+  font-size: 0.6em;
+}
+.ui-dialog.sauce-dialog.trailforks-overviews .tf-overview .panel {
+  padding: 0.8rem;
+  background: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%);
+  border-radius: 0.28em;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+}
+.ui-dialog.sauce-dialog.trailforks-overviews .tf-overview .panel:not(:last-child) {
+  margin-bottom: 0.8rem;
+}
+.ui-dialog.sauce-dialog.trailforks-overviews .tf-overview .panel .tf-difficulty {
+  height: 4em;
+  width: 4em;
+  background: #fff;
+  border-radius: 0.2em;
+  padding: 0.3em;
+  margin-left: 0.3em;
+  margin-bottom: -3em;
+}
+.ui-dialog.sauce-dialog.trailforks-overviews .tf-overview .panel .tf-difficulty img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+.ui-dialog.sauce-dialog.trailforks-overviews .tf-overview .panel .tf-difficulty .tf-icon {
+  line-height: 0;
+  width: 100%;
+  height: 100%;
+  color: #000;
+}
+.ui-dialog.sauce-dialog.trailforks-overviews .tf-overview .panel .tf-difficulty .tf-icon svg[data-icon] {
+  height: 100%;
+  max-width: 100%;
+}
+.ui-dialog.sauce-dialog.trailforks-overviews .tf-overview .panel heading {
+  display: flex;
+}
+.ui-dialog.sauce-dialog.trailforks-overviews .tf-overview .panel heading h1 {
+  font-size: 1.2em;
+  line-height: 1.1;
+  color: hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (5% * var(--sauce-accent-shade-dir))), 100%);
+  margin: 0;
+  font-variant: all-small-caps;
+  font-weight: bold;
+  padding-bottom: 0.5em;
+  flex: 1 0 auto;
+}
+.ui-dialog.sauce-dialog.trailforks-overviews .tf-overview .panel heading h1 a {
+  padding: 0 0.3em;
+  vertical-align: text-bottom;
+}
+.ui-dialog.sauce-dialog.trailforks-overviews .tf-overview .panel .sauce-media {
+  display: flex;
+  align-items: center;
+  overflow: auto;
+}
+.ui-dialog.sauce-dialog.trailforks-overviews .tf-overview .panel .sauce-media .item {
+  padding: 0.2em;
+}
+.ui-dialog.sauce-dialog.trailforks-overviews .tf-overview .panel .sauce-media .item a.tf-media {
+  display: block;
+  line-height: 0;
+}
+.ui-dialog.sauce-dialog.trailforks-overviews .tf-overview .panel .sauce-media .item a.tf-media > * {
+  width: 8em;
+  height: 8em;
+  object-fit: cover;
+  border-radius: 0.28em;
+}
+.ui-dialog.sauce-dialog.trailforks-overviews .tf-overview .panel .item {
+  padding: 0.2em 0;
+  display: flex;
+  font-size: 0.88em;
+  align-items: center;
+}
+.ui-dialog.sauce-dialog.trailforks-overviews .tf-overview .panel .item key {
+  min-width: 14ch;
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (5% * var(--sauce-fg-shade-dir))), 100%);
+  margin-right: 0.3em;
+  font-variant: all-small-caps;
+  font-weight: bold;
+}
+.ui-dialog.sauce-dialog.trailforks-overviews .tf-overview .panel .item value {
+  display: block;
+}
+.ui-dialog.sauce-dialog.trailforks-overviews .tf-overview .panel .item.desc {
+  padding: 0.6em;
+  margin-bottom: 0.8em;
+}
+.ui-dialog.sauce-dialog.trailforks-overviews .tf-overview .panel .report {
+  padding: 0.3em;
+}
+.ui-dialog.sauce-dialog.trailforks-overviews .tf-overview .panel .report:not(:last-child) {
+  border-bottom: 1px solid hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 0.5);
+}
+.ui-dialog.sauce-dialog.trailforks-overviews .tf-overview .panel .report .age {
+  font-size: 0.72em;
+  opacity: 0.8;
+}
+.ui-dialog.sauce-dialog.trailforks-overviews .tf-overview .panel .tf-condition svg[data-icon],
+.ui-dialog.sauce-dialog.trailforks-overviews .tf-overview .panel .tf-status svg[data-icon] {
+  height: 1em;
+}
+@media only screen and (max-width: 768px) {
+  .ui-dialog.sauce-dialog.trailforks-overviews {
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    height: 100vh !important;
+    width: 100vw !important;
+    max-height: initial;
+    max-width: initial;
+    margin: 0;
+  }
+  .ui-dialog.sauce-dialog.trailforks-overviews ul.tabs {
+    overflow-x: initial !important;
+  }
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .btn {
+  transition-property: filter, background-color, color, box-shadow, opacity, border-color;
+  transition-duration: 150ms;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .btn:hover {
+  filter: brightness(1.1);
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .btn:focus {
+  outline: none;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .btn.btn-unstyled.btn-icon-only {
+  opacity: 0.75;
+  min-width: initial;
+  padding: 0.25em;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .btn.btn-unstyled.btn-icon-only:hover {
+  opacity: 1;
+  filter: drop-shadow(1px 1px 2px #0003);
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .btn.btn-unstyled.btn-icon-only:active {
+  filter: brightness(0.9);
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .btn:not(.btn-unstyled):not(.btn-primary):not(.btn-secondary) {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), var(--sauce-bg-light), 100%);
+  border: 1px solid hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (20% * var(--sauce-fg-shade-dir))), 0.2);
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .btn:not(.btn-unstyled):not(.btn-primary):not(.btn-secondary):hover {
+  border-color: transparent;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .btn:not(.btn-unstyled).btn-block {
+  display: flex;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .btn:not(.btn-unstyled):hover {
+  box-shadow: 1px 1px 1px #0005;
+  border-color: transparent;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .btn:not(.btn-unstyled):active {
+  box-shadow: 0 0 4px 3px #0004 inset;
+  border-color: #0003 !important;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .btn > svg[data-icon] {
+  height: 1.4em;
+  margin: -0.2em 0.2em;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .btn.btn-icon-only > svg[data-icon] {
+  margin: -0.2em 0;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .btn.btn-icon-right > svg[data-icon] {
+  margin-right: -1em;
+  margin-left: 1em;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .btn.btn-icon-right.btn-sm > svg[data-icon] {
+  margin-right: 0;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .btn.sauce-loading svg[data-icon] {
+  display: none;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .btn.sauce-loading.btn-primary::before, .ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .btn.sauce-loading.btn-primary::after, .ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .btn.sauce-loading.btn-secondary::before, .ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .btn.sauce-loading.btn-secondary::after {
+  filter: invert(1);
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .btn.sauce-loading.btn-primary.btn-outline:not(:hover)::before, .ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .btn.sauce-loading.btn-primary.btn-outline:not(:hover)::after, .ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .btn.sauce-loading.btn-secondary.btn-outline:not(:hover)::before, .ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .btn.sauce-loading.btn-secondary.btn-outline:not(:hover)::after {
+  filter: initial;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .btn.sauce-loading::before, .ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .btn.sauce-loading::after {
+  width: 1.8em;
+  margin: -0.5em 0.5em -0.5em;
+  line-height: 0;
+  animation: rotation 3s infinite steps(90);
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .btn.sauce-loading.btn-sm::before, .ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .btn.sauce-loading.btn-sm::after, .ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .btn.sauce-loading.btn-xs::before, .ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .btn.sauce-loading.btn-xs::after {
+  width: 1.4em;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .btn.sauce-loading:not(.btn-icon-right)::before {
+  content: url(../../images/fa/spinner-third-duotone.svg);
+  margin-left: 0;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .btn.sauce-loading.btn-icon-right::after {
+  content: url(../../images/fa/spinner-third-duotone.svg);
+  margin-right: 0;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .sauce-swapped-background .btn:not(.btn-unstyled) {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%) !important;
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 0.5);
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (10% * var(--sauce-fg-shade-dir))), 100%) !important;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .sauce-swapped-background .btn:not(.btn-unstyled).btn-secondary {
+  background-color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (25% * var(--sauce-fg-shade-dir))), 100%) !important;
+  border-color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (20% * var(--sauce-fg-shade-dir))), 0.5);
+  color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%) !important;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .sauce-swapped-background .btn:not(.btn-unstyled).btn-secondary:hover, .ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .sauce-swapped-background .btn:not(.btn-unstyled).btn-secondary:focus {
+  border-color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (20% * var(--sauce-fg-shade-dir))), 0.5);
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .sauce-swapped-background .btn:not(.btn-unstyled):hover, .ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .sauce-swapped-background .btn:not(.btn-unstyled):focus {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 0.5);
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .btn.sync-start {
+  color: #00a900;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .btn.sync-stop {
+  color: #c10000;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .btn.sync-recompute {
+  color: #c37e00;
+  font-size: 0.9em;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .padded-info {
+  padding: 1em;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog h1, .ui-dialog.sauce-dialog.sauce-sync-athlete-dialog h2, .ui-dialog.sauce-dialog.sauce-sync-athlete-dialog h3, .ui-dialog.sauce-dialog.sauce-sync-athlete-dialog h4 {
+  font-variant: petite-caps;
+  margin: 0.2em 0;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .ui-dialog-content {
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding: 0;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .ui-dialog-content .sync-mgmt {
+  flex: 1 1;
+  max-width: 100%;
+  padding-top: 1rem;
+  padding-bottom: 0;
+  display: flex;
+  flex-direction: column;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .ui-dialog-content .sync-mgmt h1, .ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .ui-dialog-content .sync-mgmt h2, .ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .ui-dialog-content .sync-mgmt h3, .ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .ui-dialog-content .sync-mgmt h4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .ui-dialog-content .athlete-mgmt {
+  background-image: linear-gradient(to right, hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%), hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), var(--sauce-bg-light), 100%) 0.2em, hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), var(--sauce-bg-light), 100%));
+  flex: 1 1;
+  max-width: 100%;
+  padding: 1rem;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .ui-dialog-content .athlete-mgmt .padded-info {
+  padding-bottom: 0.2em;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .ui-dialog-content.sync-active .entry.last-sync,
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .ui-dialog-content.sync-active .entry.next-sync {
+  display: none !important;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .ui-dialog-content.sync-active .sync-recompute,
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .ui-dialog-content.sync-active .sync-start,
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .ui-dialog-content.sync-active .sync-hr-zones {
+  display: none !important;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .ui-dialog-content:not(.sync-active):not(.sync-disabled) .sync-stop {
+  display: none;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .ui-dialog-content.sync-disabled .entry.synced,
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .ui-dialog-content.sync-disabled .entry.last-sync,
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .ui-dialog-content.sync-disabled .entry.next-sync,
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .ui-dialog-content.sync-disabled .entry.status,
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .ui-dialog-content.sync-disabled .entry.enable {
+  display: none !important;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .ui-dialog-content.sync-disabled .sync-stop,
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .ui-dialog-content.sync-disabled .sync-recompute,
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .ui-dialog-content.sync-disabled .sync-start {
+  opacity: 0.5;
+  pointer-events: none;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .ui-dialog-content:not(.sync-active) .entry.synced value progress {
+  display: none;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .ui-dialog-content:not(.sync-disabled) .perf-promo {
+  display: none;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .ui-dialog-content .entry .btn {
+  margin-left: 0.5em;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .ui-dialog-content .entry.status value {
+  margin-right: 1em;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog table.hr-zones {
+  width: 100%;
+  font-size: 0.92em;
+  margin: 0.4em;
+  border: 1px solid hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (20% * var(--sauce-fg-shade-dir))), 0.08);
+  border-radius: 0.28em;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog table.hr-zones tr {
+  border: none;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog table.hr-zones tr:nth-child(even) {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (1.8% * var(--sauce-bg-shade-dir))), 100%);
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog table.hr-zones tr.lt {
+  background-color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (30% * var(--sauce-fg-shade-dir))), 100%);
+  color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%);
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog table.hr-zones tr td {
+  padding: 0.3em 0.8em;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .perf-promo {
+  padding: 2rem;
+  background-color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (50% * var(--sauce-fg-shade-dir))), 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1 0 auto;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .perf-promo .btn.zoom-out {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  font-size: 2em;
+  color: #eee;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .perf-promo:not(.expanded) .btn.zoom-out {
+  display: none;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .perf-promo:not(.expanded) .slides img {
+  cursor: zoom-in;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .perf-promo.expanded {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  background-color: #000d;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .perf-promo.expanded .btn.enable {
+  display: none;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .perf-promo.expanded .slides img {
+  cursor: zoom-out;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .perf-promo .slides {
+  position: relative;
+  overflow: hidden;
+  line-height: 0;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .perf-promo .slides > img {
+  width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 0.3em;
+  box-shadow: 1px 1px 3px hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (20% * var(--sauce-fg-shade-dir))), 0.3);
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .perf-promo .slides > img:not(.selected) {
+  display: none;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .perf-promo .slides .nav-left,
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .perf-promo .slides .nav-right {
+  position: absolute;
+  width: 30%;
+  height: 100%;
+  top: 0;
+  background-color: #0005;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 100ms;
+  z-index: 2;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .perf-promo .slides .nav-left.hidden,
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .perf-promo .slides .nav-right.hidden {
+  display: none;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .perf-promo .slides .nav-left:hover,
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .perf-promo .slides .nav-right:hover {
+  opacity: 0.8;
+  visibility: visible;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .perf-promo .slides .nav-left:active,
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .perf-promo .slides .nav-right:active {
+  opacity: 1;
+  box-shadow: 0 0 5px #0003 inset;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .perf-promo .slides .nav-left svg[data-icon],
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .perf-promo .slides .nav-right svg[data-icon] {
+  color: white;
+  width: 1em;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .perf-promo .slides .nav-left {
+  left: 0;
+  cursor: w-resize;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .perf-promo .slides .nav-right {
+  right: 0;
+  cursor: e-resize;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .perf-promo .slides .nav-placement {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 1em;
+  pointer-events: none;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .perf-promo .slides .nav-placement .bubble {
+  margin: 0 0.15em;
+  width: 0.65em;
+  height: 0.65em;
+  background-color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (5% * var(--sauce-fg-shade-dir))), 100%);
+  border-radius: 50%;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .perf-promo .slides .nav-placement .bubble:not(.selected) {
+  opacity: 0.3;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .perf-promo .btn.enable {
+  margin: 1em 0;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .sauce-key-value .entry {
+  padding: 0.5em 1.2em;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .sauce-key-value .entry:not(.block) {
+  display: flex;
+  align-items: center;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .sauce-key-value .entry.synced value {
+  display: inline-flex;
+  flex-direction: column;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .sauce-key-value .entry.mutable-data-view {
+  font-size: 0.96em;
+  margin: 1em 0.5em;
+  border: solid 1px hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (15% * var(--sauce-bg-shade-dir))), 100%);
+  border-radius: 0.28em;
+  background: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (0% * var(--sauce-bg-shade-dir))), 100%);
+  padding: 0;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .sauce-key-value .entry.mutable-data-view:last-child {
+  margin-bottom: 0;
+}
+.ui-dialog.sauce-dialog.sauce-sync-athlete-dialog .sauce-key-value .entry.mutable-data-view .mutable-data-entries {
+  margin-bottom: 0;
+}
+.ui-dialog.sauce-dialog.sauce-peaks-settings-dialog .ui-dialog-content {
+  padding: 0.5em;
+}
+.ui-dialog.sauce-dialog.sauce-peaks-settings-dialog .ui-dialog-content section {
+  margin: 0.3rem 0.3rem 0.6rem;
+  padding: 0.8em;
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (5% * var(--sauce-bg-shade-dir))), 100%);
+  border-radius: 0.28em;
+  border: 1px solid hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (30% * var(--sauce-fg-shade-dir))), 0.2);
+}
+.ui-dialog.sauce-dialog.sauce-peaks-settings-dialog .ui-dialog-content .cols {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.ui-dialog.sauce-dialog.sauce-peaks-settings-dialog .ui-dialog-content .times, .ui-dialog.sauce-dialog.sauce-peaks-settings-dialog .ui-dialog-content .dists {
+  flex: 1 1 0;
+  min-width: 240px;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0.3rem;
+}
+.ui-dialog.sauce-dialog.sauce-peaks-settings-dialog .ui-dialog-content .times .mutable-data-view, .ui-dialog.sauce-dialog.sauce-peaks-settings-dialog .ui-dialog-content .dists .mutable-data-view {
+  padding: 0.3em;
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (3% * var(--sauce-bg-shade-dir))), 100%);
+  border-radius: 0.28em;
+  border: 1px solid hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (30% * var(--sauce-fg-shade-dir))), 0.2);
+}
+.ui-dialog.sauce-dialog.sauce-peaks-settings-dialog .ui-dialog-content .times .mutable-data-entries, .ui-dialog.sauce-dialog.sauce-peaks-settings-dialog .ui-dialog-content .dists .mutable-data-entries {
+  max-height: initial;
+}
+.ui-dialog.sauce-dialog.sauce-peaks-settings-dialog .ui-dialog-content .times .mutable-data-entries input, .ui-dialog.sauce-dialog.sauce-peaks-settings-dialog .ui-dialog-content .dists .mutable-data-entries input {
+  width: 10ch;
+}
+.ui-dialog.sauce-dialog.sauce-peaks-settings-dialog .ui-dialog-content .btn.reset,
+.ui-dialog.sauce-dialog.sauce-peaks-settings-dialog .ui-dialog-content .btn.save {
+  margin-top: 0.4em;
+}
+.ui-dialog.sauce-dialog.sauce-peaks-settings-dialog .ui-dialog-content .btn.reset.hidden,
+.ui-dialog.sauce-dialog.sauce-peaks-settings-dialog .ui-dialog-content .btn.save.hidden {
+  display: none !important;
+}
+.ui-dialog.sauce-dialog .ui-dialog-titlebar {
+  min-height: 0;
+  background-image: linear-gradient(180deg, hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (-8% * var(--sauce-accent-shade-dir))), 100%) 0%, hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (-20% * var(--sauce-accent-shade-dir))), 100%) 100%);
+  padding: 0.4em 0.7em;
+}
+.ui-dialog.sauce-dialog .ui-dialog-titlebar .ui-dialog-title {
+  color: hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (70% * var(--sauce-accent-shade-dir))), 100%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1em;
+}
+.ui-dialog.sauce-dialog .ui-dialog-titlebar .ui-dialog-title .title-label {
+  flex: 1 1 auto;
+}
+.ui-dialog.sauce-dialog .ui-dialog-titlebar .ui-dialog-title .title-icon {
+  flex: 0 0 auto;
+  display: flex;
+}
+.ui-dialog.sauce-dialog .ui-dialog-titlebar .ui-dialog-title .title-icon img, .ui-dialog.sauce-dialog .ui-dialog-titlebar .ui-dialog-title .title-icon svg {
+  height: 1.2em;
+  object-fit: contain;
+}
+.ui-dialog.sauce-dialog .ui-widget-header {
+  font-size: 1.1em;
+}
+.ui-dialog.sauce-dialog .ui-dialog-titlebar-close {
+  display: none;
+}
+.ui-dialog.sauce-dialog .ui-dialog-buttonpane {
+  margin: 0;
+  padding: 0.4em;
+}
+.ui-dialog.sauce-dialog .ui-dialog-buttonpane button,
+.ui-dialog.sauce-dialog .ui-dialog-buttonpane .btn {
+  min-height: unset;
+  border-radius: 0.25em;
+  padding: 0.5em 0.8em;
+  margin: 0.3em;
+  font-size: 0.85em;
+}
+.ui-dialog.sauce-dialog footer {
+  margin-top: 1em;
+  font-size: 0.9em;
+}
+
+@media only screen and (max-width: 600px) {
+  .ui-dialog.sauce-dialog {
+    width: 100vw !important;
+    height: 100vh !important;
+    max-width: 100vw !important;
+    max-height: 100vh !important;
+    top: 0 !important;
+    left: 0 !important;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 0;
+  }
+  .ui-dialog.sauce-dialog .ui-dialog-buttonpane {
+    font-size: 1.1em;
+  }
+  .ui-dialog.sauce-dialog .ui-resizable-handle {
+    display: none !important;
+  }
+  .ui-dialog.sauce-dialog form.sauce-key-value .entry.mutable-data-view {
+    margin: 1em 0 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    background: unset !important;
+  }
+  .ui-dialog.sauce-dialog form.sauce-key-value .entry.mutable-data-view .mutable-data-entries {
+    max-height: initial !important;
+    padding: 1em 0 !important;
+  }
+  .ui-dialog.sauce-dialog form.sauce-key-value .entry.mutable-data-view .mutable-data-entries .mutable-data-entry {
+    padding: 0.4em 0 !important;
+  }
+}
+.sauce-sync-button {
+  padding: 0 0.8em;
+  border: 1px solid hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (30% * var(--sauce-fg-shade-dir))), 0.2);
+}
+.sauce-sync-button .sauce-sync-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.9;
+  position: relative;
+  transition: opacity 100ms;
+}
+.sauce-sync-button .sauce-sync-icon:hover {
+  opacity: 1;
+}
+.sauce-sync-button .sauce-sync-icon svg[data-icon=sync-alt] {
+  width: 1.4em;
+}
+.sauce-sync-button .sauce-sync-icon svg[data-icon=check] {
+  width: 0.65em;
+  position: absolute;
+}
+.sauce-sync-button:not(.enabled) .sauce-sync-icon svg[data-icon=sync-alt] {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (20% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-sync-button:not(.enabled) .sauce-sync-icon svg[data-icon=check] {
+  display: none;
+}
+.sauce-sync-button.enabled .sauce-sync-icon svg[data-icon=sync-alt] {
+  color: #ee5c13;
+}
+.sauce-sync-button.enabled .sauce-sync-icon svg[data-icon=check] {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), var(--sauce-fg-light), 100%);
+}
+.sauce-sync-button.sync-active .sauce-sync-icon svg[data-icon=sync-alt] {
+  animation: rotation 3s infinite steps(90);
+}
+.sauce-sync-button.sync-active .sauce-sync-icon svg[data-icon=check] {
+  display: none;
+}
+.sauce-sync-button .sauce-sync-status:not(:empty) {
+  margin-left: 1em;
+}
+.sauce-sync-button .sauce-sync-status {
+  font-size: 0.8em;
+}
+
+:not(.follow-action) > .sauce-sync-button {
+  margin-top: 1em;
+}

@@ -1,0 +1,99 @@
+<div class="peak-controls">
+    <select name="type">
+        <option value="power" {{prefs.type === 'power' ? 'selected' : ''}}>Power</option>
+        <option value="power_wkg" {{prefs.type === 'power_wkg' ? 'selected' : ''}}>Power (w/kg)</option>
+        <option value="np" {{prefs.type === 'np' ? 'selected' : ''}}>NP</option>
+        <option value="xp" {{prefs.type === 'xp' ? 'selected' : ''}}>xPower</option>
+        <option value="pace" {{prefs.type === 'pace' ? 'selected' : ''}}>Pace</option>
+        <option value="gap" {{prefs.type === 'gap' ? 'selected' : ''}}>GAP</option>
+        <option value="hr" {{prefs.type === 'hr' ? 'selected' : ''}}>Heartrate</option>
+    </select>
+    <% if (['pace', 'gap'].includes(prefs.type)) { %>
+        <select name="distance">
+            <option value="400" {{prefs.distance === 400 ? 'selected' : ''}}>{{humanRaceDistance(400)}}</option>
+            <option value="1000" {{prefs.distance === 1000 ? 'selected' : ''}}>{{humanRaceDistance(1000)}}</option>
+            <option value="{{mile}}" {{prefs.distance === mile ? 'selected' : ''}}>{{humanRaceDistance(mile)}}</option>
+            <option value="5000" {{prefs.distance === 5000 ? 'selected' : ''}}>{{humanRaceDistance(5000)}}</option>
+            <option value="10000" {{prefs.distance === 10000 ? 'selected' : ''}}>{{humanRaceDistance(10000)}}</option>
+            <option value="{{mile * 13.1}}" {{prefs.distance === mile * 13.1 ? 'selected' : ''}}>{{humanRaceDistance(mile * 13.1)}}</option>
+            <option value="{{mile * 26.2}}" {{prefs.distance === mile * 26.2 ? 'selected' : ''}}>{{humanRaceDistance(mile * 26.2)}}</option>
+            <option value="50000" {{prefs.distance === 50000 ? 'selected' : ''}}>{{humanRaceDistance(50000)}}</option>
+        </select>
+    <% } else { %>
+        <select name="time">
+            <option value="5" {{prefs.time === 5 ? 'selected' : ''}}>{{humanDuration(5)}}</option>
+            <option value="15" {{prefs.time === 15 ? 'selected' : ''}}>{{humanDuration(15)}}</option>
+            <option value="30" {{prefs.time === 30 ? 'selected' : ''}}>{{humanDuration(30)}}</option>
+            <option value="60" {{prefs.time === 60 ? 'selected' : ''}}>{{humanDuration(60)}}</option>
+            <option value="120" {{prefs.time === 120 ? 'selected' : ''}}>{{humanDuration(120)}}</option>
+            <option value="300" {{prefs.time === 300 ? 'selected' : ''}}>{{humanDuration(300)}}</option>
+            <option value="600" {{prefs.time === 600 ? 'selected' : ''}}>{{humanDuration(600)}}</option>
+            <option value="1200" {{prefs.time === 1200 ? 'selected' : ''}}>{{humanDuration(1200)}}</option>
+            <option value="1800" {{prefs.time === 1800 ? 'selected' : ''}}>{{humanDuration(1800)}}</option>
+            <option value="3600" {{prefs.time === 3600 ? 'selected' : ''}}>{{humanDuration(3600)}}</option>
+        </select>
+    <% } %>
+
+    <select name="limit">
+        <option value="10" {{prefs.limit === 10 ? 'selected' : ''}}>Top 10</option>
+        <option value="25" {{prefs.limit === 25 ? 'selected' : ''}}>Top 25</option>
+        <option value="100" {{prefs.limit === 100 ? 'selected' : ''}}>Top 100</option>
+        <option value="500" {{prefs.limit === 500 ? 'selected' : ''}}>Top 500</option>
+        <option value="0" {{prefs.limit === 0 ? 'selected' : ''}}>All Results</option>
+    </select>
+
+    <label>
+        <input type="checkbox" name="include-all-athletes" {{prefs.includeAllAthletes ? 'checked' : ''}}/>
+        All Athletes
+    </label>
+
+    <label>
+        <input type="checkbox" name="include-all-dates" {{prefs.includeAllDates ? 'checked' : ''}}/>
+        All Dates
+    </label>
+</div>
+
+<div class="results">
+    <table class="sauce-perf">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Value</th>
+                <% if (prefs.includeAllAthletes) { %>
+                    <th>Athlete</th>
+                <% } %>
+                <th>Activity</th>
+                <th>Type</th>
+                <th>Date</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% let i = 1; %>
+            <% for (const x of peaks.filter(x => x.activity)) { %>
+                <tr data-id="{{x.activity.id}}" title="Click to view details">
+                    <td>{{humanNumber(i++)}}</td>
+                    <td>{{valueFormatter(x.value)}}<abbr class="unit short">{{unit}}</abbr></td>
+                    <% if (prefs.includeAllAthletes) { %>
+                        <td>{{await athleteName(x.activity.athlete)}}</td>
+                    <% } %>
+                    <td class="activity-name">
+                        <div class="name-container">
+                            <a href="https://www.strava.com/activities/{{x.activity.id}}/analysis/{{x.start}}/{{x.end}}"
+                               title="{{x.activity.name}}{{x.activity.description ? '\n\n' + x.activity.description : ''}}">{{x.activity.name}}</a>
+                        </div>
+                    </td>
+                    <td>{{x.activityType}}</td>
+                    <td>{{humanDate(x.activity.ts)}}</td>
+                    <td>
+                        <div class="btn btn-icon-only btn-unstyled edit-activity"
+                             data-id="{{x.activity.id}}"
+                             title="Edit activity">{-await fa('edit-duotone')-}</div>
+                    </td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+</div>
+
+<div class="resize-drag">{-await fa('grip-lines-light')-}</div>

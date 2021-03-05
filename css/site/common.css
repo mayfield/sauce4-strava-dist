@@ -1,0 +1,61 @@
+.sauce-enabled .main .feed-container .feed {
+  display: flex;
+  flex-direction: column;
+}
+.sauce-enabled.sauce-hide-dashboard-media .main .feed-container .feed .card .entry-media {
+  display: none !important;
+}
+.sauce-enabled.sauce-hide-dashboard-images .main .feed-container .feed .card .entry-images {
+  display: none !important;
+}
+.sauce-enabled .card.hidden-by-sauce {
+  display: none !important;
+}
+.sauce-enabled #smartbanner-orion {
+  display: none !important;
+}
+.sauce-enabled .lightbox.external_photo .photo-view .lightbox-more-controls button.sauce-download .app-icon.sauce-download-icon {
+  filter: invert(1);
+}
+.sauce-enabled li.sauce-options-menu-item a {
+  color: hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (60% * var(--sauce-accent-shade-dir))), 100%) !important;
+  background-color: hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (5% * var(--sauce-accent-shade-dir))), 100%);
+}
+.sauce-enabled li.sauce-options-menu-item a:hover {
+  background-color: hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (0% * var(--sauce-accent-shade-dir))), 100%);
+}
+.sauce-enabled li.sauce-options-menu-item a img {
+  height: 12px;
+  transform: rotate(-50deg);
+  margin-left: 0.6em;
+}
+.sauce-enabled.sauce-hide-upsells .js-snw-goals-upsell,
+.sauce-enabled.sauce-hide-upsells .user-nav .nav-item.upgrade,
+.sauce-enabled.sauce-hide-upsells #segments-upsell,
+.sauce-enabled.sauce-hide-upsells .upsell-others,
+.sauce-enabled.sauce-hide-upsells .seg-leaderboard-upsell,
+.sauce-enabled.sauce-hide-upsells .leaderboards-upsell,
+.sauce-enabled.sauce-hide-upsells .recent-efforts-upsell {
+  display: none !important;
+}
+.sauce-enabled .sauce-positive {
+  color: var(--sauce-positive) !important;
+}
+.sauce-enabled .sauce-negative {
+  color: var(--sauce-negative) !important;
+}
+.sauce-enabled .sauce-swapped-background a,
+.sauce-enabled .sauce-swapped-background a:link,
+.sauce-enabled .sauce-swapped-background a:visited {
+  color: hsla(var(--sauce-accent4-hue), var(--sauce-accent4-sat), calc(var(--sauce-accent4-light) + (-10% * var(--sauce-accent4-shade-dir))), 100%);
+}
+.sauce-enabled .sauce-swapped-background a:hover,
+.sauce-enabled .sauce-swapped-background a:link:hover,
+.sauce-enabled .sauce-swapped-background a:visited:hover {
+  color: hsla(var(--sauce-accent4-hue), var(--sauce-accent4-sat), calc(var(--sauce-accent4-light) + (-20% * var(--sauce-accent4-shade-dir))), 100%);
+}
+.sauce-enabled .sauce-swapped-background a:active,
+.sauce-enabled .sauce-swapped-background a:link:active,
+.sauce-enabled .sauce-swapped-background a:visited:active {
+  color: hsla(var(--sauce-accent4-hue), var(--sauce-accent4-sat), calc(var(--sauce-accent4-light) + (0% * var(--sauce-accent4-shade-dir))), 100%);
+}

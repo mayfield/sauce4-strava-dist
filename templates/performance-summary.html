@@ -1,0 +1,193 @@
+<% if (obj.athlete) { %>
+    <section class="overview {{collapsed.overview === true ? 'collapsed' : ''}}"
+             data-id="overview">
+        <header>
+            <i class="icon">{-await fa('info-circle-duotone')-}</i>
+            <div class="title">Overview<!--XXX Localize--></div>
+            <a class="view-control collapser">{-await fa('minus-square-duotone')-}</a>
+            <a class="view-control expander">{-await fa('plus-square-duotone')-}</a>
+        </header>
+
+        <% if (totalTime && weeklyTime) { %>
+            <row class="full">
+                <header>Time:</header>
+                <div class="backdrop-icon">{-await fa('watch-duotone')-}</div>
+                <h2>{-humanDuration(totalTime, {maxPeriod: 3600, precision: 3600, html: true})-}</h2>
+                <h3>
+                    {-humanDuration(weeklyTime, {maxPeriod: 3600, minPeriod: 3600, digits: 1, html: true})-}
+                    <abbr class="unit">/ week</abbr>
+                </h3>
+            </row>
+        <% } %>
+
+        <% if (totalDistance && weeklyDistance) { %>
+            <row class="full">
+                <header>Distance:</header>
+                <div class="backdrop-icon">{-await fa('road-duotone')-}</div>
+                <h2>{-humanDistance(totalDistance, 0, {html: true})-}</h2>
+                <h3>
+                    {-humanDistance(weeklyDistance, undefined, {html: true})-}
+                    <abbr class="unit"> / week</abbr>
+                </h3>
+            </row>
+        <% } %>
+
+        <% if (totalAltGain && weeklyAltGain) { %>
+            <row class="full">
+                <header>Elevation:</header>
+                <div class="backdrop-icon">{-await fa('mountains-duotone')-}</div>
+                <h2>{-humanElevation(totalAltGain, {html: true})-}</h2>
+                <h3>
+                    {-humanElevation(weeklyAltGain, {html: true})-}
+                    <abbr class="unit"> / week</abbr>
+                </h3>
+            </row>
+        <% } %>
+
+        <% if (mostFreqType) { %>
+            <row class="full">
+                <header>Activities:</header>
+                <% if (Math.round(mostFreqType.pct * 100) < 100) { %>
+                    <div class="cols">
+                        <h2>{{humanNumber(mostFreqType.pct * 100)}}<abbr class="unit">%
+                                {{mostFreqType.type}}s</abbr></h2>
+                        <div class="counts-piechart"></div>
+                    </div>
+                <% } else { %>
+                    <div class="backdrop-icon">
+                        <% if (mostFreqType.type === 'ride') { %>
+                            {-await fa('biking-duotone')-}
+                        <% } else if (mostFreqType.type === 'run') { %>
+                            {-await fa('running-duotone')-}
+                        <% } else if (mostFreqType.type === 'swim') { %>
+                            {-await fa('swimmer-duotone')-}
+                        <% } else if (mostFreqType.type === 'ski') { %>
+                            {-await fa('skiing-nordic-duotone')-}
+                        <% } else if (mostFreqType.type === 'workout') { %>
+                            {-await fa('fire-alt-duotone')-}
+                        <% } %>
+                    </div>
+                    <h2>100<abbr class="unit">% {{mostFreqType.type}}s</abbr></h2>
+                <% } %>
+            </row>
+        <% } %>
+    </section>
+
+    <section class="training {{collapsed.training === true ? 'collapsed' : ''}}"
+             data-id="training">
+        <header>
+            <i class="icon">{-await fa('transporter-1-duotone')-}</i>
+            <div class="title">Training<!--XXX Localize--></div>
+            <a class="view-control collapser">{-await fa('minus-square-duotone')-}</a>
+            <a class="view-control expander">{-await fa('plus-square-duotone')-}</a>
+        </header>
+
+        <% if (missingTSS.length) { %>
+            <row class="warning">
+                <key>{-await fa('exclamation-triangle-duotone')-}Missing TSS:</key><!--XXX localize-->
+                <value><a href="javascript:void(0);" class="missing-tss">{{missingTSS.length}} activities</a></value><!--XXX localize-->
+            </row>
+        <% } %>
+
+        <% if (tssAvg) { %>
+            <row>
+                <key>Avg TSS:</key><!--XXX localize-->
+                <value>{{humanNumber(tssAvg)}}</value>
+            </row>
+        <% } %>
+        <row>
+            <key>Active days:</key><!--XXX localize-->
+            <value>{{humanNumber(activeDays)}}</value>
+        </row>
+        <% if (maxCTL >= 0) { %>
+            <row>
+                <key>Peak fitness:</key><!--XXX localize-->
+                <value>{{humanNumber(maxCTL)}} <abbr class="unit">CTL</abbr></value>
+            </row>
+        <% } %>
+        <% if (minTSB < Infinity) { %>
+            <row>
+                <key>Least form:</key><!--XXX localize-->
+                <value>{{humanNumber(minTSB)}} <abbr class="unit">TSB</abbr></value>
+            </row>
+        <% } %>
+    </section>
+
+    <section class="highlights {{collapsed.highlights === true ? 'collapsed' : ''}}"
+             data-id="highlights">
+        <header>
+            <i class="icon">{-await fa('medal-duotone')-}</i>
+            <div class="title">Best Performances<!--XXX Localize--></div>
+            <a class="view-control collapser">{-await fa('minus-square-duotone')-}</a>
+            <a class="view-control expander">{-await fa('plus-square-duotone')-}</a>
+        </header>
+
+        <!--XXX Localize-->
+        <select name="type">
+            <option value="power" {{type === 'power' ? 'selected' : ''}}>Power</option>
+            <option value="power_wkg" {{type === 'power_wkg' ? 'selected' : ''}}>Power (w/kg)</option>
+            <option value="np" {{type === 'np' ? 'selected' : ''}}>NP</option>
+            <option value="xp" {{type === 'xp' ? 'selected' : ''}}>xPower</option>
+            <option value="pace" {{type === 'pace' ? 'selected' : ''}}>Pace</option>
+            <option value="gap" {{type === 'gap' ? 'selected' : ''}}>GAP</option>
+            <option value="hr" {{type === 'hr' ? 'selected' : ''}}>Heartrate</option>
+        </select>
+
+        <% for (const x of peaks) { %>
+            <row>
+                <key>{{x.key}}:</key>
+                <value><a href="javascript:void(0);"
+                          data-id="{{x.activity}}">{{x.prettyValue}}<% if (x.unit) { %><abbr
+                              class="unit short">{{x.unit}}</abbr><% } %></a></value>
+            </row>
+        <% } %>
+    </section>
+
+    <section class="sync-stats {{collapsed.sync_stats === true  ? 'collapsed' : ''}}"
+             data-id="sync_stats">
+        <header>
+            <i class="icon">{-await fa('sync-alt-duotone')-}</i>
+            <div class="title">Activity Sync<!--XXX Localize--></div>
+            <a class="view-control collapser">{-await fa('minus-square-duotone')-}</a>
+            <a class="view-control expander">{-await fa('plus-square-duotone')-}</a>
+        </header>
+        <% if (sync.active) { %>
+            <row>
+                <key>Status:</key><!--XXX localize-->
+                <value>{{sync.status}}</value>
+            </row>
+        <% } %>
+        <% if (sync.error) { %>
+            <row>
+                <key>Last Error:</key><!--XXX localize-->
+                <value>{{sync.error}}</value>
+            </row>
+        <% } %>
+        <% if (sync.counts) { %>
+            <row>
+                <key>Activities:</key><!--XXX localize-->
+                <value>{{humanNumber(sync.counts.total)}}</value>
+            </row>
+            <row>
+                <key>Imported:</key><!--XXX localize-->
+                <value>{{humanNumber(sync.counts.imported)}}</value>
+            </row>
+            <row>
+                <key>Remaining:</key><!--XXX localize-->
+                <value>{{humanNumber(sync.counts.total - sync.counts.unavailable - sync.counts.imported)}}</value>
+            </row>
+            <row>
+                <key>Unavailable:</key><!--XXX localize-->
+                <value>{{humanNumber(sync.counts.unavailable)}}</value>
+            </row>
+            <row>
+                <key>Processed:</key><!--XXX localize-->
+                <value>{{humanNumber(sync.counts.processed)}}</value>
+            </row>
+            <row>
+                <key>Unprocessable:</key><!--XXX localize-->
+                <value>{{humanNumber(sync.counts.unprocessable)}}</value>
+            </row>
+        <% } %>
+    </section>
+<% } %>

@@ -1,0 +1,238 @@
+<div class="sauce-brand-sidebar">
+    <div class="sauce-label sauce-title">Sauce</div>
+    <div class="sauce-logo"><img src="{{logo}}"/></div>
+</div>
+
+<div class="expander">
+    <div class="icon expand" title="{{{expand_tooltip}}}">{-await fa('angle-double-down-solid')-}</div>
+    <div class="icon compress" title="{{{compress_tooltip}}}">{-await fa('angle-double-up-solid')-}</div>
+</div>
+
+<div class="sauce-data-tuple">
+    <line class="heading" title="{{{active_time_tooltip}}}">
+        <key>{{{active}}}</key>
+        <value>{{active}}</value>
+    </line>
+
+    <% if (obj.pace) { %>
+        <% if (isSpeed) { %>
+            <line title="{{{active_speed_tooltip}}}">
+                <key>{{{speed}}}</key>
+        <% } else { %>
+            <line title="{{{active_pace_tooltip}}}">
+                <key>{{{pace}}}</key>
+        <% } %>
+            <value>{{pace.active}}<abbr class="unit">{{paceUnit}}</abbr></value>
+        </line>
+    
+        <% if (pace.gap) { %>
+            <line title="{{{gap_tooltip}}}">
+                <key>{{{gap}}}</key>
+                <value>{{pace.gap}}<abbr class="unit">{{paceUnit}}</abbr></value>
+            </line>
+        <% } %>
+    <% } %>
+
+    <% if (elapsed !== active) { %>
+        <line title="{{{elapsed_time_tooltip}}}">
+            <key>{{{elapsed}}}</key>
+            <value>{{elapsed}}</value>
+        </line>
+    <% } %>
+
+    <% if (obj.stops) { %>
+        <line>
+            <key>{{{stops}}}</key>
+            <value>{{stops}}</value>
+        </line>
+    <% } %>
+</div>
+
+<% if (obj.power) { %>
+    <div class="sauce-data-divider"></div>
+    <div class="sauce-data-tuple">
+        <line class="heading" title="{{{active_power_tooltip}}}">
+            <key>{{{power}}}</key>
+            <value>
+                {{power.estimate ? '~' : ''}}{{humanNumber(power.activeAvg)}}<abbr class="unit">w</abbr>
+            </value>
+        </line>
+
+        <% if (power.activeWKg) { %>
+            <line title="{{{wkg_tooltip}}}">
+                <key>{{{watts}}}/kg</key>
+                <value>{{humanNumber(power.activeWKg, 1)}}</value>
+            </line>
+        <% } %>
+
+        <% if (obj.power.np) { %>
+            <line title="{{{np_tooltip}}}">
+                <key>NP®</key>
+                <value>{{humanNumber(power.np)}}<abbr class="unit">w</abbr></value>
+            </line>
+        <% } %>
+
+        <% if (obj.power.xp) { %>
+            <line title="{{{xp_tooltip}}}">
+                <key>xPower</key>
+                <value>{{humanNumber(power.xp)}}<abbr class="unit">w</abbr></value>
+            </line>
+        <% } %>
+
+        <% if (power.elapsedAvg && Math.round(power.elapsedAvg) !== Math.round(power.activeAvg)) { %>
+            <line title="{{{elapsed_power_tooltip}}}">
+                <key>{{{elapsed}}}</key>
+                <value>{{power.estimate ? '~' : ''}}{{humanNumber(power.elapsedAvg)}}<abbr class="unit">w</abbr></value>
+            </line>
+        <% } %>
+
+        <% if (obj.power.activeSP) { %>
+            <line title="{{{sp_tooltip}}}">
+                <key>SP</key>
+                <value>{{humanNumber(power.activeSP)}}<abbr class="unit">w</abbr>
+                    <sup class="sauce-positive"
+                         title="{{{sp_adjust_tooltip}}}">+{{humanNumber((power.activeSPAdjust - 1) * 100, 1)}}%</sup>
+                </value>
+            </line>
+        <% } %>
+    </div>
+<% } %>
+
+<% if (obj.energy) { %>
+    <div class="sauce-data-divider"></div>
+    <div class="sauce-data-tuple">
+        <line class="heading" title="{{{energy_tooltip}}}">
+            <key>{{{energy}}}</key>
+            <value>{{humanNumber(energy.kj)}}<abbr class="unit">kJ</abbr></value>
+        </line>
+
+        <line title="{{{energy_rate_tooltip}}}">
+            <key>{{{rate}}}</key>
+            <value>{{humanNumber(energy.kjHour)}}<abbr class="unit">kJ/h</abbr></value>
+        </line>
+
+        <% if (energy.tss) { %>
+            <line title="{{{tss_tooltip}}}">
+                <key>TSS®</key>
+                <value>{{humanNumber(energy.tss)}}</value>
+            </line>
+        <% } else if (energy.tTss) { %>
+            <line title="{{{trimp_tss_tooltip}}}">
+                <key>tTSS®</key>
+                <value>{{humanNumber(energy.tTss)}}</value>
+            </line>
+        <% } %>
+
+
+        <% if (energy.intensity) { %>
+            <line title="{{{intensity_tooltip}}}">
+                <key>IF®</key>
+                <value>{{humanNumber(energy.intensity * 100)}}<abbr class="unit">%</abbr></value>
+            </line>
+        <% } %>
+
+    </div>
+<% } %>
+
+<% if (obj.elevation &&
+       (elevation.gain ||
+        elevation.loss ||
+        (elevation.grade && Math.abs(elevation.grade) >= 1) ||
+        (elevation.vam && elevation.vam >= 1))) { %>
+    <div class="sauce-data-divider"></div>
+    <div class="sauce-data-tuple">
+        <line class="heading">
+            <key>{{{elevation}}}</key>
+            <value title="{{{elevation_avg_tooltip}}}">~{{elevation.avg}}<abbr class="unit">{{elUnit}}</abbr></value>
+        </line>
+
+        <% if (elevation.vam && elevation.vam >= 1) { %>
+            <line title='"Velocità Ascensionale Media": {{{vam_tooltip}}}'>
+                <key>VAM</key>
+                <value>
+                    {{humanNumber(elevation.vam)}}<abbr class="unit">Vm/h</abbr>
+                </value>
+            </line>
+        <% } %>
+
+        <% if (elevation.gain && elevation.loss && elevation.grade < -1) { %>
+            <line title="{{{elevation_loss_tooltip}}}">
+                <key>{{{loss}}}</key>
+                <value>
+                    <span class="sauce-negative">
+                        -{{elevation.loss}}<abbr class="unit">{{elUnit}}</abbr>
+                    </span>
+                </value>
+            </line>
+            <line title="{{{elevation_gain_tooltip}}}">
+                <key>{{{gain}}}</key>
+                <value>
+                    <span class="sauce-positive">
+                        +{{elevation.gain}}<abbr class="unit">{{elUnit}}</abbr>
+                    </span>
+                </value>
+            </line>
+        <% } else { %>
+            <% if (elevation.gain) { %>
+                <line title="{{{elevation_gain_tooltip}}}">
+                    <key>{{{gain}}}</key>
+                    <value>
+                        <span class="sauce-positive">
+                            +{{elevation.gain}}<abbr class="unit">{{elUnit}}</abbr>
+                        </span>
+                    </value>
+                </line>
+            <% } %>
+
+            <% if (elevation.loss) { %>
+                <line title="{{{elevation_loss_tooltip}}}">
+                    <key>{{{loss}}}</key>
+                    <value>
+                        <span class="sauce-negative">
+                            -{{elevation.loss}}<abbr class="unit">{{elUnit}}</abbr>
+                        </span>
+                    </value>
+                </line>
+            <% } %>
+        <% } %>
+    </div>
+<% } %>
+
+<div class="sauce-data-divider"></div>
+<div class="sauce-data-tuple">
+    <line class="heading">
+        <key>{{{data}}}</key>
+        <value>{{samples.toLocaleString()}} {{{samples}}}</value>
+    </line>
+
+    <% if (supportsPerfPredictor) { %>
+        <line>
+            <key/>
+            <value><a class="sauce-perf-predictor">Perf Predictor</a></value>
+        </line>
+    <% } %>
+
+    <line>
+        <key>{{{view}}}</key>
+        <value><a class="sauce-raw-data">{{{raw}}}</a> | <a class="sauce-graph-data">{{{graphs}}}</a></value>
+    </line>
+
+    <line>
+        <key>{{{export}}}</key>
+        <value><a class="sauce-export-tcx">TCX</a> | <a class="sauce-export-gpx">GPX</a></value>
+    </line>
+</div>
+
+<% if (supportsRankBadge && obj.power && !power.estimate && power.rank && power.rank.level > 0) { %>
+    <div class="sauce-data-divider"></div>
+    <div class="sauce-data-tuple sauce-rank-badge">
+        <line class="heading">
+            <key>{{{rank}}}</key>
+            <value>{{humanNumber(power.rank.level * 100, 1)}}%</value>
+        </line>
+        <% if (power.rank.badge) { %>
+            <img src="{{power.rank.badge}}" class="sauce-rank"
+                 title="{{{ranking_tooltip}}}: {{humanNumber(power.rank.level * 100, 1)}}%"/>
+        <% } %>
+    </div>
+<% } %>

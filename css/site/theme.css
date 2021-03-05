@@ -1,0 +1,2350 @@
+@font-face {
+  font-family: "RetroSans";
+  font-weight: 300;
+  src: url("fonts/Roboto-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "RetroSans";
+  font-weight: 400;
+  src: url("fonts/Roboto-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "RetroSans";
+  font-weight: 700;
+  src: url("fonts/Roboto-Medium.ttf") format("truetype");
+}
+:root {
+  --sauce-bg-hue: 0;
+  --sauce-bg-sat: 0%;
+  --sauce-bg-light: 100%;
+  --sauce-bg-shade-dir: -1;
+  --sauce-fg-hue: 0;
+  --sauce-fg-sat: 0%;
+  --sauce-fg-light: 0%;
+  --sauce-fg-shade-dir: 1;
+  --sauce-accent-hue: 16;
+  --sauce-accent-sat: 100%;
+  --sauce-accent-light: 50%;
+  --sauce-accent-shade-dir: 1;
+  --sauce-accent2-hue: 45;
+  --sauce-accent2-sat: 100%;
+  --sauce-accent2-light: 55%;
+  --sauce-accent2-shade-dir: -1;
+  --sauce-accent3-hue: 212;
+  --sauce-accent3-sat: 64%;
+  --sauce-accent3-light: 40%;
+  --sauce-accent3-shade-dir: 1;
+  --sauce-accent4-hue: 198;
+  --sauce-accent4-sat: 100%;
+  --sauce-accent4-light: 36%;
+  --sauce-accent4-shade-dir: -1;
+  --sauce-ride-hue: 16;
+  --sauce-ride-sat: 80%;
+  --sauce-ride-light: 70%;
+  --sauce-ride-shade-dir: -1;
+  --sauce-run-hue: 45;
+  --sauce-run-sat: 80%;
+  --sauce-run-light: 70%;
+  --sauce-run-shade-dir: -1;
+  --sauce-swim-hue: 212;
+  --sauce-swim-sat: 64%;
+  --sauce-swim-light: 85%;
+  --sauce-swim-shade-dir: -1;
+  --sauce-other-hue: 0;
+  --sauce-other-sat: 0%;
+  --sauce-other-light: 60%;
+  --sauce-other-shade-dir: -1;
+  --sauce-border-hue: 16;
+  --sauce-border-sat: 100%;
+  --sauce-border-light: 50%;
+  --sauce-border-shade-dir: -1;
+  --sauce-border: 1.5px solid hsla(var(--sauce-border-hue), var(--sauce-border-sat), var(--sauce-border-light), 100%);
+  --sauce-thin-border: 1px solid hsla(var(--sauce-border-hue), var(--sauce-border-sat), var(--sauce-border-light), 50%);
+  --sauce-positive: #0ca10c;
+  --sauce-negative: #cd0000;
+}
+
+.sauce-enabled .sauce-button.button {
+  color: hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (80% * var(--sauce-accent-shade-dir))), 100%) !important;
+  background-image: linear-gradient(to bottom, hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (8% * var(--sauce-accent-shade-dir))), 100%), hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (-2% * var(--sauce-accent-shade-dir))), 100%) 33%, hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (0% * var(--sauce-accent-shade-dir))), 100%));
+  transition: box-shadow 200ms;
+}
+.sauce-enabled .sauce-button.button:hover:not(.disabled) {
+  background-image: linear-gradient(to bottom, hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (2% * var(--sauce-accent-shade-dir))), 100%), hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (-8% * var(--sauce-accent-shade-dir))), 100%) 33%, hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (-6% * var(--sauce-accent-shade-dir))), 100%));
+  box-shadow: 1px 1px 5px hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (10% * var(--sauce-fg-shade-dir))), 0.2);
+}
+.sauce-enabled .sauce-button.button:active:not(.disabled) {
+  box-shadow: 0 0 8px hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (10% * var(--sauce-fg-shade-dir))), 0.5) inset;
+}
+.sauce-enabled .sauce-button.button.disabled {
+  opacity: 0.6;
+  filter: brightness(85%);
+  pointer-events: auto;
+  cursor: not-allowed;
+}
+
+.sauce-theme-enabled body {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), var(--sauce-bg-light), 100%);
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), var(--sauce-fg-light), 100%);
+}
+.sauce-theme-enabled a, .sauce-theme-enabled a:visited, .sauce-theme-enabled a:link {
+  color: hsla(var(--sauce-accent4-hue), var(--sauce-accent4-sat), var(--sauce-accent4-light), 100%);
+}
+.sauce-theme-enabled a:hover {
+  color: hsla(var(--sauce-accent4-hue), var(--sauce-accent4-sat), calc(var(--sauce-accent4-light) + (10% * var(--sauce-accent4-shade-dir))), 100%);
+}
+.sauce-theme-enabled .starred.active .app-icon.icon-star {
+  filter: none !important;
+}
+.sauce-theme-enabled .card {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (8% * var(--sauce-bg-shade-dir))), 100%);
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (8% * var(--sauce-fg-shade-dir))), 100%);
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .card .card-footer,
+.sauce-theme-enabled .card .card-section {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #notifications-button {
+  border: none;
+}
+.sauce-theme-enabled .alert-message {
+  color: #fff;
+}
+.sauce-theme-enabled .alert-message a {
+  color: #fff !important;
+}
+.sauce-theme-enabled .btn,
+.sauce-theme-enabled .button,
+.sauce-theme-enabled button,
+.sauce-theme-enabled input[type=submit],
+.sauce-theme-enabled input[type=button],
+.sauce-theme-enabled input[type=reset],
+.sauce-theme-enabled .selection,
+.sauce-theme-enabled .pagination a,
+.sauce-theme-enabled .pagination span,
+.sauce-theme-enabled .pagination em {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (8% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .btn:not(.btn-unstyled),
+.sauce-theme-enabled .button:not(.btn-unstyled),
+.sauce-theme-enabled button:not(.btn-unstyled),
+.sauce-theme-enabled input[type=submit]:not(.btn-unstyled),
+.sauce-theme-enabled input[type=button]:not(.btn-unstyled),
+.sauce-theme-enabled input[type=reset]:not(.btn-unstyled),
+.sauce-theme-enabled .selection:not(.btn-unstyled),
+.sauce-theme-enabled .pagination a:not(.btn-unstyled),
+.sauce-theme-enabled .pagination span:not(.btn-unstyled),
+.sauce-theme-enabled .pagination em:not(.btn-unstyled) {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (8% * var(--sauce-bg-shade-dir))), 100%);
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .btn:not(.btn-unstyled):hover, .sauce-theme-enabled .btn:not(.btn-unstyled):focus,
+.sauce-theme-enabled .button:not(.btn-unstyled):hover,
+.sauce-theme-enabled .button:not(.btn-unstyled):focus,
+.sauce-theme-enabled button:not(.btn-unstyled):hover,
+.sauce-theme-enabled button:not(.btn-unstyled):focus,
+.sauce-theme-enabled input[type=submit]:not(.btn-unstyled):hover,
+.sauce-theme-enabled input[type=submit]:not(.btn-unstyled):focus,
+.sauce-theme-enabled input[type=button]:not(.btn-unstyled):hover,
+.sauce-theme-enabled input[type=button]:not(.btn-unstyled):focus,
+.sauce-theme-enabled input[type=reset]:not(.btn-unstyled):hover,
+.sauce-theme-enabled input[type=reset]:not(.btn-unstyled):focus,
+.sauce-theme-enabled .selection:not(.btn-unstyled):hover,
+.sauce-theme-enabled .selection:not(.btn-unstyled):focus,
+.sauce-theme-enabled .pagination a:not(.btn-unstyled):hover,
+.sauce-theme-enabled .pagination a:not(.btn-unstyled):focus,
+.sauce-theme-enabled .pagination span:not(.btn-unstyled):hover,
+.sauce-theme-enabled .pagination span:not(.btn-unstyled):focus,
+.sauce-theme-enabled .pagination em:not(.btn-unstyled):hover,
+.sauce-theme-enabled .pagination em:not(.btn-unstyled):focus {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (12% * var(--sauce-bg-shade-dir))), 100%);
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .btn:not(.btn-unstyled):active, .sauce-theme-enabled .btn:not(.btn-unstyled).active,
+.sauce-theme-enabled .button:not(.btn-unstyled):active,
+.sauce-theme-enabled .button:not(.btn-unstyled).active,
+.sauce-theme-enabled button:not(.btn-unstyled):active,
+.sauce-theme-enabled button:not(.btn-unstyled).active,
+.sauce-theme-enabled input[type=submit]:not(.btn-unstyled):active,
+.sauce-theme-enabled input[type=submit]:not(.btn-unstyled).active,
+.sauce-theme-enabled input[type=button]:not(.btn-unstyled):active,
+.sauce-theme-enabled input[type=button]:not(.btn-unstyled).active,
+.sauce-theme-enabled input[type=reset]:not(.btn-unstyled):active,
+.sauce-theme-enabled input[type=reset]:not(.btn-unstyled).active,
+.sauce-theme-enabled .selection:not(.btn-unstyled):active,
+.sauce-theme-enabled .selection:not(.btn-unstyled).active,
+.sauce-theme-enabled .pagination a:not(.btn-unstyled):active,
+.sauce-theme-enabled .pagination a:not(.btn-unstyled).active,
+.sauce-theme-enabled .pagination span:not(.btn-unstyled):active,
+.sauce-theme-enabled .pagination span:not(.btn-unstyled).active,
+.sauce-theme-enabled .pagination em:not(.btn-unstyled):active,
+.sauce-theme-enabled .pagination em:not(.btn-unstyled).active {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (2% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .btn:not(.btn-unstyled)[disabled], .sauce-theme-enabled .btn:not(.btn-unstyled).disabled,
+.sauce-theme-enabled .button:not(.btn-unstyled)[disabled],
+.sauce-theme-enabled .button:not(.btn-unstyled).disabled,
+.sauce-theme-enabled button:not(.btn-unstyled)[disabled],
+.sauce-theme-enabled button:not(.btn-unstyled).disabled,
+.sauce-theme-enabled input[type=submit]:not(.btn-unstyled)[disabled],
+.sauce-theme-enabled input[type=submit]:not(.btn-unstyled).disabled,
+.sauce-theme-enabled input[type=button]:not(.btn-unstyled)[disabled],
+.sauce-theme-enabled input[type=button]:not(.btn-unstyled).disabled,
+.sauce-theme-enabled input[type=reset]:not(.btn-unstyled)[disabled],
+.sauce-theme-enabled input[type=reset]:not(.btn-unstyled).disabled,
+.sauce-theme-enabled .selection:not(.btn-unstyled)[disabled],
+.sauce-theme-enabled .selection:not(.btn-unstyled).disabled,
+.sauce-theme-enabled .pagination a:not(.btn-unstyled)[disabled],
+.sauce-theme-enabled .pagination a:not(.btn-unstyled).disabled,
+.sauce-theme-enabled .pagination span:not(.btn-unstyled)[disabled],
+.sauce-theme-enabled .pagination span:not(.btn-unstyled).disabled,
+.sauce-theme-enabled .pagination em:not(.btn-unstyled)[disabled],
+.sauce-theme-enabled .pagination em:not(.btn-unstyled).disabled {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (5% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .btn:hover, .sauce-theme-enabled .btn:focus,
+.sauce-theme-enabled .button:hover,
+.sauce-theme-enabled .button:focus,
+.sauce-theme-enabled button:hover,
+.sauce-theme-enabled button:focus,
+.sauce-theme-enabled input[type=submit]:hover,
+.sauce-theme-enabled input[type=submit]:focus,
+.sauce-theme-enabled input[type=button]:hover,
+.sauce-theme-enabled input[type=button]:focus,
+.sauce-theme-enabled input[type=reset]:hover,
+.sauce-theme-enabled input[type=reset]:focus,
+.sauce-theme-enabled .selection:hover,
+.sauce-theme-enabled .selection:focus,
+.sauce-theme-enabled .pagination a:hover,
+.sauce-theme-enabled .pagination a:focus,
+.sauce-theme-enabled .pagination span:hover,
+.sauce-theme-enabled .pagination span:focus,
+.sauce-theme-enabled .pagination em:hover,
+.sauce-theme-enabled .pagination em:focus {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (5% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .btn:active, .sauce-theme-enabled .btn.active,
+.sauce-theme-enabled .button:active,
+.sauce-theme-enabled .button.active,
+.sauce-theme-enabled button:active,
+.sauce-theme-enabled button.active,
+.sauce-theme-enabled input[type=submit]:active,
+.sauce-theme-enabled input[type=submit].active,
+.sauce-theme-enabled input[type=button]:active,
+.sauce-theme-enabled input[type=button].active,
+.sauce-theme-enabled input[type=reset]:active,
+.sauce-theme-enabled input[type=reset].active,
+.sauce-theme-enabled .selection:active,
+.sauce-theme-enabled .selection.active,
+.sauce-theme-enabled .pagination a:active,
+.sauce-theme-enabled .pagination a.active,
+.sauce-theme-enabled .pagination span:active,
+.sauce-theme-enabled .pagination span.active,
+.sauce-theme-enabled .pagination em:active,
+.sauce-theme-enabled .pagination em.active {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (12% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .btn[disabled], .sauce-theme-enabled .btn.disabled,
+.sauce-theme-enabled .button[disabled],
+.sauce-theme-enabled .button.disabled,
+.sauce-theme-enabled button[disabled],
+.sauce-theme-enabled button.disabled,
+.sauce-theme-enabled input[type=submit][disabled],
+.sauce-theme-enabled input[type=submit].disabled,
+.sauce-theme-enabled input[type=button][disabled],
+.sauce-theme-enabled input[type=button].disabled,
+.sauce-theme-enabled input[type=reset][disabled],
+.sauce-theme-enabled input[type=reset].disabled,
+.sauce-theme-enabled .selection[disabled],
+.sauce-theme-enabled .selection.disabled,
+.sauce-theme-enabled .pagination a[disabled],
+.sauce-theme-enabled .pagination a.disabled,
+.sauce-theme-enabled .pagination span[disabled],
+.sauce-theme-enabled .pagination span.disabled,
+.sauce-theme-enabled .pagination em[disabled],
+.sauce-theme-enabled .pagination em.disabled {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (12% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .btn.btn-link,
+.sauce-theme-enabled .button.btn-link,
+.sauce-theme-enabled button.btn-link,
+.sauce-theme-enabled input[type=submit].btn-link,
+.sauce-theme-enabled input[type=button].btn-link,
+.sauce-theme-enabled input[type=reset].btn-link,
+.sauce-theme-enabled .selection.btn-link,
+.sauce-theme-enabled .pagination a.btn-link,
+.sauce-theme-enabled .pagination span.btn-link,
+.sauce-theme-enabled .pagination em.btn-link {
+  border-color: transparent;
+  background-color: transparent;
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (8% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .btn.btn-link:hover,
+.sauce-theme-enabled .button.btn-link:hover,
+.sauce-theme-enabled button.btn-link:hover,
+.sauce-theme-enabled input[type=submit].btn-link:hover,
+.sauce-theme-enabled input[type=button].btn-link:hover,
+.sauce-theme-enabled input[type=reset].btn-link:hover,
+.sauce-theme-enabled .selection.btn-link:hover,
+.sauce-theme-enabled .pagination a.btn-link:hover,
+.sauce-theme-enabled .pagination span.btn-link:hover,
+.sauce-theme-enabled .pagination em.btn-link:hover {
+  color: hsla(var(--sauce-accent4-hue), var(--sauce-accent4-sat), calc(var(--sauce-accent4-light) + (10% * var(--sauce-accent4-shade-dir))), 100%);
+  border-color: transparent;
+}
+.sauce-theme-enabled .btn-primary:not(.btn-outline):not(.btn-link),
+.sauce-theme-enabled button[class*=Button--primary--]:not(.btn-outline):not(.btn-link) {
+  border-color: hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (10% * var(--sauce-accent-shade-dir))), 100%);
+  background-color: hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (10% * var(--sauce-accent-shade-dir))), 100%);
+  color: hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (80% * var(--sauce-accent-shade-dir))), 100%);
+}
+.sauce-theme-enabled .btn-primary:not(.btn-outline):not(.btn-link):hover,
+.sauce-theme-enabled button[class*=Button--primary--]:not(.btn-outline):not(.btn-link):hover {
+  border-color: hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (-5% * var(--sauce-accent-shade-dir))), 100%);
+  background-color: hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (-5% * var(--sauce-accent-shade-dir))), 100%);
+  color: hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (90% * var(--sauce-accent-shade-dir))), 100%);
+}
+.sauce-theme-enabled .btn-primary.btn-outline,
+.sauce-theme-enabled button[class*=Button--primary--].btn-outline {
+  border-color: hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (12% * var(--sauce-accent-shade-dir))), 100%);
+  background-color: transparent;
+  color: hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (12% * var(--sauce-accent-shade-dir))), 100%);
+}
+.sauce-theme-enabled .btn-primary.btn-outline:hover,
+.sauce-theme-enabled button[class*=Button--primary--].btn-outline:hover {
+  background-color: hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (12% * var(--sauce-accent-shade-dir))), 100%);
+  color: hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (80% * var(--sauce-accent-shade-dir))), 100%);
+}
+.sauce-theme-enabled button[class*=Button--primary-outline--] {
+  border-color: hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (10% * var(--sauce-accent-shade-dir))), 100%);
+  background-color: transparent;
+  color: hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (10% * var(--sauce-accent-shade-dir))), 100%);
+}
+.sauce-theme-enabled button[class*=Button--primary-outline--]:hover {
+  border-color: hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (-5% * var(--sauce-accent-shade-dir))), 100%);
+  background-color: hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (-5% * var(--sauce-accent-shade-dir))), 100%);
+  color: hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (90% * var(--sauce-accent-shade-dir))), 100%);
+}
+.sauce-theme-enabled .page a:not(.btn):not(.btn-primary):link, .sauce-theme-enabled .page a:not(.btn):not(.btn-primary):visited,
+.sauce-theme-enabled .page .btn.btn-link:link,
+.sauce-theme-enabled .page .btn.btn-link:visited {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (10% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .page a:not(.btn):not(.btn-primary):hover,
+.sauce-theme-enabled .page .btn.btn-link:hover {
+  color: hsla(var(--sauce-accent4-hue), var(--sauce-accent4-sat), calc(var(--sauce-accent4-light) + (10% * var(--sauce-accent4-shade-dir))), 100%);
+}
+.sauce-theme-enabled .page a:not(.btn):not(.btn-primary):active,
+.sauce-theme-enabled .page .btn.btn-link:active {
+  color: hsla(var(--sauce-accent4-hue), var(--sauce-accent4-sat), calc(var(--sauce-accent4-light) + (20% * var(--sauce-accent4-shade-dir))), 100%);
+}
+.sauce-theme-enabled .btn.btn-unstyled,
+.sauce-theme-enabled .button.btn-unstyled,
+.sauce-theme-enabled button.btn-unstyled,
+.sauce-theme-enabled input[type=submit].btn-unstyled,
+.sauce-theme-enabled input[type=button].btn-unstyled,
+.sauce-theme-enabled input[type=reset].btn-unstyled {
+  background-color: transparent;
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), var(--sauce-fg-light), 100%);
+}
+.sauce-theme-enabled .btn.tag,
+.sauce-theme-enabled .button.tag,
+.sauce-theme-enabled button.tag,
+.sauce-theme-enabled input[type=submit].tag,
+.sauce-theme-enabled input[type=button].tag,
+.sauce-theme-enabled input[type=reset].tag {
+  background-blend-mode: overlay;
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), var(--sauce-bg-light), 100%);
+}
+.sauce-theme-enabled button[role=slider] {
+  background-image: linear-gradient(135deg, hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (8% * var(--sauce-accent-shade-dir))), 100%), hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (-12% * var(--sauce-accent-shade-dir))), 100%));
+  border-color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (12% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .switches button.selected, .sauce-theme-enabled .switches button.active, .sauce-theme-enabled .switches button:active,
+.sauce-theme-enabled .switches .button.selected,
+.sauce-theme-enabled .switches .button.active,
+.sauce-theme-enabled .switches .button:active,
+.sauce-theme-enabled .switches a.button:link.selected,
+.sauce-theme-enabled .switches a.button:link.active,
+.sauce-theme-enabled .switches a.button:link:active,
+.sauce-theme-enabled .switches a.button:visited.selected,
+.sauce-theme-enabled .switches a.button:visited.active,
+.sauce-theme-enabled .switches a.button:visited:active,
+.sauce-theme-enabled .switches a.button:hover.selected,
+.sauce-theme-enabled .switches a.button:hover.active,
+.sauce-theme-enabled .switches a.button:hover:active {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (5% * var(--sauce-bg-shade-dir))), 100%);
+  background-image: none;
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (5% * var(--sauce-fg-shade-dir))), 100%) !important;
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #switch-discipline .button {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (8% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .pagination .disabled,
+.sauce-theme-enabled .pagination .disabled:hover {
+  background-color: #5551;
+  border-color: #5555;
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) - 10%), 100%);
+}
+.sauce-theme-enabled .pagination .active .btn,
+.sauce-theme-enabled .pagination .active span {
+  background-color: hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (-5% * var(--sauce-accent-shade-dir))), 100%);
+  border-color: hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (-20% * var(--sauce-accent-shade-dir))), 100%);
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), var(--sauce-fg-light), 100%);
+}
+.sauce-theme-enabled .drop-down-menu.active .selection {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .drop-down-menu .options {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%);
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (10% * var(--sauce-fg-shade-dir))), 100%);
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .drop-down-menu .options li > * {
+  color: inherit;
+}
+.sauce-theme-enabled .drop-down-menu .options .sauce-group {
+  color: hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (80% * var(--sauce-accent-shade-dir))), 100%);
+}
+.sauce-theme-enabled .drop-down-menu .options a:hover,
+.sauce-theme-enabled .drop-down-menu .options .clickable:hover,
+.sauce-theme-enabled .drop-down-menu .options .btn:hover,
+.sauce-theme-enabled .slide-menu .options a:hover,
+.sauce-theme-enabled .slide-menu .options .clickable:hover,
+.sauce-theme-enabled .slide-menu .options .btn:hover {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (15% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .drop-down-menu .options .opt-group.premium,
+.sauce-theme-enabled .slide-menu .options .opt-group.premium {
+  background-color: hsla(var(--sauce-accent4-hue), var(--sauce-accent4-sat), calc(var(--sauce-accent4-light) + (15% * var(--sauce-accent4-shade-dir))), 100%);
+}
+.sauce-theme-enabled .drop-down-menu .options .opt-group.premium a,
+.sauce-theme-enabled .drop-down-menu .options .opt-group.premium .clickable,
+.sauce-theme-enabled .drop-down-menu .options .opt-group.premium .btn,
+.sauce-theme-enabled .slide-menu .options .opt-group.premium a,
+.sauce-theme-enabled .slide-menu .options .opt-group.premium .clickable,
+.sauce-theme-enabled .slide-menu .options .opt-group.premium .btn {
+  color: hsla(var(--sauce-accent4-hue), var(--sauce-accent4-sat), calc(var(--sauce-accent4-light) + (-60% * var(--sauce-accent4-shade-dir))), 100%);
+}
+.sauce-theme-enabled .drop-down-menu .options .opt-group.premium a:hover,
+.sauce-theme-enabled .drop-down-menu .options .opt-group.premium .clickable:hover,
+.sauce-theme-enabled .drop-down-menu .options .opt-group.premium .btn:hover,
+.sauce-theme-enabled .slide-menu .options .opt-group.premium a:hover,
+.sauce-theme-enabled .slide-menu .options .opt-group.premium .clickable:hover,
+.sauce-theme-enabled .slide-menu .options .opt-group.premium .btn:hover {
+  background-color: hsla(var(--sauce-accent4-hue), var(--sauce-accent4-sat), calc(var(--sauce-accent4-light) + (20% * var(--sauce-accent4-shade-dir))), 100%);
+}
+.sauce-theme-enabled [class*=components--menu--] [class*=components--menu-items--] {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%);
+  border: none;
+}
+.sauce-theme-enabled [class*=components--menu--] [class*=components--menu-items--] a:link,
+.sauce-theme-enabled [class*=components--menu--] [class*=components--menu-items--] a:visted {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled [class*=components--menu--] [class*=components--menu-items--] a:hover,
+.sauce-theme-enabled [class*=components--menu--] [class*=components--menu-items--] a:active {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (15% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled [class*=components--menu--] [class*=components--menu-items--] a[class*=components--summit--]:link, .sauce-theme-enabled [class*=components--menu--] [class*=components--menu-items--] a[class*=components--summit--]:visited {
+  background-color: hsla(var(--sauce-accent4-hue), var(--sauce-accent4-sat), calc(var(--sauce-accent4-light) + (15% * var(--sauce-accent4-shade-dir))), 100%);
+}
+.sauce-theme-enabled [class*=components--menu--] [class*=components--menu-items--] a[class*=components--summit--]:hover, .sauce-theme-enabled [class*=components--menu--] [class*=components--menu-items--] a[class*=components--summit--]:active {
+  background-color: hsla(var(--sauce-accent4-hue), var(--sauce-accent4-sat), calc(var(--sauce-accent4-light) + (20% * var(--sauce-accent4-shade-dir))), 100%);
+}
+.sauce-theme-enabled [class*=components--menu--] [class*=components--menu-items--] [class*=components--subscription-callout--] {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+  background-color: hsla(var(--sauce-accent4-hue), var(--sauce-accent4-sat), calc(var(--sauce-accent4-light) + (15% * var(--sauce-accent4-shade-dir))), 100%);
+}
+.sauce-theme-enabled .slide-menu {
+  box-shadow: none;
+}
+.sauce-theme-enabled .slide-menu .active {
+  background: transparent;
+}
+.sauce-theme-enabled .pagenav {
+  border: none;
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + 5%), 100%);
+}
+.sauce-theme-enabled .pagenav li {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .pagenav li > a {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) - 10%), 100%);
+}
+.sauce-theme-enabled .pagenav li > a:hover, .sauce-theme-enabled .pagenav li > a:active {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + 10%), 100%);
+}
+.sauce-theme-enabled .pagenav li > a:focus {
+  outline: none;
+}
+.sauce-theme-enabled .pagenav li .title.small {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (20% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .pagenav li.selected a {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + 10%), 100%);
+}
+.sauce-theme-enabled #basic-analysis .chart,
+.sauce-theme-enabled #basic-analysis #stacked-chart {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (8% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #basic-analysis .xaxis-container .background,
+.sauce-theme-enabled #basic-analysis rect.static-label-box,
+.sauce-theme-enabled #basic-analysis rect.static-info-box {
+  fill: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #basic-analysis text.static-info-box.value {
+  fill: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (0% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #global-header,
+.sauce-theme-enabled [class*=src--global-header--] {
+  background-color: hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (-15% * var(--sauce-accent-shade-dir))), 100%) !important;
+  border: none;
+}
+.sauce-theme-enabled #global-header .collapsable-nav a.btn.btn-mobile-menu {
+  background-color: transparent;
+}
+.sauce-theme-enabled #global-header #notifications-button {
+  background: transparent;
+}
+.sauce-theme-enabled #global-header #notifications-drop-down {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + 10%), 100%);
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) - 10%), 100%);
+}
+.sauce-theme-enabled #global-header #notifications-drop-down li a {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) - 10%), 100%);
+}
+.sauce-theme-enabled #global-header #notifications-drop-down li a:hover {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + 5%), 100%);
+}
+.sauce-theme-enabled #global-header .nav-group .drop-down-menu.active, .sauce-theme-enabled #global-header .nav-group .drop-down-menu:hover {
+  background-color: #0006;
+}
+.sauce-theme-enabled #global-header .nav-group .drop-down-menu.active .nav-link, .sauce-theme-enabled #global-header .nav-group .drop-down-menu:hover .nav-link {
+  background: transparent;
+  color: hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (85% * var(--sauce-accent-shade-dir))), 100%);
+}
+.sauce-theme-enabled #global-header .nav-group .drop-down-menu .selection {
+  border: none;
+}
+.sauce-theme-enabled #global-header .nav-group .drop-down-menu .app-icon {
+  filter: initial;
+  background-position: initial !important;
+}
+.sauce-theme-enabled #global-header .nav-group .drop-down-menu .options .selected a {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (-5% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #global-header .nav-bar .nav-link,
+.sauce-theme-enabled #global-header .nav-bar .nav-link:visited {
+  color: hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (80% * var(--sauce-accent-shade-dir))), 100%);
+}
+.sauce-theme-enabled #global-header .nav-bar .selected.nav-item {
+  box-shadow: inset 0 -2px 0 0 hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (60% * var(--sauce-accent-shade-dir))), 100%);
+}
+.sauce-theme-enabled #global-header .nav-bar .nav-item .btn-default, .sauce-theme-enabled #global-header .nav-bar .nav-item:hover .btn-default {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (8% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #global-header .nav-bar .nav-item .btn-primary, .sauce-theme-enabled #global-header .nav-bar .nav-item:hover .btn-primary {
+  color: hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (50% * var(--sauce-accent-shade-dir))), 100%);
+  background-color: hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (-25% * var(--sauce-accent-shade-dir))), 100%);
+  border-color: hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (-25% * var(--sauce-accent-shade-dir))), 100%);
+}
+.sauce-theme-enabled #global-header .nav-bar .nav-item .btn-primary:hover, .sauce-theme-enabled #global-header .nav-bar .nav-item:hover .btn-primary:hover {
+  color: hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (70% * var(--sauce-accent-shade-dir))), 100%);
+  background-color: hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (-30% * var(--sauce-accent-shade-dir))), 100%);
+}
+.sauce-theme-enabled [class*=src--global-header--] a:link,
+.sauce-theme-enabled [class*=src--global-header--] a:visited {
+  color: hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (80% * var(--sauce-accent-shade-dir))), 100%);
+}
+.sauce-theme-enabled [class*=src--global-header--] [class*=components--menu--]:hover [class*=components--button--], .sauce-theme-enabled [class*=src--global-header--] [class*=components--menu--]:active [class*=components--button--] {
+  background-color: #0006;
+  border: none;
+}
+.sauce-theme-enabled [class*=src--global-header--] [class*=components--nav--] [class*=components--nav-item--][class*=components--selected] {
+  box-shadow: inset 0 -2px 0 0 hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (60% * var(--sauce-accent-shade-dir))), 100%);
+}
+.sauce-theme-enabled.sauce-analysis section header,
+.sauce-theme-enabled.sauce-analysis section .header,
+.sauce-theme-enabled.sauce-analysis .section header,
+.sauce-theme-enabled.sauce-analysis .section .header {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%);
+  border: none;
+}
+.sauce-theme-enabled.sauce-analysis section footer,
+.sauce-theme-enabled.sauce-analysis section .footer,
+.sauce-theme-enabled.sauce-analysis .section footer,
+.sauce-theme-enabled.sauce-analysis .section .footer {
+  box-shadow: none;
+}
+.sauce-theme-enabled.sauce-analysis section.with-border,
+.sauce-theme-enabled.sauce-analysis .section.with-border {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (5% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled.sauce-analysis .section {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled footer.achievements {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + 5%), 100%);
+}
+.sauce-theme-enabled thead th {
+  border-bottom-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled table:not(.unstyled) > thead > tr {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + 5%), 100%);
+}
+.sauce-theme-enabled .grabber {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + 10%), 100%);
+  background-blend-mode: overlay;
+}
+.sauce-theme-enabled .ReactModal__Content [class|=Modal--content] {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + 5%), 100%);
+}
+.sauce-theme-enabled .activity-stats .section {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (5% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .activity-stats .secondary-stats.inline-stats:not(.sauce-stats) {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + 5%), 100%);
+}
+.sauce-theme-enabled .activity-summary-container:before {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (5% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled td {
+  border-bottom-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .actions-menu {
+  border-color: transparent;
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%);
+  border-radius: 4px;
+}
+.sauce-theme-enabled .actions-menu > .slide-menu.active {
+  background-color: transparent;
+}
+.sauce-theme-enabled .actions-menu > .button:hover,
+.sauce-theme-enabled .actions-menu > .slide-menu .selection:hover {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (15% * var(--sauce-bg-shade-dir))), 100%) !important;
+}
+.sauce-theme-enabled .actions-menu > * {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%) !important;
+  border-radius: inherit;
+}
+.sauce-theme-enabled #heading .button {
+  background: transparent;
+}
+.sauce-theme-enabled #heading .button,
+.sauce-theme-enabled #heading .sharing {
+  border-color: transparent;
+}
+.sauce-theme-enabled .lightbox-window {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%);
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (10% * var(--sauce-fg-shade-dir))), 100%);
+  border: none;
+}
+.sauce-theme-enabled .lightbox-window .modal-content {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%);
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (10% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .lightbox-window .modal-header,
+.sauce-theme-enabled .lightbox-window .glossary-header,
+.sauce-theme-enabled .lightbox-window header {
+  background-color: hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (-20% * var(--sauce-accent-shade-dir))), 100%);
+  color: hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (80% * var(--sauce-accent-shade-dir))), 100%);
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (5% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .lightbox-window .tabs {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (15% * var(--sauce-bg-shade-dir))), 100%);
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .lightbox-window .tabs .tab {
+  color: inherit;
+}
+.sauce-theme-enabled .lightbox-window .tabs .selected {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .lightbox-window .modal-body,
+.sauce-theme-enabled .lightbox-window .glossary-body {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%) !important;
+}
+.sauce-theme-enabled .lightbox-window .modal-footer {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (0% * var(--sauce-bg-shade-dir))), 100%) !important;
+}
+.sauce-theme-enabled .lightbox-window .comments li,
+.sauce-theme-enabled .lightbox-window .comments form,
+.sauce-theme-enabled .lightbox-window .list-athletes li,
+.sauce-theme-enabled .lightbox-window .list-athletes form {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%) !important;
+}
+.sauce-theme-enabled .lightbox-window .glossary-body .btn-group-vertical .btn.selected {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (5% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .lightbox-window .help-content .nav .dt {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (10% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .lightbox-window .help-content .nav .dt:hover {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (0% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .lightbox-window .help-content .nav .dt.selected {
+  color: hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (8% * var(--sauce-accent-shade-dir))), 100%);
+}
+.sauce-theme-enabled .lightbox-window .help-content .main {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (5% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .lightbox-window .share-lightbox .main .row {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (15% * var(--sauce-bg-shade-dir))), 100%);
+  margin: 0 -15px;
+}
+.sauce-theme-enabled .lightbox-window .tab-contents {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%);
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .lightbox-window .tab-contents > div {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .modal .modal-dialog .modal-body {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .chart-data-loading-overlay {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), var(--sauce-bg-light), 100%);
+}
+.sauce-theme-enabled [class*=Controls--controls-selectors--] [class*=-container] {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (8% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled [class*=Controls--controls-selectors--] [class*=-container] [class*=-control] {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (8% * var(--sauce-bg-shade-dir))), 100%);
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled [class*=Controls--controls-selectors--] [class*=-container] [class*=-control] [class*=-singleValue],
+.sauce-theme-enabled [class*=Controls--controls-selectors--] [class*=-container] [class*=-control] [class*=ActivitySelect--value-container--],
+.sauce-theme-enabled [class*=Controls--controls-selectors--] [class*=-container] [class*=-control] .text-subhead {
+  color: inherit;
+}
+.sauce-theme-enabled [class*=Controls--controls-selectors--] [class*=-container] [class*=-control]:hover {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (2% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled [class*=Controls--controls-selectors--] [class*=-container] [class*=-control] [class*=-indicatorContainer] svg {
+  stroke: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), var(--sauce-fg-light), 100%);
+}
+.sauce-theme-enabled [class*=Controls--controls-selectors--] [class*=-container] [class*=-menu] {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (8% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled [class*=Controls--controls-selectors--] [class*=-container] [class*=-menu] [class*=-option] {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (8% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled [class*=Controls--controls-selectors--] [class*=-container] [class*=-menu] [class*=-option]:hover {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (12% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled [class*=Controls--controls-selectors--] [class*=-container] [class*=-menu] [class*=-option] input[type=radio] + svg,
+.sauce-theme-enabled [class*=Controls--controls-selectors--] [class*=-container] [class*=-menu] [class*=-option] input[type=checkbox] + svg {
+  stroke: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), var(--sauce-fg-light), 100%);
+}
+.sauce-theme-enabled [class*=Controls--controls-selectors--] [class*=-container] [class*=-menu] [class*=-option] input[type=radio][checked] + svg,
+.sauce-theme-enabled [class*=Controls--controls-selectors--] [class*=-container] [class*=-menu] [class*=-option] input[type=checkbox][checked] + svg {
+  stroke: hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), var(--sauce-accent-light), 100%);
+}
+.sauce-theme-enabled input[type=text],
+.sauce-theme-enabled input[type=number],
+.sauce-theme-enabled input[type=date],
+.sauce-theme-enabled textarea,
+.sauce-theme-enabled .textarea-clone,
+.sauce-theme-enabled select {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (8% * var(--sauce-bg-shade-dir))), 100%) !important;
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (8% * var(--sauce-fg-shade-dir))), 100%) !important;
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%) !important;
+}
+.sauce-theme-enabled input[type=text]:focus,
+.sauce-theme-enabled input[type=number]:focus,
+.sauce-theme-enabled input[type=date]:focus,
+.sauce-theme-enabled textarea:focus,
+.sauce-theme-enabled .textarea-clone:focus,
+.sauce-theme-enabled select:focus {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (2% * var(--sauce-bg-shade-dir))), 100%) !important;
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (2% * var(--sauce-fg-shade-dir))), 100%) !important;
+}
+.sauce-theme-enabled input[type=text]::placeholder,
+.sauce-theme-enabled input[type=number]::placeholder,
+.sauce-theme-enabled input[type=date]::placeholder,
+.sauce-theme-enabled textarea::placeholder,
+.sauce-theme-enabled .textarea-clone::placeholder,
+.sauce-theme-enabled select::placeholder {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (40% * var(--sauce-fg-shade-dir))), 80%) !important;
+}
+.sauce-theme-enabled #notifications-drop-down {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%) !important;
+}
+.sauce-theme-enabled #notifications-drop-down li {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%) !important;
+}
+.sauce-theme-enabled #notifications-drop-down li.unread {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (2% * var(--sauce-bg-shade-dir))), 100%) !important;
+}
+.sauce-theme-enabled .activity-summary .others-section-v2 {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%) !important;
+}
+.sauce-theme-enabled #map-container,
+.sauce-theme-enabled #map-canvas {
+  border: none;
+}
+.sauce-theme-enabled .grabber {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%) !important;
+}
+.sauce-theme-enabled #heading.collapsed header,
+.sauce-theme-enabled #progress-goals .yearly-goal {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%) !important;
+}
+.sauce-theme-enabled .infobox {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (2% * var(--sauce-bg-shade-dir))), 100%) !important;
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (2% * var(--sauce-fg-shade-dir))), 100%) !important;
+}
+.sauce-theme-enabled #basic-analysis #effort-detail {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (2% * var(--sauce-fg-shade-dir))), 100%) !important;
+}
+.sauce-theme-enabled .base-chart rect.simple-bar {
+  stroke: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (8% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .base-chart .grid-line {
+  stroke: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (8% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .base-chart .line-chart-curr-fill,
+.sauce-theme-enabled .base-chart .line-chart-range-fill,
+.sauce-theme-enabled .base-chart .area-chart-curr-fill {
+  fill: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (10% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .base-chart .area-chart-curr-fill {
+  opacity: 0.5;
+}
+.sauce-theme-enabled .base-chart .s-chart-tooltip-svg,
+.sauce-theme-enabled .base-chart #infoBox rect,
+.sauce-theme-enabled .base-chart .chart-tooltip {
+  fill: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (15% * var(--sauce-bg-shade-dir))), 100%);
+  stroke: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (10% * var(--sauce-fg-shade-dir))), 100%);
+  shape-rendering: auto;
+}
+.sauce-theme-enabled .base-chart .chart-tooltip text,
+.sauce-theme-enabled .base-chart .chart-tooltip-label,
+.sauce-theme-enabled .base-chart .chart-tooltip-unit {
+  fill: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (10% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .base-chart .crossbar {
+  stroke: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (3% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #basic-analysis g .bottom-line.partial,
+.sauce-theme-enabled #basic-analysis .xaxis-container .domain,
+.sauce-theme-enabled #basic-analysis .base-chart .extent {
+  stroke: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (30% * var(--sauce-fg-shade-dir))), 100%) !important;
+}
+.sauce-theme-enabled #relative-effort [class*=WeekInsight--title] {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (10% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #relative-effort [class*=WeekInsight--description],
+.sauce-theme-enabled #relative-effort [class*=WeekInsight--date-range] {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (20% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #relative-effort [class*=ActivitySummary--impact] {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (5% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #relative-effort table[class*=Activities--table] tr:nth-child(odd) {
+  background-color: #7773;
+}
+.sauce-theme-enabled #relative-effort table[class*=Activities--table] tr td {
+  background-color: transparent;
+}
+.sauce-theme-enabled svg.recharts-surface g.recharts-layer path.recharts-area-area {
+  fill: hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (-30% * var(--sauce-accent-shade-dir))), 100%);
+}
+.sauce-theme-enabled svg.recharts-surface g.recharts-layer path.recharts-area-curve {
+  stroke: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (30% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled svg.recharts-surface g.recharts-cartesian-grid-vertical line,
+.sauce-theme-enabled svg.recharts-surface g.recharts-cartesian-axis line {
+  stroke: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (40% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled svg.recharts-surface circle.recharts-dot {
+  fill: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (0% * var(--sauce-fg-shade-dir))), 100%);
+  stroke: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (50% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled footer {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (5% * var(--sauce-bg-shade-dir))), 100%);
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (8% * var(--sauce-fg-shade-dir))), 100%);
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled footer .footer-promos,
+.sauce-theme-enabled footer .footer-global {
+  background-color: transparent;
+  color: inherit;
+}
+.sauce-theme-enabled footer .footer-promos a,
+.sauce-theme-enabled footer .footer-global a {
+  color: inherit;
+}
+.sauce-theme-enabled #athlete-profile #totals li strong {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (5% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .sidebar-footer a,
+.sauce-theme-enabled .sidebar-footer .dropdown .btn,
+.sauce-theme-enabled .sidebar-footer .copyright {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (15% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .activity-map-tag {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%) !important;
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (0% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .entry-images .entry-image-wrapper {
+  background-color: transparent;
+}
+.sauce-theme-enabled .tabbed-cards .tabs.tabs-justified > li {
+  border-bottom: none;
+}
+.sauce-theme-enabled .tabbed-cards .tabs > li .tab {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (12% * var(--sauce-bg-shade-dir))), 100%);
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .tabbed-cards .tabs > li.selected .tab,
+.sauce-theme-enabled .tabbed-cards .tabs > li[aria-selected=true] .tab {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (8% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .tabbed-cards .tabs > li:hover .tab {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .tabbed-cards .tab-contents {
+  border-top: none;
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (8% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .tabbed-cards .tab-contents > div {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (8% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #js-dashboard-athlete-goals [class*=ProgressGoalsRelativeEffortTab--head] {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (10% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #js-dashboard-athlete-goals [class*=WeeklyGraph--container] {
+  background-color: transparent;
+}
+.sauce-theme-enabled #js-dashboard-athlete-goals [class*=WeeklyGraph--container] svg text {
+  fill: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), var(--sauce-fg-light), 100%);
+}
+.sauce-theme-enabled #js-dashboard-athlete-goals .text-caption2 {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (10% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #js-dashboard-athlete-goals [class*=WeekChart--bar] > span {
+  background-color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (10% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #js-dashboard-athlete-goals [class*=Stat--stat-label] {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (10% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .feed .group-activity .list-entries .avatar,
+.sauce-theme-enabled .feed .group-activity .group-activity-icon {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (15% * var(--sauce-bg-shade-dir))), 100%);
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .feed .group-activity > .entry-media::before,
+.sauce-theme-enabled .feed .group-activity .list-entries > li::before {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .feed .feed-entry .entry-title {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), var(--sauce-fg-light), 100%);
+}
+.sauce-theme-enabled .feed .feed-entry .kudos-comments {
+  border-top-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .feed .feed-entry .kudos-comments .media-actions .btn {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (15% * var(--sauce-bg-shade-dir))), 100%);
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .feed .feed-entry .kudos-comments .media-actions .btn:hover {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .feed .feed-entry .kudos-comments .media-actions .btn:active {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (5% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .feed .feed-entry .kudos-comments .kudos-facepile .avatar img {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (15% * var(--sauce-bg-shade-dir))), 100%);
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .feed .feed-entry .entry-comments form .media-content {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .feed .feed-entry a, .sauce-theme-enabled .feed .feed-entry .entry-athlete, .sauce-theme-enabled .feed .feed-entry .entry-author {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (8% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .feed .feed-entry .list-stats, .sauce-theme-enabled .feed .feed-entry .goal-message, .sauce-theme-enabled .feed .feed-entry .featured-achivements {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (12% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .feed .feed-entry .entry-container > .entry-head::before,
+.sauce-theme-enabled .feed .feed-entry .entry-container > .entry-body::before {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%) !important;
+}
+.sauce-theme-enabled .feed .feed-entry .entry::before {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%) !important;
+}
+.sauce-theme-enabled .feed .feed-entry .entry-body .media {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%) !important;
+}
+.sauce-theme-enabled .feed .feed-entry .dropdown .dropdown-toggle:hover {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (12% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .feed .feed-entry .comments li {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%) !important;
+}
+.sauce-theme-enabled .feed .feed-entry .achievement-celebration {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (12% * var(--sauce-bg-shade-dir))), 100%);
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (4% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .stat-subtext,
+.sauce-theme-enabled .feed time {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (10% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .invite-friends {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (8% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled ul.tabs {
+  border-bottom: 1px solid hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled ul.tabs .tab {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (8% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled ul.tabs > li {
+  border-bottom: 1px solid hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled ul.tabs > li:hover .tab {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (8% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled ul.tabs > li.selected,
+.sauce-theme-enabled ul.tabs > li[aria-selected=true] {
+  border-bottom: none;
+}
+.sauce-theme-enabled ul.tabs > li.selected .tab,
+.sauce-theme-enabled ul.tabs > li[aria-selected=true] .tab {
+  background-color: transparent;
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (2% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled ul.list-athletes > li {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled table.striped tr:last-child td {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (5% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .table-striped > tbody > tr:nth-of-type(even) {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (3% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #activity_table.table-striped tr:nth-of-type(even) {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (3% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #activity_table.table-striped tr:nth-of-type(odd) {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (5% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #activity_table.table-striped td {
+  background: transparent;
+}
+.sauce-theme-enabled .striped > li,
+.sauce-theme-enabled .striped > div,
+.sauce-theme-enabled .striped > tr {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (5% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .striped > li:nth-child(even),
+.sauce-theme-enabled .striped > div:nth-child(even),
+.sauce-theme-enabled .striped > tr:nth-child(even) {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (3% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .table > tbody > tr > td {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .table th {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (8% * var(--sauce-bg-shade-dir))), 100%);
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (5% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .sidebar .comparison table th, .sauce-theme-enabled .sidebar .comparison table td {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (5% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .sidebar .section {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (5% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .drop-down-menu .options a,
+.sauce-theme-enabled .slide-menu .options a,
+.sauce-theme-enabled .drop-down-menu .options .clickable,
+.sauce-theme-enabled .slide-menu .options .clickable,
+.sauce-theme-enabled .drop-down-menu .options .btn,
+.sauce-theme-enabled .slide-menu .options .btn {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (8% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #profile-heatmap-upsell,
+.sauce-theme-enabled section.feature-section,
+.sauce-theme-enabled .section.feature-section {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (5% * var(--sauce-bg-shade-dir))), 100%);
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (5% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled [class|=StarToggle--star] {
+  background: transparent !important;
+}
+.sauce-theme-enabled .panel {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), var(--sauce-bg-light), 100%);
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), var(--sauce-fg-light), 100%);
+}
+.sauce-theme-enabled .panel.panel-default > .panel-footer {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), var(--sauce-bg-light), 100%);
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #search-results th {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (5% * var(--sauce-bg-shade-dir))), 100%);
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #search-results th > .btn {
+  border: none;
+  border-radius: 0;
+}
+.sauce-theme-enabled #search-results td.active,
+.sauce-theme-enabled #search-results th.active {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (8% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .challenge-list-view li,
+.sauce-theme-enabled .challenge-list-view li .challenge-logo {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (5% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #explorer .main-content #segments-sidebar,
+.sauce-theme-enabled #explorer .main-content .toggle-sidebar.hide {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (8% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #explorer .main-content #segment-list ul li:hover {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (15% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .info {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (8% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .leaflet-control-layers, .sauce-theme-enabled .leaflet-bar {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (8% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .leaflet-container .leaflet-control-attribution {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (8% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .leaflet-popup-content-wrapper,
+.sauce-theme-enabled .map-legends,
+.sauce-theme-enabled .map-tooltip,
+.sauce-theme-enabled .segment-info-box {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (8% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .segment-info-box .info-box-header h1 {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (8% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .segment-info-box .records {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .segment-info-box .details-link .button {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #strava-map-controls a {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (8% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #strava-map-controls button,
+.sauce-theme-enabled #strava-map-controls .button,
+.sauce-theme-enabled #strava-map-controls .drop-down-menu .selection {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (8% * var(--sauce-bg-shade-dir))), 100%);
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (8% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #strava-map-controls button:hover,
+.sauce-theme-enabled #strava-map-controls .button:hover,
+.sauce-theme-enabled #strava-map-controls .drop-down-menu .selection:hover {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (15% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #strava-map-controls .drop-down-menu .selection::after {
+  border-top-color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (8% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .elevation-chart .axis,
+.sauce-theme-enabled .elevation-chart .info-box,
+.sauce-theme-enabled .elevation-chart .chart-separator,
+.sauce-theme-enabled .activity-charts .axis,
+.sauce-theme-enabled .activity-charts .info-box,
+.sauce-theme-enabled .activity-charts .chart-separator {
+  stroke: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (8% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .elevation-chart .grid,
+.sauce-theme-enabled .activity-charts .grid {
+  stroke: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .elevation-chart .fill,
+.sauce-theme-enabled .activity-charts .fill {
+  fill: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (25% * var(--sauce-bg-shade-dir))), 50%);
+}
+.sauce-theme-enabled .elevation-chart .info-box,
+.sauce-theme-enabled .activity-charts .info-box {
+  fill: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 50%);
+}
+.sauce-theme-enabled .leaderboard .filters {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .leaderboard .filters a, .sauce-theme-enabled .leaderboard .filters .option {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (8% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .leaderboard .filters a.selected {
+  background-color: hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (-8% * var(--sauce-accent-shade-dir))), 100%);
+}
+.sauce-theme-enabled .leaderboard .filters a:hover {
+  background-color: hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (-12% * var(--sauce-accent-shade-dir))), 100%);
+}
+.sauce-theme-enabled .leaderboard .filters .option {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (8% * var(--sauce-bg-shade-dir))), 100%);
+  background-image: none;
+}
+.sauce-theme-enabled .leaderboard .filters #premium-new ul {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .leaderboard td.athlete a {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (15% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .leaderboard tr.highlighted td:not(:last-child) {
+  border-right-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .leaderboard tr.highlighted td {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .leaflet-container .leaflet-control-attribution a,
+.sauce-theme-enabled .leaflet-container .map-info-container a {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (8% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .feed-header #feed-filter.open .dropdown-toggle {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (15% * var(--sauce-bg-shade-dir))), 100%);
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (10% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .feed-header #feed-filter .dropdown-toggle:hover {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (18% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .dropdown-menu {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (5% * var(--sauce-bg-shade-dir))), 100%);
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (5% * var(--sauce-fg-shade-dir))), 100%);
+  overflow: auto !important;
+}
+.sauce-theme-enabled .dropdown-menu > li > a::after {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (5% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .dropdown-menu > li > a:hover, .sauce-theme-enabled .dropdown-menu > li > a:focus {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%);
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (2% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .dropdown.open .btn.dropdown-toggle, .sauce-theme-enabled .dropdown.open .btn.dropdown-toggle:hover, .sauce-theme-enabled .dropdown.open .btn.dropdown-toggle:focus {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (2% * var(--sauce-bg-shade-dir))), 100%);
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .dropdown.open ul li .btn {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (2% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .dropdown.open ul li .btn:hover {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (5% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled ul.routes-list li.route-card {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (5% * var(--sauce-bg-shade-dir))), 100%);
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (5% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled ul.routes-list li.route-card .timestamp {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (8% * var(--sauce-bg-shade-dir))), 100%);
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (8% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled ul.routes-list li.route-card .actions {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (8% * var(--sauce-bg-shade-dir))), 100%);
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (8% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .inline-stats .label,
+.sauce-theme-enabled .inline-stats .stat-subtext,
+.sauce-theme-enabled .inline-stats.nav-style a {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (5% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .inline-stats.nav-style a:hover {
+  color: hsla(var(--sauce-accent4-hue), var(--sauce-accent4-sat), calc(var(--sauce-accent4-light) + (10% * var(--sauce-accent4-shade-dir))), 100%);
+}
+.sauce-theme-enabled label,
+.sauce-theme-enabled .label,
+.sauce-theme-enabled .form-control-label {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (5% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .sport-select {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled hr {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .ui-datepicker {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (8% * var(--sauce-bg-shade-dir))), 100%);
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (8% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .ui-datepicker .ui-datepicker-header {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (12% * var(--sauce-bg-shade-dir))), 100%);
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (12% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .activity-summary-v2 .activity-breakdown .legend dt.label-ride::after,
+.sauce-theme-enabled .activity-summary-v2 .activity-breakdown .cycling {
+  background-color: hsla(var(--sauce-ride-hue), var(--sauce-ride-sat), calc(var(--sauce-ride-light) + (0% * var(--sauce-ride-shade-dir))), 0.9);
+  border-color: hsla(var(--sauce-ride-hue), var(--sauce-ride-sat), calc(var(--sauce-ride-light) + (10% * var(--sauce-ride-shade-dir))), 0.9);
+}
+.sauce-theme-enabled .activity-summary-v2 .activity-breakdown .legend dt.label-run::after,
+.sauce-theme-enabled .activity-summary-v2 .activity-breakdown .running {
+  background-color: hsla(var(--sauce-run-hue), var(--sauce-run-sat), calc(var(--sauce-run-light) + (0% * var(--sauce-run-shade-dir))), 0.9);
+  border-color: hsla(var(--sauce-run-hue), var(--sauce-run-sat), calc(var(--sauce-run-light) + (10% * var(--sauce-run-shade-dir))), 0.9);
+}
+.sauce-theme-enabled .activity-summary-v2 .activity-breakdown .legend dt.label-swim::after,
+.sauce-theme-enabled .activity-summary-v2 .activity-breakdown .swimming {
+  background-color: hsla(var(--sauce-swim-hue), var(--sauce-swim-sat), calc(var(--sauce-swim-light) + (0% * var(--sauce-swim-shade-dir))), 0.9);
+  border-color: hsla(var(--sauce-swim-hue), var(--sauce-swim-sat), calc(var(--sauce-swim-light) + (10% * var(--sauce-swim-shade-dir))), 0.9);
+}
+.sauce-theme-enabled .activity-summary-v2 .activity-breakdown .legend dt.label-other::after,
+.sauce-theme-enabled .activity-summary-v2 .activity-breakdown .swimming {
+  background-color: hsla(var(--sauce-other-hue), var(--sauce-other-sat), calc(var(--sauce-other-light) + (0% * var(--sauce-other-shade-dir))), 0.9);
+  border-color: hsla(var(--sauce-other-hue), var(--sauce-other-sat), calc(var(--sauce-other-light) + (10% * var(--sauce-other-shade-dir))), 0.9);
+}
+.sauce-theme-enabled .activity-summary-v2 .activity-calendar .highlighted .activity-indicator {
+  background-color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (12% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .activity-summary-v2 .activity-calendar .day {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (12% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .ride-type-ride .key-chip,
+.sauce-theme-enabled .ride-type .key-chip,
+.sauce-theme-enabled .ride-workout-type-10 .key-chip,
+.sauce-theme-enabled .tt-workout-type-ride .key-chip .key-chip,
+.sauce-theme-enabled .tt-workout-type-virtualride .key-chip,
+.sauce-theme-enabled .tt-workout-type-ebikeride .key-chip {
+  background-color: hsla(var(--sauce-ride-hue), var(--sauce-ride-sat), calc(var(--sauce-ride-light) + (0% * var(--sauce-ride-shade-dir))), 0.9);
+}
+.sauce-theme-enabled .run-type-run .key-chip,
+.sauce-theme-enabled .run-workout-type-0 .key-chip,
+.sauce-theme-enabled .run-type .key-chip,
+.sauce-theme-enabled .tt-workout-type-run .key-chip {
+  background-color: hsla(var(--sauce-run-hue), var(--sauce-run-sat), calc(var(--sauce-run-light) + (0% * var(--sauce-run-shade-dir))), 0.9);
+}
+.sauce-theme-enabled .swim-type .key-chip,
+.sauce-theme-enabled .tt-workout-type-swim .key-chip {
+  background-color: hsla(var(--sauce-swim-hue), var(--sauce-swim-sat), calc(var(--sauce-swim-light) + (0% * var(--sauce-swim-shade-dir))), 0.9);
+}
+.sauce-theme-enabled #training-header {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), var(--sauce-bg-light), 100%);
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (0% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #training-log-intervals .activity-type-wrapper {
+  stroke: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (40% * var(--sauce-bg-shade-dir))), 100%);
+  fill: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (15% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #training-log-intervals .activity-sport-ride,
+.sauce-theme-enabled #training-log-intervals .activity-type-ride,
+.sauce-theme-enabled #training-log-intervals .activity-type-ebikeride,
+.sauce-theme-enabled #training-log-intervals .activity-type-virtualride {
+  fill: hsla(var(--sauce-ride-hue), var(--sauce-ride-sat), calc(var(--sauce-ride-light) + (0% * var(--sauce-ride-shade-dir))), 0.9);
+  stroke: hsla(var(--sauce-ride-hue), var(--sauce-ride-sat), calc(var(--sauce-ride-light) + (10% * var(--sauce-ride-shade-dir))), 0.9);
+}
+.sauce-theme-enabled #training-log-intervals .activity-sport-run,
+.sauce-theme-enabled #training-log-intervals .activity-type-run {
+  fill: hsla(var(--sauce-run-hue), var(--sauce-run-sat), calc(var(--sauce-run-light) + (0% * var(--sauce-run-shade-dir))), 0.9);
+  stroke: hsla(var(--sauce-run-hue), var(--sauce-run-sat), calc(var(--sauce-run-light) + (10% * var(--sauce-run-shade-dir))), 0.9);
+}
+.sauce-theme-enabled #training-log-intervals .activity-sport-swim,
+.sauce-theme-enabled #training-log-intervals .activity-type-swim {
+  fill: hsla(var(--sauce-swim-hue), var(--sauce-swim-sat), calc(var(--sauce-swim-light) + (0% * var(--sauce-swim-shade-dir))), 0.9);
+  stroke: hsla(var(--sauce-swim-hue), var(--sauce-swim-sat), calc(var(--sauce-swim-light) + (10% * var(--sauce-swim-shade-dir))), 0.9);
+}
+.sauce-theme-enabled #training-log-intervals .activity-threshold-zero {
+  fill: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (20% * var(--sauce-fg-shade-dir))), 100%) !important;
+  stroke: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%) !important;
+}
+.sauce-theme-enabled #training-log-intervals .sum,
+.sauce-theme-enabled #training-log-intervals text.day-total {
+  fill: #111 !important;
+}
+.sauce-theme-enabled [class*=training--sticky--],
+.sauce-theme-enabled [class*=training--calendar-header--] {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), var(--sauce-bg-light), 100%);
+}
+.sauce-theme-enabled [class*=training--calendar-header--],
+.sauce-theme-enabled [class*=Calendar--calendar-row-container--],
+.sauce-theme-enabled [class*=training--calendar-container--],
+.sauce-theme-enabled [class*=Controls--controls-container--] {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled [class*=training--top-container--] [class*=CommuteToggle--label--],
+.sauce-theme-enabled [class*=training--top-container--] [class*=WeekOverview--date-range--],
+.sauce-theme-enabled [class*=training--top-container--] [class*=WeekOverview--summary-dimension--],
+.sauce-theme-enabled [class*=training--top-container--] [class*=Timeline--years--] a {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), var(--sauce-fg-light), 100%);
+}
+.sauce-theme-enabled [class*=Popup--contents--] {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (12% * var(--sauce-bg-shade-dir))), 100%);
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (8% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .color-text-secondary {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (10% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled [class*=Activity--activity-row--]:hover [class*=Activity--activity-name--] {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (5% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled [class*=Timeline--months--] > li[class*=Timeline--selected--] {
+  border-color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (5% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled [class*=components--notifications-menu--] button[class*=components--notifications-button--] {
+  background-color: transparent;
+  border: none;
+}
+.sauce-theme-enabled .posts.topics > li,
+.sauce-theme-enabled #discussion-topics > li {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .posts.topics .post-container ol.comments > li,
+.sauce-theme-enabled #discussion-topics .post-container ol.comments > li {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (5% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .posts.topics .post-container ol.comments > li.see-all,
+.sauce-theme-enabled #discussion-topics .post-container ol.comments > li.see-all {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (5% * var(--sauce-bg-shade-dir))), 100%);
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (5% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .shared-content {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (5% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .shared-content .shared-content-text {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (5% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #header-photos ul a {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (5% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .profile-heading .avatar img {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled a.view-all-link {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (5% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .athlete-graph ul.intervals .interval {
+  border-left-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (5% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .photostream .show-more {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (5% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .photostream .show-more a, .sauce-theme-enabled .photostream .show-more .btn {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (5% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .photostream .show-more a:hover, .sauce-theme-enabled .photostream .show-more a:focus, .sauce-theme-enabled .photostream .show-more .btn:hover, .sauce-theme-enabled .photostream .show-more .btn:focus {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (15% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled main.photo-view a {
+  color: hsla(var(--sauce-accent4-hue), var(--sauce-accent4-sat), var(--sauce-accent4-light), 100%);
+}
+.sauce-theme-enabled main.photo-view a:hover, .sauce-theme-enabled main.photo-view a:focus {
+  color: hsla(var(--sauce-accent4-hue), var(--sauce-accent4-sat), calc(var(--sauce-accent4-light) + (10% * var(--sauce-accent4-shade-dir))), 100%);
+}
+.sauce-theme-enabled main.photo-view .photo-main .photo-container {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (5% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled main.photo-view .photo-sidebar {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), var(--sauce-bg-light), 100%);
+}
+.sauce-theme-enabled .select2-drop {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (12% * var(--sauce-bg-shade-dir))), 100%);
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (12% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .select2-container .select2-search-choice {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (8% * var(--sauce-bg-shade-dir))), 100%);
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (2% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .select2-container .select2-choices {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (12% * var(--sauce-bg-shade-dir))), 100%);
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (12% * var(--sauce-fg-shade-dir))), 100%);
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .select2-container .select2-choices .select2-search-choice {
+  box-shadow: 0 0 2px hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (30% * var(--sauce-bg-shade-dir))), 100%) inset;
+}
+.sauce-theme-enabled .select2-results .select2-no-results,
+.sauce-theme-enabled .select2-results .select2-searching,
+.sauce-theme-enabled .select2-results .select2-selection-limit {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (15% * var(--sauce-bg-shade-dir))), 100%);
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (15% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #performance-goal .email-share-container a {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (12% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #performance-goal .others-leaderboard header, .sauce-theme-enabled #performance-goal .others-leaderboard .header {
+  color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (8% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .strava-tt {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (12% * var(--sauce-bg-shade-dir))), 100%);
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (12% * var(--sauce-fg-shade-dir))), 100%);
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .strava-tt .tt-date, .sauce-theme-enabled .strava-tt .tt-start, .sauce-theme-enabled .strava-tt .tt-type, .sauce-theme-enabled .strava-tt table {
+  color: inherit;
+}
+.sauce-theme-enabled .xt-day {
+  text-shadow: initial;
+}
+.sauce-theme-enabled .month-chart .week-total-primary {
+  fill: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (8% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .month-chart .week-total-secondary {
+  fill: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (12% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .month-chart .week-total-tertiary {
+  fill: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (15% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .month-chart .date-range, .sauce-theme-enabled .month-chart .month-change-text {
+  fill: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (10% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .month-chart .current-week-pill {
+  fill: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .month-chart .rest-day, .sauce-theme-enabled .month-chart .xt-day, .sauce-theme-enabled .month-chart .no-rest, .sauce-theme-enabled .month-chart .today-label {
+  fill: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (18% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .training-log-ftue-lightbox {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (8% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #privacy-control #privacy-control-options {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (8% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled ol#events-nav li ol.months > li,
+.sauce-theme-enabled ol#events-nav .year > a {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%);
+  background-color: transparent !important;
+}
+.sauce-theme-enabled ol#events-nav a {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (15% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled ol#events-nav li.selected ol.months > li.selected {
+  border-color: hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (-10% * var(--sauce-accent-shade-dir))), 100%);
+}
+.sauce-theme-enabled ol#events-nav li.selected > a {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (0% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled ol#events-nav > li ol ol.events li a {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (8% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .week-shelf,
+.sauce-theme-enabled .week-shelf-connection {
+  shape-rendering: auto;
+  stroke: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+  stroke-dashArray: initial;
+}
+.sauce-theme-enabled .year-calendar strong {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (2% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .year-calendar a {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (8% * var(--sauce-bg-shade-dir))), 100%);
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (8% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .year-calendar a:hover {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (12% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .year-calendar .interval-graph .bar .fill {
+  background-color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (8% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .interval-graph .label strong,
+.sauce-theme-enabled .interval-graph .legend strong {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (8% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .month-calendar th, .sauce-theme-enabled .month-calendar td {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (5% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .month-calendar th {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (12% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .month-calendar td {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (8% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .month-calendar .day {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (8% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled table.distribution-chart tbody td:not(:last-child) {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (12% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .pinned .pinnable {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), var(--sauce-bg-light), 100%);
+}
+.sauce-theme-enabled .segments-list.ride tr.selected, .sauce-theme-enabled .segments-list.swim tr.selected {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (5% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .segments-list .no-segments {
+  box-shadow: initial;
+}
+.sauce-theme-enabled .ride .segment-effort-detail .content, .sauce-theme-enabled .swim .segment-effort-detail .content {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .ride .segment-effort-detail .rank strong, .sauce-theme-enabled .swim .segment-effort-detail .rank strong {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (2% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .ride .segment-effort-detail .pr-comparison, .sauce-theme-enabled .swim .segment-effort-detail .pr-comparison {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%);
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .ride .segment-effort-detail .segment-leaderboard table, .sauce-theme-enabled .swim .segment-effort-detail .segment-leaderboard table {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%);
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (8% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .ride .segment-effort-detail .segment-leaderboard table thead, .sauce-theme-enabled .swim .segment-effort-detail .segment-leaderboard table thead {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (14% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .ride .segment-effort-detail .segment-leaderboard table th, .sauce-theme-enabled .swim .segment-effort-detail .segment-leaderboard table th {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (8% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .ride .segment-effort-detail .segment-leaderboard table tr td:last-child, .sauce-theme-enabled .swim .segment-effort-detail .segment-leaderboard table tr td:last-child {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (33% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .ride .segment-effort-detail .segment-leaderboard table tr.current-athlete td:last-child, .sauce-theme-enabled .swim .segment-effort-detail .segment-leaderboard table tr.current-athlete td:last-child {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (12% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .ride .segment-effort-detail .leaderboard-footer, .sauce-theme-enabled .swim .segment-effort-detail .leaderboard-footer {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .run .segment-effort-detail {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .run .segment-effort-detail .global-records {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .run .segment-effort-detail,
+.sauce-theme-enabled .run .segment-effort-detail .effort-details .avatar,
+.sauce-theme-enabled .run .segment-effort-detail .this-effort {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (5% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .run .segment-effort-detail .leaderboard-summary {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (8% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .run .segment-effort-detail .link-menu a {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (12% * var(--sauce-bg-shade-dir))), 100%);
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .segment-effort-detail .local-legend-container {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled table.segments tr.selected > td:first-child,
+.sauce-theme-enabled table.hidden-segments tr.selected > td:first-child,
+.sauce-theme-enabled table.laps-list tr.selected > td:first-child {
+  box-shadow: inset 3px 0 0 hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (-5% * var(--sauce-accent-shade-dir))), 100%);
+}
+.sauce-theme-enabled .drop-down-menu .options .opt-group .label,
+.sauce-theme-enabled .slide-menu .options .opt-group .label {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (5% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .row [class*=spans].border-left {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #appUpsell {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (5% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .list-devices li {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (30% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #uploadFile form {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (8% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled button[class*=StepActions--cancel] {
+  background: transparent;
+  border: none;
+  color: hsla(var(--sauce-accent4-hue), var(--sauce-accent4-sat), var(--sauce-accent4-light), 100%);
+}
+.sauce-theme-enabled .visibility-section {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .stats-container {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (8% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled [class*=ExpandableOptionList--who-can-see] {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (5% * var(--sauce-bg-shade-dir))), 100%);
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .dropzone {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (5% * var(--sauce-bg-shade-dir))), 100%);
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .activity-tags label {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (8% * var(--sauce-bg-shade-dir))), 100%);
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (5% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .activity-tags label:hover {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (12% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .activity-tags label:hover::before, .sauce-theme-enabled .activity-tags label:hover::after {
+  border-right-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (12% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .activity-tags label::before, .sauce-theme-enabled .activity-tags label::after {
+  border-right-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (8% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .activity-tags input:checked + label {
+  background-color: hsla(var(--sauce-accent2-hue), var(--sauce-accent2-sat), calc(var(--sauce-accent2-light) + (3% * var(--sauce-accent2-shade-dir))), 100%);
+  color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .activity-tags input:checked + label::before, .sauce-theme-enabled .activity-tags input:checked + label::after {
+  border-right-color: hsla(var(--sauce-accent2-hue), var(--sauce-accent2-sat), calc(var(--sauce-accent2-light) + (3% * var(--sauce-accent2-shade-dir))), 100%);
+}
+.sauce-theme-enabled #settings-menu a:link,
+.sauce-theme-enabled #settings-menu a:visited {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (8% * var(--sauce-bg-shade-dir))), 100%);
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (8% * var(--sauce-fg-shade-dir))), 100%);
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #settings-menu .selected a {
+  background-color: hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (-10% * var(--sauce-accent-shade-dir))), 100%);
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (-10% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .upsell {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (5% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .setting,
+.sauce-theme-enabled .editable-setting {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .editable-setting:hover, .sauce-theme-enabled .editable-setting.editing {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (12% * var(--sauce-bg-shade-dir))), 100%);
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (10% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .setting-label,
+.sauce-theme-enabled #my-profile .timezone-container {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (10% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled table.gear tr:hover td {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (12% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #apps .app {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled ul.list-objects > li {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #fitness-freshness .list-stats li {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (8% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .dropdown-menu > li > a,
+.sauce-theme-enabled .dropdown-menu > li > .btn {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (8% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #about-container {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (15% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled button.close-action {
+  color: transparent;
+}
+.sauce-theme-enabled .content form.search {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (8% * var(--sauce-bg-shade-dir))), 100%);
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%);
+  box-shadow: none;
+}
+.sauce-theme-enabled .card-body .chart-container {
+  background-color: transparent;
+}
+.sauce-theme-enabled .card-body .chart-container > svg.progress-bar-svg-container {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (8% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .list-apps .app-card {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (8% * var(--sauce-bg-shade-dir))), 100%);
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .apps-container {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (8% * var(--sauce-bg-shade-dir))), 100%);
+  background-image: none;
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #race-features {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (3% * var(--sauce-bg-shade-dir))), 100%);
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%);
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (3% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #parent-regions-nav {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (8% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #regions-nav li a {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (3% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .list-parent-regions h2 {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (8% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .list-parent-regions h2 a {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (3% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #global-footer,
+.sauce-theme-enabled #global-footer nav,
+.sauce-theme-enabled #global-footer .upsell-container {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (5% * var(--sauce-bg-shade-dir))), 100%);
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (12% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #global-footer a,
+.sauce-theme-enabled #global-footer nav a,
+.sauce-theme-enabled #global-footer .upsell-container a {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (12% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #global-footer .footer-nav-wrapper:hover .footer-nav-menu:hover h4 {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (12% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .testimonials {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (5% * var(--sauce-bg-shade-dir))), 100%);
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (12% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .navbar a:not(.btn),
+.sauce-theme-enabled .navbar .dropdown .dropdown-toggle {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (8% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .perk-row {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (12% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .perk-row .perk-details,
+.sauce-theme-enabled .perk-row .terms-link {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (8% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .product {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (8% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #athlete-history-chart #effort-box-activity-date {
+  fill: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (12% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #athlete-history-chart #effort-box {
+  fill: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (12% * var(--sauce-bg-shade-dir))), 100%);
+  stroke: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (12% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #athlete-history-chart .vgrid,
+.sauce-theme-enabled #athlete-history-chart .axis {
+  stroke: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (5% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #athlete-history-chart #vgrid-selected {
+  stroke: hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (-15% * var(--sauce-accent-shade-dir))), 100%);
+}
+.sauce-theme-enabled #athlete-history-chart #hgrid-selected {
+  stroke: hsla(var(--sauce-accent4-hue), var(--sauce-accent4-sat), calc(var(--sauce-accent4-light) + (15% * var(--sauce-accent4-shade-dir))), 100%);
+}
+.sauce-theme-enabled .leaderboard .loading-panel {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), var(--sauce-bg-light), 75%);
+}
+.sauce-theme-enabled .stats-container .activity-map {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (5% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #similar-activities-trend-chart svg .horiz-line, .sauce-theme-enabled #similar-activities-trend-chart svg .vert-line {
+  stroke: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (15% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #similar-activities-section #similar-activities-chart-container #similar-activities-chart .effort-flag {
+  fill: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (15% * var(--sauce-bg-shade-dir))), 100%);
+  stroke: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (8% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #similar-activities-section #similar-activities-chart-container #similar-activities-chart .effort-flag-link.original-effort-link,
+.sauce-theme-enabled #similar-activities-section #similar-activities-chart-container #similar-activities-chart .effort-flag-pace {
+  fill: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (5% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #roster thead th {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #roster .roster-entry-row:nth-child(even) td {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (3% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #sidebar {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (8% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #sidebar .info {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (12% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #sidebar .labs-disclaimer {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (15% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #compare-graph,
+.sauce-theme-enabled #compare-graph #compare-info-text {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (8% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #compare-graph svg text {
+  fill: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (8% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #compare-graph svg line {
+  fill: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (8% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #compare-outer .ui-resizable-n {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (8% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #scrubber {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (8% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #analysis-chart svg .yaxis2 .tick line,
+.sauce-theme-enabled #analysis-chart svg .xaxis .tick line {
+  stroke: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (5% * var(--sauce-bg-shade-dir))), 100%);
+  shape-rendering: auto;
+}
+.sauce-theme-enabled #analysis-chart svg line.baseline {
+  stroke: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), var(--sauce-fg-light), 100%);
+}
+.sauce-theme-enabled .add-to-roster {
+  color: hsla(var(--sauce-accent4-hue), var(--sauce-accent4-sat), calc(var(--sauce-accent4-light) + (10% * var(--sauce-accent4-shade-dir))), 100%);
+}
+.sauce-theme-enabled .remove-from-roster {
+  color: hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (-10% * var(--sauce-accent-shade-dir))), 100%);
+}
+.sauce-theme-enabled .pace-info-box {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (8% * var(--sauce-bg-shade-dir))), 100%);
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #search-results.table .edit-col {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (8% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #content-view .activity-content .sidebar {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), var(--sauce-bg-light), 100%);
+}
+.sauce-theme-enabled #edit-activity button[class*=PerceivedExertionInput--reset] {
+  background: transparent !important;
+  color: hsla(var(--sauce-accent4-hue), var(--sauce-accent4-sat), calc(var(--sauce-accent4-light) + (12% * var(--sauce-accent4-shade-dir))), 100%);
+  border: none !important;
+}
+.sauce-theme-enabled a[class*=Button--btn--]:not([class*=Button--primary--]) {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (8% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled a[class*=Button--btn--]:not([class*=Button--primary--]):hover {
+  color: hsla(var(--sauce-accent4-hue), var(--sauce-accent4-sat), calc(var(--sauce-accent4-light) + (10% * var(--sauce-accent4-shade-dir))), 100%);
+}
+.sauce-theme-enabled [data-reach-listbox-popover] {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (12% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled [data-reach-listbox-button] {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (12% * var(--sauce-bg-shade-dir))), 100%);
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled [data-reach-listbox-button]:hover {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (5% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled [data-reach-dialog-content] {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (16% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled [data-reach-dialog-content] .color-black {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), var(--sauce-fg-light), 100%);
+}
+.sauce-theme-enabled [data-reach-listbox-option][aria-selected=true] {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (2% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled table.hoverable > tbody > tr:hover,
+.sauce-theme-enabled table.hoverable > tbody > tr.highlighted {
+  background-color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (10% * var(--sauce-fg-shade-dir))), 0.1);
+}
+.sauce-theme-enabled .index-heading section .place-holder {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .index-heading section .upsell {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (5% * var(--sauce-bg-shade-dir))), 100%);
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (8% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #basic-analysis .ride-segments-chart-upsell .upsell-text-container {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (5% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #basic-analysis .ride-segments-chart-upsell .upsell-text-container .upsell-title {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (8% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #basic-analysis .ride-segments-chart-upsell .upsell-text-container .upsell-description {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (12% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .marketing-upsell {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (8% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .leaderboard .leaderboards-upsell {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (8% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .leaderboard .leaderboards-upsell .heading {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (8% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .leaderboard .leaderboards-upsell .text {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (12% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .leaderboard .filters #premium-enhanced ul {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .list-categories h3 a {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (0% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .list-categories h3 a:hover, .sauce-theme-enabled .list-categories h3 a:active {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (-5% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .ride .segment-effort-detail .leaderboard-footer .seg-leaderboard-upsell,
+.sauce-theme-enabled .swim .segment-effort-detail .leaderboard-footer .seg-leaderboard-upsell {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (8% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .ride .segment-effort-detail .leaderboard-footer .seg-leaderboard-upsell .heading,
+.sauce-theme-enabled .swim .segment-effort-detail .leaderboard-footer .seg-leaderboard-upsell .heading {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (8% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .ride .segment-effort-detail .leaderboard-footer .seg-leaderboard-upsell .text,
+.sauce-theme-enabled .swim .segment-effort-detail .leaderboard-footer .seg-leaderboard-upsell .text {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (12% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled body.fullscreen #elevation-profile {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), var(--sauce-bg-light), 100%);
+}
+.sauce-theme-enabled body.fullscreen #view {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), var(--sauce-bg-light), 100%);
+}
+.sauce-theme-enabled .ui-dialog {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (15% * var(--sauce-bg-shade-dir))), 100%);
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%);
+  outline: none;
+}
+.sauce-theme-enabled .ui-dialog .ui-dialog-titlebar {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (12% * var(--sauce-bg-shade-dir))), 100%);
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (5% * var(--sauce-fg-shade-dir))), 100%);
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled [class*=CollapsibleSection--subsection--] a {
+  color: hsla(var(--sauce-accent4-hue), var(--sauce-accent4-sat), var(--sauce-accent4-light), 100%);
+}
+.sauce-theme-enabled [class*=CollapsibleSection--subsection--] [class*=CollapsibleSection--light--] {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (20% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled [class*=CollapsibleSection--subsection--] [class*=CollapsibleSection--dark--] {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (-5% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled [class*=Summary--container--] a {
+  color: hsla(var(--sauce-accent4-hue), var(--sauce-accent4-sat), var(--sauce-accent4-light), 100%);
+}
+.sauce-theme-enabled [class*=Gallery--page-body--] {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), var(--sauce-bg-light), 100%);
+}
+.sauce-theme-enabled [class*=Gallery--page-body--] a {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), var(--sauce-fg-light), 100%);
+}
+.sauce-theme-enabled [class*=Gallery--page-body--] a:hover {
+  color: hsla(var(--sauce-accent4-hue), var(--sauce-accent4-sat), var(--sauce-accent4-light), 100%);
+}
+.sauce-theme-enabled [class*=Gallery--page-body--] [class*=PromotedDoradoSection--challenge-info--] {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (5% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled [class*=ChallengeCard--challenge-card--] {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (5% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .challenge .location {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (10% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .challenge .progress-bar {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .challenge .progress-bar .current-progress {
+  background-color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (10% * var(--sauce-fg-shade-dir))), 100%) !important;
+}
+.sauce-theme-enabled .challenge table.participants td.percent-text {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (10% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled #segment-visualizer .segment-details {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (5% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .tooltip,
+.sauce-theme-enabled .super-tooltip {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (16% * var(--sauce-bg-shade-dir))), 100%);
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (5% * var(--sauce-fg-shade-dir))), 100%);
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .super-tooltip .title {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (12% * var(--sauce-bg-shade-dir))), 100%);
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (20% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled .super-tooltip::after {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (16% * var(--sauce-bg-shade-dir))), 100%);
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled [data-react-class=SegmentDetailsSideBar] li[class*=SegmentDetailsSideBar--card--] {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled [data-react-class=SegmentDetailsSideBar] li[class*=SegmentDetailsSideBar--card--] [class*=SegmentDetailsSideBar--action-link--] {
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-enabled [data-react-class=SegmentDetailsSideBar] [class*=CardActionsSection--url-label--] {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (10% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-enabled [data-react-class=SegmentDetailsSideBar] [class*=CardActionsSection--url-label--]:hover, .sauce-theme-enabled [data-react-class=SegmentDetailsSideBar] [class*=CardActionsSection--url-label--]:hover * {
+  color: hsla(var(--sauce-accent4-hue), var(--sauce-accent4-sat), calc(var(--sauce-accent4-light) + (10% * var(--sauce-accent4-shade-dir))), 100%);
+}
+
+.sauce-theme-dark {
+  --sauce-bg-light: 10%;
+  --sauce-bg-shade-dir: 1;
+  --sauce-fg-light: 97%;
+  --sauce-fg-shade-dir: -1;
+  --sauce-accent4-hue: 200;
+  --sauce-accent4-sat: 100%;
+  --sauce-accent4-light: 55%;
+  --sauce-accent4-shade-dir: -1;
+  --sauce-border-light: 30%;
+}
+.sauce-theme-dark :focus {
+  outline-color: hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (-5% * var(--sauce-accent-shade-dir))), 0.5);
+}
+.sauce-theme-dark button.sauce-loading:not(.btn-primary)::before,
+.sauce-theme-dark .button.sauce-loading:not(.btn-primary)::before,
+.sauce-theme-dark .btn.sauce-loading:not(.btn-primary)::before {
+  filter: invert(1);
+}
+.sauce-theme-dark .leaflet-container {
+  background: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (8% * var(--sauce-bg-shade-dir))), 100%);
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (8% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-dark .leaflet-container img.leaflet-tile {
+  filter: invert(1) hue-rotate(320deg);
+}
+.sauce-theme-dark .activity-map.entry-image img,
+.sauce-theme-dark .group-activity-map img,
+.sauce-theme-dark .group-map img,
+.sauce-theme-dark .stats-container .activity-map img,
+.sauce-theme-dark canvas.mapboxgl-canvas {
+  filter: invert(1) hue-rotate(320deg);
+}
+.sauce-theme-dark .feed .activity .activity-map .activity-map-create-route .btn {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), var(--sauce-fg-light), 100%);
+}
+.sauce-theme-dark .app-icon:not(.icon-badge-premium):not(.icon-badge-pro):not(.icon-premium):not([class*=icon-at-]):not([class*=icon-yr-kom-]):not([class*=icon-yr-pr-]):not(.icon-badge-verified):not(.icon-color):not(.icon-white):not(.icon-employee):not(.icon-badge-employee):not(.icon-pro):not(.kudoed):not(.icon-local-legend) {
+  filter: invert(1);
+}
+.sauce-theme-dark .drop-down-menu .selection::after {
+  filter: invert(1);
+}
+.sauce-theme-dark #global-header {
+  background-color: hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), calc(var(--sauce-accent-light) + (-15% * var(--sauce-accent-shade-dir))), 100%) !important;
+  border: none;
+}
+.sauce-theme-dark #global-header .upload-button.app-icon {
+  filter: invert(1) saturate(0) contrast(10) !important;
+}
+.sauce-theme-dark #global-header .branding {
+  overflow: visible;
+  filter: saturate(0) contrast(14) invert(1) drop-shadow(2px 2px 1px #3334);
+}
+.sauce-theme-dark #global-header .branding::before {
+  top: -13px !important;
+  color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (43% * var(--sauce-bg-shade-dir))), 100%) !important;
+}
+.sauce-theme-dark #global-header .nav-group .drop-down-menu.active, .sauce-theme-dark #global-header .nav-group .drop-down-menu:hover {
+  background-color: #0006;
+}
+.sauce-theme-dark #global-header .nav-group .drop-down-menu.active .nav-link, .sauce-theme-dark #global-header .nav-group .drop-down-menu:hover .nav-link {
+  background: transparent;
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + 15%), 100%);
+}
+.sauce-theme-dark #global-header .nav-group .drop-down-menu .selection {
+  border: none;
+}
+.sauce-theme-dark #global-header .nav-group .drop-down-menu .selection::after {
+  filter: invert(1) saturate(0) brightness(2);
+}
+.sauce-theme-dark #heading .icon-collapse {
+  filter: invert(1);
+}
+.sauce-theme-dark .weekly-goal svg {
+  filter: invert(1);
+}
+.sauce-theme-dark .weekly-goal svg .volume-bar-container,
+.sauce-theme-dark .weekly-goal svg .bg-circle,
+.sauce-theme-dark .weekly-goal svg .progress-bar-container {
+  fill: #222 !important;
+  shape-rendering: auto !important;
+}
+.sauce-theme-dark .weekly-goal svg text {
+  color: #222;
+}
+.sauce-theme-dark #dashboard-sidebar .section .media .media-object .media-img {
+  filter: invert(1);
+}
+.sauce-theme-dark .leaflet-control-layers a, .sauce-theme-dark .leaflet-bar a {
+  filter: invert(1);
+}
+.sauce-theme-dark #performance-goal .email-share-container .sprite {
+  filter: invert(1);
+}
+.sauce-theme-dark #performance-goal .others-leaderboard header, .sauce-theme-dark #performance-goal .others-leaderboard .header {
+  filter: invert(1);
+}
+.sauce-theme-dark.sauce-route-builder [aria-labelledby~=surfaceType] img[class*=Sidebar--image-icon] {
+  filter: invert(1);
+}
+.sauce-theme-dark #map-control-container #toggle-fullscreen {
+  background-color: #d6d6d6;
+  border-color: #cecece;
+  filter: invert(1);
+}
+.sauce-theme-dark #map-control-container #toggle-fullscreen:hover {
+  background-color: #bebebe;
+}
+.sauce-theme-dark .mapboxgl-ctrl-group {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), var(--sauce-bg-light), 100%);
+}
+.sauce-theme-dark .mapboxgl-ctrl button[class*=mapboxgl-ctrl-zoom-] .mapboxgl-ctrl-icon {
+  filter: invert(1);
+}
+.sauce-theme-dark .run .segment-effort-detail .segment-effort-detail-view .dismiss {
+  filter: invert(1);
+}
+.sauce-theme-dark .super-tooltip .dismiss {
+  filter: invert(1);
+}
+.sauce-theme-dark .super-tooltip .arrow {
+  filter: invert(0.785);
+}
+.sauce-theme-dark [class*=SegmentDetails--elevation-profile--] img {
+  filter: invert(1) hue-rotate(320deg);
+}
+.sauce-theme-dark [class*=SegmentDetails--sport-type-icon--] svg,
+.sauce-theme-dark [class*=src--branding--] a img {
+  filter: invert(1);
+}
+
+.sauce-theme-windows31 {
+  --sauce-bg-hue: 0;
+  --sauce-bg-sat: 0%;
+  --sauce-bg-light: 99%;
+  --sauce-bg-shade-dir: -1;
+  --sauce-fg-hue: 0;
+  --sauce-fg-sat: 0%;
+  --sauce-fg-light: 0%;
+  --sauce-fg-shade-dir: 1;
+  --sauce-accent-hue: 240;
+  --sauce-accent-sat: 100%;
+  --sauce-accent-light: 33%;
+  --sauce-accent-shade-dir: 1;
+  --sauce-accent4-hue: 240;
+  --sauce-accent4-sat: 100%;
+  --sauce-accent4-light: 33%;
+  --sauce-accent4-shade-dir: -1;
+  --sauce-border-hue: 210;
+  --sauce-border-sat: 4%;
+  --sauce-border-light: 78%;
+  --sauce-border-shade-dir: -1;
+}
+.sauce-theme-windows31 body {
+  font-family: "RetroSans";
+}
+.sauce-theme-windows31 .btn:not(.btn-unstyled),
+.sauce-theme-windows31 .button:not(.btn-unstyled),
+.sauce-theme-windows31 button:not(.btn-unstyled),
+.sauce-theme-windows31 input[type=submit]:not(.btn-unstyled),
+.sauce-theme-windows31 input[type=button]:not(.btn-unstyled),
+.sauce-theme-windows31 input[type=reset]:not(.btn-unstyled),
+.sauce-theme-windows31 .selection:not(.btn-unstyled),
+.sauce-theme-windows31 .pagination a:not(.btn-unstyled),
+.sauce-theme-windows31 .pagination span:not(.btn-unstyled),
+.sauce-theme-windows31 .pagination em:not(.btn-unstyled) {
+  border-width: 3px;
+  border-style: outset;
+  border-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%);
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-windows31 .btn:not(.btn-unstyled)[disabled], .sauce-theme-windows31 .btn:not(.btn-unstyled).disabled,
+.sauce-theme-windows31 .button:not(.btn-unstyled)[disabled],
+.sauce-theme-windows31 .button:not(.btn-unstyled).disabled,
+.sauce-theme-windows31 button:not(.btn-unstyled)[disabled],
+.sauce-theme-windows31 button:not(.btn-unstyled).disabled,
+.sauce-theme-windows31 input[type=submit]:not(.btn-unstyled)[disabled],
+.sauce-theme-windows31 input[type=submit]:not(.btn-unstyled).disabled,
+.sauce-theme-windows31 input[type=button]:not(.btn-unstyled)[disabled],
+.sauce-theme-windows31 input[type=button]:not(.btn-unstyled).disabled,
+.sauce-theme-windows31 input[type=reset]:not(.btn-unstyled)[disabled],
+.sauce-theme-windows31 input[type=reset]:not(.btn-unstyled).disabled,
+.sauce-theme-windows31 .selection:not(.btn-unstyled)[disabled],
+.sauce-theme-windows31 .selection:not(.btn-unstyled).disabled,
+.sauce-theme-windows31 .pagination a:not(.btn-unstyled)[disabled],
+.sauce-theme-windows31 .pagination a:not(.btn-unstyled).disabled,
+.sauce-theme-windows31 .pagination span:not(.btn-unstyled)[disabled],
+.sauce-theme-windows31 .pagination span:not(.btn-unstyled).disabled,
+.sauce-theme-windows31 .pagination em:not(.btn-unstyled)[disabled],
+.sauce-theme-windows31 .pagination em:not(.btn-unstyled).disabled {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (12% * var(--sauce-bg-shade-dir))), 100%);
+}
+.sauce-theme-windows31 #global-header {
+  background-color: hsla(var(--sauce-accent-hue), var(--sauce-accent-sat), var(--sauce-accent-light), 100%) !important;
+}
+.sauce-theme-windows31 #global-header .branding {
+  filter: saturate(0) brightness(10);
+  overflow: visible;
+}
+.sauce-theme-windows31 #global-header .branding::before {
+  top: -13px !important;
+}
+.sauce-theme-windows31 #global-header .nav-bar .app-icon.icon-search,
+.sauce-theme-windows31 #global-header .nav-bar .selection::after,
+.sauce-theme-windows31 #global-header .nav-bar .app-icon.icon-remove,
+.sauce-theme-windows31 #global-header .nav-bar .icon-notification {
+  filter: invert(1);
+}
+.sauce-theme-windows31 #global-header .nav-bar .selected.nav-item {
+  box-shadow: inset 0 -2px 0 0 #fff;
+}
+.sauce-theme-windows31 #global-header .nav-bar .nav-item .btn-default, .sauce-theme-windows31 #global-header .nav-bar .nav-item:hover .btn-default {
+  color: hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (8% * var(--sauce-fg-shade-dir))), 100%);
+}
+.sauce-theme-windows31 #sauce-infopanel,
+.sauce-theme-windows31 #pagenav {
+  border-style: solid;
+  border-image-source: url(../../images/win31-border.svg);
+  border-image-slice: 5%;
+  border-image-outset: 5px;
+  border-image-width: 10px;
+  margin-bottom: 2em;
+}
+.sauce-theme-windows31 .ui-dialog {
+  border-style: solid;
+  border-image-source: url(../../images/win31-border.svg);
+  border-image-slice: 5%;
+  border-image-outset: 5px;
+  border-image-width: 10px;
+}
+.sauce-theme-windows31 body {
+  background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%);
+}
+@media only screen and (min-width: 768px) {
+  .sauce-theme-windows31 body > .view {
+    background: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), var(--sauce-bg-light), 100%);
+    border-style: solid;
+    border-image-source: url(../../images/win31-border.svg);
+    border-image-slice: 5%;
+    border-image-outset: 5px;
+    border-image-width: 10px;
+    margin: 2em;
+  }
+}
+.sauce-theme-windows31 .feed > .card {
+  border-radius: 0;
+  border-style: solid;
+  border-image-source: url(../../images/win31-border.svg);
+  border-image-slice: 5%;
+  border-image-outset: 5px;
+  border-image-width: 10px;
+}
+.sauce-theme-windows31 .sauce-swapped-background a,
+.sauce-theme-windows31 .sauce-swapped-background a:link,
+.sauce-theme-windows31 .sauce-swapped-background a:visited {
+  color: #3fa4ff;
+}
+.sauce-theme-windows31 .sauce-swapped-background a:hover,
+.sauce-theme-windows31 .sauce-swapped-background a:link:hover,
+.sauce-theme-windows31 .sauce-swapped-background a:visited:hover {
+  color: #4fb4ff;
+}
+.sauce-theme-windows31 .sauce-swapped-background a:active,
+.sauce-theme-windows31 .sauce-swapped-background a:link:active,
+.sauce-theme-windows31 .sauce-swapped-background a:visited:active {
+  color: #2f94ef;
+}
+
+.sauce-theme-royalpeach {
+  --sauce-bg-hue: 20;
+  --sauce-bg-sat: 77%;
+  --sauce-bg-light: 90%;
+  --sauce-bg-shade-dir: -1;
+  --sauce-fg-hue: 0;
+  --sauce-fg-sat: 0%;
+  --sauce-fg-light: 0%;
+  --sauce-fg-shade-dir: 1;
+  --sauce-accent-hue: 208;
+  --sauce-accent-sat: 70%;
+  --sauce-accent-light: 37%;
+  --sauce-accent-shade-dir: 1;
+}
+
+.sauce-theme-deepred {
+  --sauce-bg-hue: 2;
+  --sauce-bg-sat: 77%;
+  --sauce-bg-light: 16%;
+  --sauce-bg-shade-dir: 1;
+  --sauce-fg-hue: 0;
+  --sauce-fg-sat: 0%;
+  --sauce-fg-light: 75%;
+  --sauce-fg-shade-dir: 1;
+  --sauce-accent-hue: 13;
+  --sauce-accent-sat: 86%;
+  --sauce-accent-light: 41%;
+  --sauce-accent-shade-dir: 1;
+  --sauce-positive: #82b06a;
+  --sauce-negative: #c89a9a;
+}
+.sauce-theme-deepred .run .segment-effort-detail .segment-effort-detail-view .dismiss {
+  filter: invert(1);
+}
