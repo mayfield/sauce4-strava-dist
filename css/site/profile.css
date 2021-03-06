@@ -1190,7 +1190,7 @@ html .ui-dialog form form > input[type=button] {
   flex-direction: row;
   flex-wrap: wrap;
 }
-.ui-dialog.sauce-dialog.sauce-peaks-settings-dialog .ui-dialog-content .times, .ui-dialog.sauce-dialog.sauce-peaks-settings-dialog .ui-dialog-content .dists {
+.ui-dialog.sauce-dialog.sauce-peaks-settings-dialog .ui-dialog-content .periods, .ui-dialog.sauce-dialog.sauce-peaks-settings-dialog .ui-dialog-content .dists {
   flex: 1 1 0;
   min-width: 240px;
   min-height: 100%;
@@ -1198,16 +1198,16 @@ html .ui-dialog form form > input[type=button] {
   flex-direction: column;
   margin: 0.3rem;
 }
-.ui-dialog.sauce-dialog.sauce-peaks-settings-dialog .ui-dialog-content .times .mutable-data-view, .ui-dialog.sauce-dialog.sauce-peaks-settings-dialog .ui-dialog-content .dists .mutable-data-view {
+.ui-dialog.sauce-dialog.sauce-peaks-settings-dialog .ui-dialog-content .periods .mutable-data-view, .ui-dialog.sauce-dialog.sauce-peaks-settings-dialog .ui-dialog-content .dists .mutable-data-view {
   padding: 0.3em;
   background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (3% * var(--sauce-bg-shade-dir))), 100%);
   border-radius: 0.28em;
   border: 1px solid hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (30% * var(--sauce-fg-shade-dir))), 0.2);
 }
-.ui-dialog.sauce-dialog.sauce-peaks-settings-dialog .ui-dialog-content .times .mutable-data-entries, .ui-dialog.sauce-dialog.sauce-peaks-settings-dialog .ui-dialog-content .dists .mutable-data-entries {
+.ui-dialog.sauce-dialog.sauce-peaks-settings-dialog .ui-dialog-content .periods .mutable-data-entries, .ui-dialog.sauce-dialog.sauce-peaks-settings-dialog .ui-dialog-content .dists .mutable-data-entries {
   max-height: initial;
 }
-.ui-dialog.sauce-dialog.sauce-peaks-settings-dialog .ui-dialog-content .times .mutable-data-entries input, .ui-dialog.sauce-dialog.sauce-peaks-settings-dialog .ui-dialog-content .dists .mutable-data-entries input {
+.ui-dialog.sauce-dialog.sauce-peaks-settings-dialog .ui-dialog-content .periods .mutable-data-entries input, .ui-dialog.sauce-dialog.sauce-peaks-settings-dialog .ui-dialog-content .dists .mutable-data-entries input {
   width: 10ch;
 }
 .ui-dialog.sauce-dialog.sauce-peaks-settings-dialog .ui-dialog-content .btn.reset,

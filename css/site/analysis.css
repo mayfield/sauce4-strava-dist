@@ -1191,7 +1191,7 @@ html .ui-dialog form form > input[type=button] {
   flex-direction: row;
   flex-wrap: wrap;
 }
-.ui-dialog.sauce-dialog.sauce-peaks-settings-dialog .ui-dialog-content .times, .ui-dialog.sauce-dialog.sauce-peaks-settings-dialog .ui-dialog-content .dists {
+.ui-dialog.sauce-dialog.sauce-peaks-settings-dialog .ui-dialog-content .periods, .ui-dialog.sauce-dialog.sauce-peaks-settings-dialog .ui-dialog-content .dists {
   flex: 1 1 0;
   min-width: 240px;
   min-height: 100%;
@@ -1199,16 +1199,16 @@ html .ui-dialog form form > input[type=button] {
   flex-direction: column;
   margin: 0.3rem;
 }
-.ui-dialog.sauce-dialog.sauce-peaks-settings-dialog .ui-dialog-content .times .mutable-data-view, .ui-dialog.sauce-dialog.sauce-peaks-settings-dialog .ui-dialog-content .dists .mutable-data-view {
+.ui-dialog.sauce-dialog.sauce-peaks-settings-dialog .ui-dialog-content .periods .mutable-data-view, .ui-dialog.sauce-dialog.sauce-peaks-settings-dialog .ui-dialog-content .dists .mutable-data-view {
   padding: 0.3em;
   background-color: hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (3% * var(--sauce-bg-shade-dir))), 100%);
   border-radius: 0.28em;
   border: 1px solid hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (30% * var(--sauce-fg-shade-dir))), 0.2);
 }
-.ui-dialog.sauce-dialog.sauce-peaks-settings-dialog .ui-dialog-content .times .mutable-data-entries, .ui-dialog.sauce-dialog.sauce-peaks-settings-dialog .ui-dialog-content .dists .mutable-data-entries {
+.ui-dialog.sauce-dialog.sauce-peaks-settings-dialog .ui-dialog-content .periods .mutable-data-entries, .ui-dialog.sauce-dialog.sauce-peaks-settings-dialog .ui-dialog-content .dists .mutable-data-entries {
   max-height: initial;
 }
-.ui-dialog.sauce-dialog.sauce-peaks-settings-dialog .ui-dialog-content .times .mutable-data-entries input, .ui-dialog.sauce-dialog.sauce-peaks-settings-dialog .ui-dialog-content .dists .mutable-data-entries input {
+.ui-dialog.sauce-dialog.sauce-peaks-settings-dialog .ui-dialog-content .periods .mutable-data-entries input, .ui-dialog.sauce-dialog.sauce-peaks-settings-dialog .ui-dialog-content .dists .mutable-data-entries input {
   width: 10ch;
 }
 .ui-dialog.sauce-dialog.sauce-peaks-settings-dialog .ui-dialog-content .btn.reset,
@@ -1635,7 +1635,8 @@ html .ui-dialog form form > input[type=button] {
   position: relative;
 }
 #sauce-infopanel table td .sauce-peak-rank svg[data-icon] {
-  transition: width 400ms, height 400ms;
+  transition: width, height;
+  transition-duration: 200ms;
   width: 100%;
   height: 100%;
 }
@@ -1646,7 +1647,8 @@ html .ui-dialog form form > input[type=button] {
   position: absolute;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 400ms, visibility 400ms;
+  transition: opacity, visibility;
+  transition-duration: 200ms;
   z-index: 1;
 }
 #sauce-infopanel table td .sauce-peak-rank .place {
@@ -1772,14 +1774,22 @@ html .ui-dialog form form > input[type=button] {
 }
 .sauce-info-dialog .right-aside {
   flex: 1 0 auto;
-  width: 318px;
-  max-height: 575px;
+  width: 340px;
+  max-height: 640px;
   overflow-y: auto;
   background-image: linear-gradient(to bottom, hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (10% * var(--sauce-bg-shade-dir))), 100%), hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (18% * var(--sauce-bg-shade-dir))), 100%) 2em, hsla(var(--sauce-bg-hue), var(--sauce-bg-sat), calc(var(--sauce-bg-light) + (0% * var(--sauce-bg-shade-dir))), 100%));
 }
 .sauce-info-dialog .right-aside section {
   display: flex;
   flex-direction: column;
+  background: #00000014;
+  padding: 0.7em;
+  border-radius: 0.28em;
+  margin: 0.7em;
+  margin-bottom: 1em;
+}
+.sauce-info-dialog .right-aside section.hidden {
+  display: none;
 }
 .sauce-info-dialog .right-aside section.ranks table tr.split {
   box-shadow: 0 -2px 0 0 hsla(var(--sauce-fg-hue), var(--sauce-fg-sat), calc(var(--sauce-fg-light) + (20% * var(--sauce-fg-shade-dir))), 100%);

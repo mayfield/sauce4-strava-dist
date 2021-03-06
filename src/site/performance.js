@@ -233,7 +233,8 @@ sauce.ns('performance', async ns => {
                         Object.assign(activity, updates);
                         await sauce.hist.invalidateActivitySyncState(activity.id, 'local', 'training-load',
                             {disableSync: true});
-                        await sauce.hist.invalidateActivitySyncState(activity.id, 'local', 'peaks', {wait: true});
+                        await sauce.hist.invalidateActivitySyncState(activity.id, 'local', 'peaks',
+                            {wait: true});
                         await pageView.render();
                     } finally {
                         ev.currentTarget.classList.remove('sauce-loading');
@@ -1276,7 +1277,7 @@ sauce.ns('performance', async ns => {
             await super.init();
         }
 
-        renderAttrs() {
+        async renderAttrs() {
             return {
                 prefs: this.prefs,
                 peaks: this.peaks,
@@ -1284,6 +1285,8 @@ sauce.ns('performance', async ns => {
                 unit: getPeaksUnit(this.prefs.type),
                 valueFormatter: getPeaksValueFormatter(this.prefs.type),
                 athleteName: this.athleteName.bind(this),
+                periods: await sauce.peaks.getRanges('periods'),
+                distances: await sauce.peaks.getRanges('distances'),
             };
         }
 
